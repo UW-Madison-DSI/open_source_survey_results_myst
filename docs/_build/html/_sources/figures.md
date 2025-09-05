@@ -1,3 +1,4 @@
+
 # Data Visualizations
 
 This section presents key visualizations and interactive charts that illustrate the main findings from our open source survey analysis.
@@ -16,9 +17,6 @@ Programming language usage patterns across different experience levels. Python s
 The relationship between experience level and programming language choice reveals interesting patterns:
 
 - **Python** maintains high adoption (70%+) across all experience levels
-- **JavaScript** peaks among intermediate users (1-3 years experience)
-- **Systems languages** (C++, Rust, Go) show increasing adoption with experience
-- **Domain-specific languages** (R, MATLAB) vary by professional role rather than experience
 
 ### Tool Categories Heatmap
 
@@ -325,33 +323,9 @@ Sankey diagram showing migration patterns between different cloud platforms and 
 
 ### Data Processing
 
-All visualizations are based on the cleaned and validated dataset described in our [methodology section](methodology.md). Key processing steps include:
-
-- **Missing data handling**: Multiple imputation for incomplete responses
-- **Outlier detection**: Statistical methods to identify and handle extreme values  
-- **Sampling weights**: Adjustments for demographic representation
-- **Confidence intervals**: Bootstrap methods for uncertainty quantification
 
 ### Visualization Principles
 
-Our charts follow established best practices:
-
-```{myst-md}
-- **Color accessibility**: All charts use colorblind-friendly palettes
-- **Statistical accuracy**: Error bars and confidence intervals shown where appropriate
-- **Clear labeling**: Comprehensive legends and axis labels
-- **Responsive design**: Charts scale appropriately for different screen sizes
-- **Interactive elements**: Hover tooltips provide additional detail
-```
-
-### Technical Implementation
-
-Charts are generated using:
-
-- **Python**: matplotlib, seaborn, plotly for statistical visualizations
-- **R**: ggplot2, plotly for advanced statistical graphics  
-- **D3.js**: Custom interactive visualizations
-- **Observable**: Collaborative data visualization development
 
 ### Data Availability
 

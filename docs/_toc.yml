@@ -8,4 +8,6 @@ chapters:
 - file: methodology
 - file: results
 - file: figures
-- file: about
+#- file: campus
+- file: sentiment
+#- file: usage
