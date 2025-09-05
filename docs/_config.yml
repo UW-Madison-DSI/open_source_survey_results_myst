@@ -1,0 +1,64 @@
+# Book settings
+title: Open Source Survey Results
+author: UW-Madison Data Science Institute
+logo: _static/logo.png
+copyright: "2024"
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: force
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/UW-Madison-DSI/open_source_survey_results
+  path_to_book: docs
+  branch: main
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  use_issues_button: true
+  use_repository_button: true
+  use_edit_page_button: true
+  navbar_number_sections: false
+  announcement: "🎉 Open Source Survey Results 2024 are now available! 🎉"
+
+# MyST parser extensions
+parse:
+  myst_enable_extensions:
+    - amsmath
+    - colon_fence
+    - deflist
+    - dollarmath
+    - html_admonition
+    - html_image
+    - linkify
+    - replacements
+    - smartquotes
+    - substitution
+    - tasklist
+
+# Sphinx extensions
+sphinx:
+  config:
+    html_theme_options:
+      repository_url: https://github.com/UW-Madison-DSI/open_source_survey_results
+      use_repository_button: true
+      use_issues_button: true
+      use_edit_page_button: true
+      use_download_button: true
+      launch_buttons:
+        binderhub_url: ""
+        colab_url: ""
+        notebook_interface: "classic"
+        thebe: false

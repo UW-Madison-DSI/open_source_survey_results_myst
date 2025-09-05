@@ -1,0 +1,1381 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Survey Results &#8212; Open Source Survey Results</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'results';</script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Data Visualizations" href="figures.html" />
+    <link rel="prev" title="Survey Methodology" href="methodology.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Open Source Survey Results</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="data_overview.html">Data Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="methodology.html">Survey Methodology</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Survey Results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="figures.html">Data Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About This Project</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/UW-Madison-DSI/open_source_survey_results" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UW-Madison-DSI/open_source_survey_results/edit/main/results.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UW-Madison-DSI/open_source_survey_results/issues/new?title=Issue%20on%20page%20%2Fresults.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/results.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Survey Results</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#executive-summary">Executive Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tool-usage-patterns">Tool Usage Patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#most-popular-tools">Most Popular Tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-by-experience-level">Usage by Experience Level</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adoption-drivers">Adoption Drivers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-selection-factors">Primary Selection Factors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barriers-to-adoption">Barriers to Adoption</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#community-engagement">Community Engagement</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contribution-patterns">Contribution Patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#contribution-types">Contribution Types</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barriers-to-contribution">Barriers to Contribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#community-satisfaction">Community Satisfaction</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demographic-insights">Demographic Insights</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-by-professional-role">Usage by Professional Role</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#researchers-vs-developers">Researchers vs. Developers</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geographic-variations">Geographic Variations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#emerging-trends">Emerging Trends</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-ml-tool-adoption">AI/ML Tool Adoption</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-native-technologies">Cloud-Native Technologies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#development-workflow-evolution">Development Workflow Evolution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#satisfaction-pain-points">Satisfaction &amp; Pain Points</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-satisfaction">Overall Satisfaction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pain-points">Common Pain Points</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-significance-testing">Statistical Significance Testing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-findings-with-statistical-support">Key Findings with Statistical Support</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-sizes">Effect Sizes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qualitative-insights">Qualitative Insights</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thematic-analysis-of-open-ended-responses">Thematic Analysis of Open-Ended Responses</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predictive-models">Predictive Models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tool-adoption-prediction">Tool Adoption Prediction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contribution-likelihood-model">Contribution Likelihood Model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommendations">Recommendations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-tool-maintainers">For Tool Maintainers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-organizations">For Organizations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-the-ecosystem">For the Ecosystem</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="survey-results">
+<h1>Survey Results<a class="headerlink" href="#survey-results" title="Link to this heading">#</a></h1>
+<p>This section presents the key findings from our comprehensive analysis of open source software usage patterns, adoption drivers, and community engagement behaviors.</p>
+<section id="executive-summary">
+<h2>Executive Summary<a class="headerlink" href="#executive-summary" title="Link to this heading">#</a></h2>
+<div class="important admonition">
+<p class="admonition-title">Key Findings</p>
+<p><strong>🔧 Tool Adoption</strong>: Python, Git, and VS Code dominate across all user segments<br />
+<strong>🌍 Global Reach</strong>: Strong adoption in academic and tech sectors worldwide<br />
+<strong>🤝 Contribution Gaps</strong>: 68% of users consume but don’t contribute to projects<br />
+<strong>📈 Growth Trends</strong>: AI/ML tools showing fastest adoption rates<br />
+<strong>🚧 Key Barriers</strong>: Time constraints and technical complexity limit contribution</p>
+</div>
+</section>
+<section id="tool-usage-patterns">
+<h2>Tool Usage Patterns<a class="headerlink" href="#tool-usage-patterns" title="Link to this heading">#</a></h2>
+<section id="most-popular-tools">
+<h3>Most Popular Tools<a class="headerlink" href="#most-popular-tools" title="Link to this heading">#</a></h3>
+<p>Based on current usage among survey respondents:</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-3 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Programming Languages</div>
+<ol class="arabic simple">
+<li><p class="sd-card-text"><strong>Python</strong> (78.4%)</p></li>
+<li><p class="sd-card-text"><strong>JavaScript</strong> (52.1%)</p></li>
+<li><p class="sd-card-text"><strong>R</strong> (47.3%)</p></li>
+<li><p class="sd-card-text"><strong>Java</strong> (31.8%)</p></li>
+<li><p class="sd-card-text"><strong>C++</strong> (28.9%)</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Development Tools</div>
+<ol class="arabic simple">
+<li><p class="sd-card-text"><strong>Git</strong> (89.2%)</p></li>
+<li><p class="sd-card-text"><strong>VS Code</strong> (71.6%)</p></li>
+<li><p class="sd-card-text"><strong>Docker</strong> (58.4%)</p></li>
+<li><p class="sd-card-text"><strong>npm/Node.js</strong> (49.7%)</p></li>
+<li><p class="sd-card-text"><strong>Jupyter</strong> (47.1%)</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Frameworks &amp; Libraries</div>
+<ol class="arabic simple">
+<li><p class="sd-card-text"><strong>React</strong> (43.2%)</p></li>
+<li><p class="sd-card-text"><strong>TensorFlow</strong> (38.9%)</p></li>
+<li><p class="sd-card-text"><strong>pandas</strong> (37.4%)</p></li>
+<li><p class="sd-card-text"><strong>scikit-learn</strong> (34.6%)</p></li>
+<li><p class="sd-card-text"><strong>Flask/Django</strong> (32.1%)</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="usage-by-experience-level">
+<h3>Usage by Experience Level<a class="headerlink" href="#usage-by-experience-level" title="Link to this heading">#</a></h3>
+<p>Tool adoption varies significantly by user experience:</p>
+<div class="pst-scrollable-table-container"><table class="table" id="usage-by-experience">
+<caption><span class="caption-number">Table 2 </span><span class="caption-text">Tool Usage by Experience Level</span><a class="headerlink" href="#usage-by-experience" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tool Category</p></th>
+<th class="head"><p>Beginner (&lt;1yr)</p></th>
+<th class="head"><p>Intermediate (1-3yr)</p></th>
+<th class="head"><p>Advanced (3-7yr)</p></th>
+<th class="head"><p>Expert (7+yr)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Version Control</p></td>
+<td><p>67.2%</p></td>
+<td><p>89.4%</p></td>
+<td><p>96.7%</p></td>
+<td><p>98.1%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cloud Platforms</p></td>
+<td><p>23.1%</p></td>
+<td><p>45.8%</p></td>
+<td><p>68.2%</p></td>
+<td><p>79.4%</p></td>
+</tr>
+<tr class="row-even"><td><p>CI/CD Tools</p></td>
+<td><p>12.5%</p></td>
+<td><p>34.7%</p></td>
+<td><p>67.9%</p></td>
+<td><p>84.3%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Container Tech</p></td>
+<td><p>18.9%</p></td>
+<td><p>41.2%</p></td>
+<td><p>72.1%</p></td>
+<td><p>88.7%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="adoption-drivers">
+<h2>Adoption Drivers<a class="headerlink" href="#adoption-drivers" title="Link to this heading">#</a></h2>
+<section id="primary-selection-factors">
+<h3>Primary Selection Factors<a class="headerlink" href="#primary-selection-factors" title="Link to this heading">#</a></h3>
+<p>When choosing open source tools, respondents prioritize:</p>
+</section>
+<section id="barriers-to-adoption">
+<h3>Barriers to Adoption<a class="headerlink" href="#barriers-to-adoption" title="Link to this heading">#</a></h3>
+<p>Major obstacles preventing tool adoption:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="tab" data-sync-id="technical" for="sd-tab-item-0">
+Technical Barriers</label><div class="sd-tab-content docutils">
+<p><strong>Complexity &amp; Learning Curve</strong></p>
+<ul class="simple">
+<li><p>Setup complexity: 47.3%</p></li>
+<li><p>Steep learning curve: 42.8%</p></li>
+<li><p>Poor documentation: 38.9%</p></li>
+<li><p>Lack of tutorials: 31.2%</p></li>
+</ul>
+<p><strong>Integration Challenges</strong></p>
+<ul class="simple">
+<li><p>Compatibility issues: 35.7%</p></li>
+<li><p>Dependency conflicts: 29.4%</p></li>
+<li><p>Legacy system integration: 24.6%</p></li>
+</ul>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="tab" data-sync-id="resources" for="sd-tab-item-1">
+Resource Barriers</label><div class="sd-tab-content docutils">
+<p><strong>Time &amp; Effort</strong></p>
+<ul class="simple">
+<li><p>Time to learn: 52.1%</p></li>
+<li><p>Time to implement: 43.7%</p></li>
+<li><p>Maintenance overhead: 31.8%</p></li>
+</ul>
+<p><strong>Organizational</strong></p>
+<ul class="simple">
+<li><p>Lack of institutional support: 28.9%</p></li>
+<li><p>Budget constraints: 22.4%</p></li>
+<li><p>Team skill gaps: 19.7%</p></li>
+</ul>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="tab" data-sync-id="quality" for="sd-tab-item-2">
+Quality Concerns</label><div class="sd-tab-content docutils">
+<p><strong>Reliability &amp; Support</strong></p>
+<ul class="simple">
+<li><p>Uncertainty about long-term support: 34.2%</p></li>
+<li><p>Quality concerns: 29.1%</p></li>
+<li><p>Security considerations: 26.8%</p></li>
+<li><p>Limited commercial support: 21.5%</p></li>
+</ul>
+<p><strong>Maturity Issues</strong></p>
+<ul class="simple">
+<li><p>Tool immaturity: 18.9%</p></li>
+<li><p>Frequent breaking changes: 16.3%</p></li>
+<li><p>Insufficient testing: 12.7%</p></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="community-engagement">
+<h2>Community Engagement<a class="headerlink" href="#community-engagement" title="Link to this heading">#</a></h2>
+<section id="contribution-patterns">
+<h3>Contribution Patterns<a class="headerlink" href="#contribution-patterns" title="Link to this heading">#</a></h3>
+<p>Participation in open source projects varies widely:</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="_static/contribution_patterns.png"><img alt="_static/contribution_patterns.png" src="_static/contribution_patterns.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Distribution of contribution types among survey respondents. Most users consume open source software without contributing back to projects.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="contribution-types">
+<h4>Contribution Types<a class="headerlink" href="#contribution-types" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Contribution Type</p></th>
+<th class="head"><p>Percentage</p></th>
+<th class="head"><p>Count</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>User only</strong> (no contributions)</p></td>
+<td><p>68.4%</p></td>
+<td><p>853</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Issue reporting</strong></p></td>
+<td><p>23.7%</p></td>
+<td><p>296</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Documentation</strong></p></td>
+<td><p>18.9%</p></td>
+<td><p>236</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Code contributions</strong></p></td>
+<td><p>15.2%</p></td>
+<td><p>189</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Community support</strong></p></td>
+<td><p>12.8%</p></td>
+<td><p>160</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Financial support</strong></p></td>
+<td><p>8.1%</p></td>
+<td><p>101</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Project maintenance</strong></p></td>
+<td><p>4.3%</p></td>
+<td><p>54</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="barriers-to-contribution">
+<h3>Barriers to Contribution<a class="headerlink" href="#barriers-to-contribution" title="Link to this heading">#</a></h3>
+<div class="note admonition">
+<p class="admonition-title">Why Don’t Users Contribute?</p>
+<p>The top barriers preventing contribution to open source projects:</p>
+<ol class="arabic simple">
+<li><p><strong>Lack of time</strong> (67.3% of non-contributors)</p></li>
+<li><p><strong>Technical complexity</strong> (43.8%)</p></li>
+<li><p><strong>Don’t know how to start</strong> (41.2%)</p></li>
+<li><p><strong>Impostor syndrome</strong> (32.7%)</p></li>
+<li><p><strong>Fear of code quality judgment</strong> (29.4%)</p></li>
+<li><p><strong>Unclear contribution guidelines</strong> (24.1%)</p></li>
+<li><p><strong>Language barriers</strong> (18.9%)</p></li>
+</ol>
+</div>
+</section>
+<section id="community-satisfaction">
+<h3>Community Satisfaction<a class="headerlink" href="#community-satisfaction" title="Link to this heading">#</a></h3>
+<p>User satisfaction with open source communities:</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Documentation</div>
+<p class="sd-card-text"><strong>Average: 3.4/5.0</strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">Excellent: 12.3%</p></li>
+<li><p class="sd-card-text">Good: 34.7%</p></li>
+<li><p class="sd-card-text">Fair: 38.9%</p></li>
+<li><p class="sd-card-text">Poor: 14.1%</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Support Forums</div>
+<p class="sd-card-text"><strong>Average: 3.8/5.0</strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">Excellent: 18.9%</p></li>
+<li><p class="sd-card-text">Good: 47.3%</p></li>
+<li><p class="sd-card-text">Fair: 28.1%</p></li>
+<li><p class="sd-card-text">Poor: 5.7%</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Issue Response</div>
+<p class="sd-card-text"><strong>Average: 3.2/5.0</strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">Excellent: 9.1%</p></li>
+<li><p class="sd-card-text">Good: 28.7%</p></li>
+<li><p class="sd-card-text">Fair: 41.6%</p></li>
+<li><p class="sd-card-text">Poor: 20.6%</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Inclusivity</div>
+<p class="sd-card-text"><strong>Average: 3.6/5.0</strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">Excellent: 15.4%</p></li>
+<li><p class="sd-card-text">Good: 38.2%</p></li>
+<li><p class="sd-card-text">Fair: 35.1%</p></li>
+<li><p class="sd-card-text">Poor: 11.3%</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="demographic-insights">
+<h2>Demographic Insights<a class="headerlink" href="#demographic-insights" title="Link to this heading">#</a></h2>
+<section id="usage-by-professional-role">
+<h3>Usage by Professional Role<a class="headerlink" href="#usage-by-professional-role" title="Link to this heading">#</a></h3>
+<p>Different professional roles show distinct usage patterns:</p>
+<section id="researchers-vs-developers">
+<h4>Researchers vs. Developers<a class="headerlink" href="#researchers-vs-developers" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table" id="tools-by-role">
+<caption><span class="caption-number">Table 3 </span><span class="caption-text">Tool Preferences by Role</span><a class="headerlink" href="#tools-by-role" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tool Category</p></th>
+<th class="head"><p>Researchers (n=426)</p></th>
+<th class="head"><p>Developers (n=357)</p></th>
+<th class="head"><p>Data Scientists (n=242)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Statistical/ML</strong></p></td>
+<td><p>R (67.8%), Python (71.2%)</p></td>
+<td><p>Python (52.9%), JavaScript (68.1%)</p></td>
+<td><p>Python (89.7%), R (45.9%)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Development</strong></p></td>
+<td><p>Git (78.4%), VS Code (52.1%)</p></td>
+<td><p>Git (94.7%), VS Code (83.2%)</p></td>
+<td><p>Git (87.2%), Jupyter (78.5%)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Cloud/DevOps</strong></p></td>
+<td><p>Docker (32.2%), AWS (18.9%)</p></td>
+<td><p>Docker (78.4%), Kubernetes (54.3%)</p></td>
+<td><p>Docker (41.7%), GCP (32.6%)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="geographic-variations">
+<h3>Geographic Variations<a class="headerlink" href="#geographic-variations" title="Link to this heading">#</a></h3>
+<p>Regional differences in tool adoption:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="tab" data-sync-id="na" for="sd-tab-item-3">
+North America</label><div class="sd-tab-content docutils">
+<p><strong>Distinctive Patterns</strong></p>
+<ul class="simple">
+<li><p>Higher cloud platform adoption (67.3% vs 54.2% global)</p></li>
+<li><p>Strong preference for GitHub (89.4% vs 78.1% global)</p></li>
+<li><p>JavaScript frameworks more popular (58.7% vs 43.2% global)</p></li>
+</ul>
+<p><strong>Top 5 Tools</strong></p>
+<ol class="arabic simple">
+<li><p>Git (91.2%)</p></li>
+<li><p>VS Code (75.8%)</p></li>
+<li><p>Python (74.1%)</p></li>
+<li><p>Docker (62.9%)</p></li>
+<li><p>AWS (47.3%)</p></li>
+</ol>
+</div>
+<input id="sd-tab-item-4" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="tab" data-sync-id="eu" for="sd-tab-item-4">
+Europe</label><div class="sd-tab-content docutils">
+<p><strong>Distinctive Patterns</strong></p>
+<ul class="simple">
+<li><p>Higher adoption of privacy-focused tools</p></li>
+<li><p>Strong preference for GitLab (34.7% vs 23.1% global)</p></li>
+<li><p>More diverse language ecosystem</p></li>
+</ul>
+<p><strong>Top 5 Tools</strong></p>
+<ol class="arabic simple">
+<li><p>Git (88.6%)</p></li>
+<li><p>Python (76.2%)</p></li>
+<li><p>VS Code (69.4%)</p></li>
+<li><p>Docker (56.7%)</p></li>
+<li><p>JavaScript (51.9%)</p></li>
+</ol>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="tab" data-sync-id="asia" for="sd-tab-item-5">
+Asia</label><div class="sd-tab-content docutils">
+<p><strong>Distinctive Patterns</strong></p>
+<ul class="simple">
+<li><p>Mobile development focus (Android tools: 43.2% vs 28.7% global)</p></li>
+<li><p>Strong Java adoption (47.9% vs 31.8% global)</p></li>
+<li><p>WeChat ecosystem tools popular in China</p></li>
+</ul>
+<p><strong>Top 5 Tools</strong></p>
+<ol class="arabic simple">
+<li><p>Git (85.2%)</p></li>
+<li><p>Python (72.4%)</p></li>
+<li><p>VS Code (68.1%)</p></li>
+<li><p>Java (47.9%)</p></li>
+<li><p>Android Studio (43.2%)</p></li>
+</ol>
+</div>
+</div>
+</section>
+</section>
+<section id="emerging-trends">
+<h2>Emerging Trends<a class="headerlink" href="#emerging-trends" title="Link to this heading">#</a></h2>
+<section id="ai-ml-tool-adoption">
+<h3>AI/ML Tool Adoption<a class="headerlink" href="#ai-ml-tool-adoption" title="Link to this heading">#</a></h3>
+<p>Artificial intelligence and machine learning tools show rapid growth:</p>
+</section>
+<section id="cloud-native-technologies">
+<h3>Cloud-Native Technologies<a class="headerlink" href="#cloud-native-technologies" title="Link to this heading">#</a></h3>
+<p>Containerization and cloud platforms gaining traction:</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Container Adoption</div>
+<p class="sd-card-text"><strong>Docker</strong>: 58.4% current usage<br />
+<strong>Kubernetes</strong>: 31.8% current usage<br />
+<strong>Podman</strong>: 12.7% current usage</p>
+<p class="sd-card-text"><em>Growth rate: +23.4% year-over-year</em></p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Cloud Platforms</div>
+<p class="sd-card-text"><strong>AWS</strong>: 42.1% usage
+<strong>GCP</strong>: 28.9% usage<br />
+<strong>Azure</strong>: 24.3% usage
+<strong>DigitalOcean</strong>: 18.7% usage</p>
+<p class="sd-card-text"><em>Multi-cloud: 34.2% use multiple providers</em></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="development-workflow-evolution">
+<h3>Development Workflow Evolution<a class="headerlink" href="#development-workflow-evolution" title="Link to this heading">#</a></h3>
+<p>Modern development practices becoming standard:</p>
+<ul class="simple">
+<li><p><strong>CI/CD Adoption</strong>: 67.3% use automated deployment</p></li>
+<li><p><strong>Infrastructure as Code</strong>: 43.8% adoption rate</p></li>
+<li><p><strong>GitOps Practices</strong>: 28.9% implementation</p></li>
+<li><p><strong>Microservices</strong>: 34.2% of web developers</p></li>
+</ul>
+</section>
+</section>
+<section id="satisfaction-pain-points">
+<h2>Satisfaction &amp; Pain Points<a class="headerlink" href="#satisfaction-pain-points" title="Link to this heading">#</a></h2>
+<section id="overall-satisfaction">
+<h3>Overall Satisfaction<a class="headerlink" href="#overall-satisfaction" title="Link to this heading">#</a></h3>
+<figure class="align-default" id="satisfaction-scores">
+<a class="reference internal image-reference" href="_static/satisfaction_scores.png"><img alt="_static/satisfaction_scores.png" src="_static/satisfaction_scores.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">User satisfaction ratings across different aspects of the open source ecosystem.</span><a class="headerlink" href="#satisfaction-scores" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="common-pain-points">
+<h3>Common Pain Points<a class="headerlink" href="#common-pain-points" title="Link to this heading">#</a></h3>
+<p>Top challenges faced by open source users:</p>
+<ol class="arabic simple">
+<li><p><strong>Dependency Management</strong> (cited by 47.3%)</p>
+<ul class="simple">
+<li><p>Version conflicts and compatibility issues</p></li>
+<li><p>Security vulnerabilities in dependencies</p></li>
+<li><p>Complex dependency trees</p></li>
+</ul>
+</li>
+<li><p><strong>Documentation Quality</strong> (cited by 42.8%)</p>
+<ul class="simple">
+<li><p>Outdated or incomplete documentation</p></li>
+<li><p>Lack of practical examples</p></li>
+<li><p>Poor organization and searchability</p></li>
+</ul>
+</li>
+<li><p><strong>Onboarding Complexity</strong> (cited by 38.9%)</p>
+<ul class="simple">
+<li><p>Difficult initial setup and configuration</p></li>
+<li><p>Steep learning curves for new tools</p></li>
+<li><p>Lack of beginner-friendly resources</p></li>
+</ul>
+</li>
+<li><p><strong>Performance Issues</strong> (cited by 34.2%)</p>
+<ul class="simple">
+<li><p>Slow build times and compilation</p></li>
+<li><p>Memory consumption concerns</p></li>
+<li><p>Scalability limitations</p></li>
+</ul>
+</li>
+<li><p><strong>Community Fragmentation</strong> (cited by 29.7%)</p>
+<ul class="simple">
+<li><p>Multiple competing solutions</p></li>
+<li><p>Lack of standardization</p></li>
+<li><p>Divided community attention</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="statistical-significance-testing">
+<h2>Statistical Significance Testing<a class="headerlink" href="#statistical-significance-testing" title="Link to this heading">#</a></h2>
+<section id="key-findings-with-statistical-support">
+<h3>Key Findings with Statistical Support<a class="headerlink" href="#key-findings-with-statistical-support" title="Link to this heading">#</a></h3>
+<p>Our analysis revealed several statistically significant patterns:</p>
+<div class="note admonition">
+<p class="admonition-title">Significant Associations (p &lt; 0.05)</p>
+<ul class="simple">
+<li><p><strong>Experience level strongly predicts tool adoption diversity</strong> (χ² = 47.3, p &lt; 0.001)</p></li>
+<li><p><strong>Geographic region correlates with cloud platform preference</strong> (χ² = 23.8, p &lt; 0.01)</p></li>
+<li><p><strong>Organization size influences enterprise tool adoption</strong> (F = 12.4, p &lt; 0.001)</p></li>
+<li><p><strong>Professional role predicts contribution behavior</strong> (χ² = 31.2, p &lt; 0.001)</p></li>
+</ul>
+</div>
+</section>
+<section id="effect-sizes">
+<h3>Effect Sizes<a class="headerlink" href="#effect-sizes" title="Link to this heading">#</a></h3>
+<p>Where statistical significance was found, we also calculated practical significance:</p>
+<ul class="simple">
+<li><p><strong>Experience → Tool Diversity</strong>: Large effect (Cramer’s V = 0.34)</p></li>
+<li><p><strong>Role → Language Choice</strong>: Medium effect (Cramer’s V = 0.23)</p></li>
+<li><p><strong>Organization → Cloud Adoption</strong>: Medium effect (η² = 0.18)</p></li>
+<li><p><strong>Region → Framework Preference</strong>: Small-medium effect (Cramer’s V = 0.19)</p></li>
+</ul>
+</section>
+</section>
+<section id="qualitative-insights">
+<h2>Qualitative Insights<a class="headerlink" href="#qualitative-insights" title="Link to this heading">#</a></h2>
+<section id="thematic-analysis-of-open-ended-responses">
+<h3>Thematic Analysis of Open-Ended Responses<a class="headerlink" href="#thematic-analysis-of-open-ended-responses" title="Link to this heading">#</a></h3>
+<p>Analysis of 901 open-ended responses revealed five major themes:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="tab" data-sync-id="maturity" for="sd-tab-item-6">
+Ecosystem Maturity</label><div class="sd-tab-content docutils">
+<p><strong>Representative Quotes:</strong></p>
+<blockquote>
+<div><p>“The Python ecosystem has really matured - finding high-quality packages is much easier now than 5 years ago.”</p>
+</div></blockquote>
+<blockquote>
+<div><p>“JavaScript moves too fast. By the time you learn a framework, three new ones have replaced it.”</p>
+</div></blockquote>
+<p><strong>Key Insights:</strong></p>
+<ul class="simple">
+<li><p>Preference for stable, mature ecosystems</p></li>
+<li><p>Concern about rapid change in web technologies</p></li>
+<li><p>Appreciation for backward compatibility</p></li>
+</ul>
+</div>
+<input id="sd-tab-item-7" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="tab" data-sync-id="community" for="sd-tab-item-7">
+Community Values</label><div class="sd-tab-content docutils">
+<p><strong>Representative Quotes:</strong></p>
+<blockquote>
+<div><p>“The R community’s focus on reproducible research really aligns with academic values.”</p>
+</div></blockquote>
+<blockquote>
+<div><p>“What I love about the Rust community is how welcoming they are to beginners - very different from some other languages.”</p>
+</div></blockquote>
+<p><strong>Key Insights:</strong></p>
+<ul class="simple">
+<li><p>Community culture significantly influences tool choice</p></li>
+<li><p>Inclusivity and mentorship highly valued</p></li>
+<li><p>Disciplinary alignment affects adoption</p></li>
+</ul>
+</div>
+<input id="sd-tab-item-8" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="tab" data-sync-id="learning" for="sd-tab-item-8">
+Learning Resources</label><div class="sd-tab-content docutils">
+<p><strong>Representative Quotes:</strong></p>
+<blockquote>
+<div><p>“Documentation is great, but I wish there were more intermediate-level tutorials. Everything is either ‘Hello World’ or expert-level.”</p>
+</div></blockquote>
+<blockquote>
+<div><p>“Video tutorials and interactive examples make all the difference for visual learners like me.”</p>
+</div></blockquote>
+<p><strong>Key Insights:</strong></p>
+<ul class="simple">
+<li><p>Gap in intermediate-level educational content</p></li>
+<li><p>Preference for diverse learning modalities</p></li>
+<li><p>Importance of hands-on, practical examples</p></li>
+</ul>
+</div>
+<input id="sd-tab-item-9" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="tab" data-sync-id="enterprise" for="sd-tab-item-9">
+Enterprise Adoption</label><div class="sd-tab-content docutils">
+<p><strong>Representative Quotes:</strong></p>
+<blockquote>
+<div><p>“Getting approval for open source tools is still a battle - security and support concerns dominate.”</p>
+</div></blockquote>
+<blockquote>
+<div><p>“Once we proved the value with small projects, scaling up open source adoption became much easier.”</p>
+</div></blockquote>
+<p><strong>Key Insights:</strong></p>
+<ul class="simple">
+<li><p>Security and support remain enterprise barriers</p></li>
+<li><p>Success stories drive organizational adoption</p></li>
+<li><p>Gradual adoption strategies work best</p></li>
+</ul>
+</div>
+<input id="sd-tab-item-10" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="tab" data-sync-id="future" for="sd-tab-item-10">
+Future Concerns</label><div class="sd-tab-content docutils">
+<p><strong>Representative Quotes:</strong></p>
+<blockquote>
+<div><p>“I worry about sustainability - too many critical projects depend on volunteer maintainers.”</p>
+</div></blockquote>
+<blockquote>
+<div><p>“The commercialization of open source is changing the landscape in ways we don’t fully understand yet.”</p>
+</div></blockquote>
+<p><strong>Key Insights:</strong></p>
+<ul class="simple">
+<li><p>Sustainability concerns for volunteer-maintained projects</p></li>
+<li><p>Tension between commercial and community interests</p></li>
+<li><p>Need for better funding models</p></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="predictive-models">
+<h2>Predictive Models<a class="headerlink" href="#predictive-models" title="Link to this heading">#</a></h2>
+<section id="tool-adoption-prediction">
+<h3>Tool Adoption Prediction<a class="headerlink" href="#tool-adoption-prediction" title="Link to this heading">#</a></h3>
+<p>Using logistic regression, we identified key predictors of tool adoption:</p>
+<div class="pst-scrollable-table-container"><table class="table" id="adoption-predictors">
+<caption><span class="caption-number">Table 4 </span><span class="caption-text">Adoption Predictors (Top 10 Tools)</span><a class="headerlink" href="#adoption-predictors" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tool</p></th>
+<th class="head"><p>Top Predictor</p></th>
+<th class="head"><p>Odds Ratio</p></th>
+<th class="head"><p>Confidence Interval</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Python</p></td>
+<td><p>Data Science Role</p></td>
+<td><p>3.47</p></td>
+<td><p>[2.89, 4.16]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Docker</p></td>
+<td><p>DevOps Experience</p></td>
+<td><p>2.84</p></td>
+<td><p>[2.31, 3.49]</p></td>
+</tr>
+<tr class="row-even"><td><p>React</p></td>
+<td><p>Web Developer Role</p></td>
+<td><p>4.23</p></td>
+<td><p>[3.42, 5.23]</p></td>
+</tr>
+<tr class="row-odd"><td><p>TensorFlow</p></td>
+<td><p>ML Experience</p></td>
+<td><p>5.67</p></td>
+<td><p>[4.12, 7.81]</p></td>
+</tr>
+<tr class="row-even"><td><p>Kubernetes</p></td>
+<td><p>Organization Size</p></td>
+<td><p>1.89</p></td>
+<td><p>[1.54, 2.32]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="contribution-likelihood-model">
+<h3>Contribution Likelihood Model<a class="headerlink" href="#contribution-likelihood-model" title="Link to this heading">#</a></h3>
+<p>Factors predicting open source contribution:</p>
+<ol class="arabic simple">
+<li><p><strong>Years of Experience</strong> (β = 0.34, p &lt; 0.001)</p></li>
+<li><p><strong>Time Available</strong> (β = 0.28, p &lt; 0.001)</p></li>
+<li><p><strong>Technical Confidence</strong> (β = 0.23, p &lt; 0.01)</p></li>
+<li><p><strong>Community Connection</strong> (β = 0.19, p &lt; 0.01)</p></li>
+<li><p><strong>Employer Support</strong> (β = 0.16, p &lt; 0.05)</p></li>
+</ol>
+<p><strong>Model Performance</strong>:</p>
+<ul class="simple">
+<li><p>Accuracy: 73.2%</p></li>
+<li><p>Precision: 0.69</p></li>
+<li><p>Recall: 0.71</p></li>
+<li><p>F1-Score: 0.70</p></li>
+</ul>
+</section>
+</section>
+<section id="recommendations">
+<h2>Recommendations<a class="headerlink" href="#recommendations" title="Link to this heading">#</a></h2>
+<section id="for-tool-maintainers">
+<h3>For Tool Maintainers<a class="headerlink" href="#for-tool-maintainers" title="Link to this heading">#</a></h3>
+<p>Based on our findings, we recommend:</p>
+<div class="tip admonition">
+<p class="admonition-title">High-Impact Improvements</p>
+<ol class="arabic simple">
+<li><p><strong>Invest in Documentation</strong>: Quality documentation is the #1 factor in tool selection</p></li>
+<li><p><strong>Create Learning Pathways</strong>: Bridge the gap between beginner and expert resources</p></li>
+<li><p><strong>Simplify Onboarding</strong>: Reduce setup complexity and provide clear getting-started guides</p></li>
+<li><p><strong>Build Inclusive Communities</strong>: Welcoming communities drive long-term adoption</p></li>
+<li><p><strong>Establish Clear Contribution Guidelines</strong>: Make it easy for newcomers to contribute</p></li>
+</ol>
+</div>
+</section>
+<section id="for-organizations">
+<h3>For Organizations<a class="headerlink" href="#for-organizations" title="Link to this heading">#</a></h3>
+<div class="tip admonition">
+<p class="admonition-title">Adoption Strategies</p>
+<ol class="arabic simple">
+<li><p><strong>Start Small</strong>: Pilot projects reduce risk and build internal expertise</p></li>
+<li><p><strong>Invest in Training</strong>: Skill development is crucial for successful adoption</p></li>
+<li><p><strong>Create Internal Champions</strong>: Identify and support enthusiastic early adopters</p></li>
+<li><p><strong>Develop Security Policies</strong>: Clear guidelines reduce adoption friction</p></li>
+<li><p><strong>Measure and Communicate Value</strong>: Track and share success stories</p></li>
+</ol>
+</div>
+</section>
+<section id="for-the-ecosystem">
+<h3>For the Ecosystem<a class="headerlink" href="#for-the-ecosystem" title="Link to this heading">#</a></h3>
+<div class="tip admonition">
+<p class="admonition-title">Sustainability Initiatives</p>
+<ol class="arabic simple">
+<li><p><strong>Funding Models</strong>: Develop sustainable funding for critical infrastructure</p></li>
+<li><p><strong>Mentorship Programs</strong>: Connect experienced contributors with newcomers</p></li>
+<li><p><strong>Diversity Initiatives</strong>: Address barriers preventing underrepresented groups from contributing</p></li>
+<li><p><strong>Educational Partnerships</strong>: Collaborate with universities and bootcamps</p></li>
+<li><p><strong>Corporate Responsibility</strong>: Encourage companies to contribute back to projects they depend on</p></li>
+</ol>
+</div>
+<hr class="docutils" />
+<p><em>These results represent analysis of data collected through May 2024. For the most current trends and detailed methodology, see our <a class="reference internal" href="methodology.html"><span class="std std-doc">methodology section</span></a>.</em></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="methodology.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Survey Methodology</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="figures.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data Visualizations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#executive-summary">Executive Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tool-usage-patterns">Tool Usage Patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#most-popular-tools">Most Popular Tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-by-experience-level">Usage by Experience Level</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adoption-drivers">Adoption Drivers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-selection-factors">Primary Selection Factors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barriers-to-adoption">Barriers to Adoption</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#community-engagement">Community Engagement</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contribution-patterns">Contribution Patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#contribution-types">Contribution Types</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barriers-to-contribution">Barriers to Contribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#community-satisfaction">Community Satisfaction</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demographic-insights">Demographic Insights</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-by-professional-role">Usage by Professional Role</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#researchers-vs-developers">Researchers vs. Developers</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geographic-variations">Geographic Variations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#emerging-trends">Emerging Trends</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-ml-tool-adoption">AI/ML Tool Adoption</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-native-technologies">Cloud-Native Technologies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#development-workflow-evolution">Development Workflow Evolution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#satisfaction-pain-points">Satisfaction &amp; Pain Points</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-satisfaction">Overall Satisfaction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pain-points">Common Pain Points</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-significance-testing">Statistical Significance Testing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-findings-with-statistical-support">Key Findings with Statistical Support</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-sizes">Effect Sizes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qualitative-insights">Qualitative Insights</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thematic-analysis-of-open-ended-responses">Thematic Analysis of Open-Ended Responses</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predictive-models">Predictive Models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tool-adoption-prediction">Tool Adoption Prediction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contribution-likelihood-model">Contribution Likelihood Model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommendations">Recommendations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-tool-maintainers">For Tool Maintainers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-organizations">For Organizations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-the-ecosystem">For the Ecosystem</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By UW-Madison Data Science Institute
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

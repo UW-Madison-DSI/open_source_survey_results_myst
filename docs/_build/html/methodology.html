@@ -1,0 +1,935 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Survey Methodology &#8212; Open Source Survey Results</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'methodology';</script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Survey Results" href="results.html" />
+    <link rel="prev" title="Data Overview" href="data_overview.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Open Source Survey Results</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="data_overview.html">Data Overview</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Survey Methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results.html">Survey Results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="figures.html">Data Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About This Project</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/UW-Madison-DSI/open_source_survey_results" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UW-Madison-DSI/open_source_survey_results/edit/main/methodology.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UW-Madison-DSI/open_source_survey_results/issues/new?title=Issue%20on%20page%20%2Fmethodology.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/methodology.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Survey Methodology</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-design">Research Design</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#survey-framework">Survey Framework</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-collection">Data Collection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#survey-platform">Survey Platform</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-strategy">Sampling Strategy</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#target-population">Target Population</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recruitment-methods">Recruitment Methods</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-collection-timeline">Data Collection Timeline</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#survey-instrument">Survey Instrument</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-categories">Question Categories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-types">Question Types</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing-analysis">Data Processing &amp; Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-pipeline">Data Cleaning Pipeline</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-methods">Statistical Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-analysis">Descriptive Analysis</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inferential-statistics">Inferential Statistics</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#qualitative-analysis">Qualitative Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#software-tools">Software &amp; Tools</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ethical-considerations">Ethical Considerations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#irb-approval">IRB Approval</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informed-consent">Informed Consent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-protection">Data Protection</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-validity">Limitations &amp; Validity</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-validity">Internal Validity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#external-validity">External Validity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#construct-validity">Construct Validity</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducibility">Reproducibility</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-practices">Open Science Practices</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="survey-methodology">
+<h1>Survey Methodology<a class="headerlink" href="#survey-methodology" title="Link to this heading">#</a></h1>
+<p>This section details the research design, data collection procedures, and analytical methods used in the Open Source Survey 2024.</p>
+<section id="research-design">
+<h2>Research Design<a class="headerlink" href="#research-design" title="Link to this heading">#</a></h2>
+<section id="objectives">
+<h3>Objectives<a class="headerlink" href="#objectives" title="Link to this heading">#</a></h3>
+<p>Our survey aimed to address three primary research questions:</p>
+<ol class="arabic simple">
+<li><p><strong>Usage Patterns</strong>: How do different communities use open source software?</p></li>
+<li><p><strong>Adoption Drivers</strong>: What factors influence tool selection and adoption?</p></li>
+<li><p><strong>Contribution Behavior</strong>: How do users engage with open source projects?</p></li>
+</ol>
+</section>
+<section id="survey-framework">
+<h3>Survey Framework<a class="headerlink" href="#survey-framework" title="Link to this heading">#</a></h3>
+<p>We developed a comprehensive survey instrument based on:</p>
+<ul class="simple">
+<li><p>Literature review of open source adoption studies</p></li>
+<li><p>Stakeholder interviews with community leaders</p></li>
+<li><p>Pilot testing with 47 participants</p></li>
+<li><p>Expert review by methodology specialists</p></li>
+</ul>
+<div class="note admonition">
+<p class="admonition-title">Theoretical Foundation</p>
+<p>Our approach builds on the Technology Acceptance Model (TAM) and Innovation Diffusion Theory to understand adoption patterns and user behavior in open source contexts.</p>
+</div>
+</section>
+</section>
+<section id="data-collection">
+<h2>Data Collection<a class="headerlink" href="#data-collection" title="Link to this heading">#</a></h2>
+<section id="survey-platform">
+<h3>Survey Platform<a class="headerlink" href="#survey-platform" title="Link to this heading">#</a></h3>
+<p><strong>Platform</strong>: Qualtrics XM Platform<br />
+<strong>Mode</strong>: Web-based self-administered survey<br />
+<strong>Languages</strong>: English (primary), with key questions translated to Spanish, Mandarin, and French<br />
+<strong>Accessibility</strong>: WCAG 2.1 AA compliant design</p>
+</section>
+<section id="sampling-strategy">
+<h3>Sampling Strategy<a class="headerlink" href="#sampling-strategy" title="Link to this heading">#</a></h3>
+<section id="target-population">
+<h4>Target Population<a class="headerlink" href="#target-population" title="Link to this heading">#</a></h4>
+<p>Open source software users across multiple domains:</p>
+<ul class="simple">
+<li><p>Academic researchers and students</p></li>
+<li><p>Software developers and engineers</p></li>
+<li><p>Data scientists and analysts</p></li>
+<li><p>System administrators and DevOps professionals</p></li>
+</ul>
+</section>
+<section id="recruitment-methods">
+<h4>Recruitment Methods<a class="headerlink" href="#recruitment-methods" title="Link to this heading">#</a></h4>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Digital Outreach</div>
+<p class="sd-card-text"><strong>Social Media</strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">Twitter/X campaigns with targeted hashtags</p></li>
+<li><p class="sd-card-text">LinkedIn professional groups</p></li>
+<li><p class="sd-card-text">Reddit communities (r/opensource, r/programming)</p></li>
+</ul>
+<p class="sd-card-text"><strong>Technical Platforms</strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">GitHub repository announcements</p></li>
+<li><p class="sd-card-text">Stack Overflow community posts</p></li>
+<li><p class="sd-card-text">Hacker News submissions</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Institutional Networks</div>
+<p class="sd-card-text"><strong>Academic Networks</strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">University mailing lists</p></li>
+<li><p class="sd-card-text">Professional associations</p></li>
+<li><p class="sd-card-text">Conference announcements</p></li>
+</ul>
+<p class="sd-card-text"><strong>Industry Partners</strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">Open source foundation partnerships</p></li>
+<li><p class="sd-card-text">Developer community newsletters</p></li>
+<li><p class="sd-card-text">Tech meetup groups</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="data-collection-timeline">
+<h3>Data Collection Timeline<a class="headerlink" href="#data-collection-timeline" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="survey-instrument">
+<h2>Survey Instrument<a class="headerlink" href="#survey-instrument" title="Link to this heading">#</a></h2>
+<section id="question-categories">
+<h3>Question Categories<a class="headerlink" href="#question-categories" title="Link to this heading">#</a></h3>
+<p>The survey consisted of 73 questions across six main sections:</p>
+<ol class="arabic simple">
+<li><p><strong>Demographics &amp; Background</strong> (12 questions)</p>
+<ul class="simple">
+<li><p>Professional role and experience</p></li>
+<li><p>Organization type and size</p></li>
+<li><p>Geographic location</p></li>
+</ul>
+</li>
+<li><p><strong>Open Source Usage</strong> (24 questions)</p>
+<ul class="simple">
+<li><p>Tools and platforms currently used</p></li>
+<li><p>Frequency and context of usage</p></li>
+<li><p>Selection criteria and decision factors</p></li>
+</ul>
+</li>
+<li><p><strong>Contribution Patterns</strong> (15 questions)</p>
+<ul class="simple">
+<li><p>Types of contributions made</p></li>
+<li><p>Barriers to contribution</p></li>
+<li><p>Community engagement levels</p></li>
+</ul>
+</li>
+<li><p><strong>Tool-Specific Deep Dives</strong> (16 questions)</p>
+<ul class="simple">
+<li><p>Detailed usage of popular tools</p></li>
+<li><p>Satisfaction and pain points</p></li>
+<li><p>Migration patterns</p></li>
+</ul>
+</li>
+<li><p><strong>Future Trends</strong> (8 questions)</p>
+<ul class="simple">
+<li><p>Planned adoptions</p></li>
+<li><p>Emerging technology interest</p></li>
+<li><p>Community predictions</p></li>
+</ul>
+</li>
+<li><p><strong>Open-Ended Feedback</strong> (3 questions)</p>
+<ul class="simple">
+<li><p>Qualitative insights</p></li>
+<li><p>Suggestions for ecosystem improvement</p></li>
+<li><p>Additional comments</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="question-types">
+<h3>Question Types<a class="headerlink" href="#question-types" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table" id="question-formats">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Question Format Distribution</span><a class="headerlink" href="#question-formats" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Format Type</p></th>
+<th class="head"><p>Count</p></th>
+<th class="head"><p>Purpose</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Multiple Choice</p></td>
+<td><p>34</p></td>
+<td><p>Standardized responses</p></td>
+<td><p>“Primary programming language”</p></td>
+</tr>
+<tr class="row-odd"><td><p>Likert Scale</p></td>
+<td><p>18</p></td>
+<td><p>Attitude measurement</p></td>
+<td><p>“Satisfaction with documentation”</p></td>
+</tr>
+<tr class="row-even"><td><p>Ranking</p></td>
+<td><p>8</p></td>
+<td><p>Priority assessment</p></td>
+<td><p>“Rank factors in tool selection”</p></td>
+</tr>
+<tr class="row-odd"><td><p>Matrix/Grid</p></td>
+<td><p>6</p></td>
+<td><p>Efficient multi-item collection</p></td>
+<td><p>“Usage frequency across tools”</p></td>
+</tr>
+<tr class="row-even"><td><p>Open-ended</p></td>
+<td><p>7</p></td>
+<td><p>Qualitative insights</p></td>
+<td><p>“Describe your biggest challenge”</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="data-processing-analysis">
+<h2>Data Processing &amp; Analysis<a class="headerlink" href="#data-processing-analysis" title="Link to this heading">#</a></h2>
+<section id="data-cleaning-pipeline">
+<h3>Data Cleaning Pipeline<a class="headerlink" href="#data-cleaning-pipeline" title="Link to this heading">#</a></h3>
+</section>
+<section id="statistical-methods">
+<h3>Statistical Methods<a class="headerlink" href="#statistical-methods" title="Link to this heading">#</a></h3>
+<section id="descriptive-analysis">
+<h4>Descriptive Analysis<a class="headerlink" href="#descriptive-analysis" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Frequency distributions and cross-tabulations</p></li>
+<li><p>Summary statistics with confidence intervals</p></li>
+<li><p>Geographic and demographic breakdowns</p></li>
+</ul>
+</section>
+<section id="inferential-statistics">
+<h4>Inferential Statistics<a class="headerlink" href="#inferential-statistics" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Chi-square tests for categorical associations</p></li>
+<li><p>ANOVA for group comparisons</p></li>
+<li><p>Logistic regression for binary outcomes</p></li>
+<li><p>Principal component analysis for dimensionality reduction</p></li>
+</ul>
+</section>
+<section id="qualitative-analysis">
+<h4>Qualitative Analysis<a class="headerlink" href="#qualitative-analysis" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Thematic analysis of open-ended responses</p></li>
+<li><p>Inductive coding with inter-rater reliability</p></li>
+<li><p>Integration with quantitative findings</p></li>
+</ul>
+</section>
+</section>
+<section id="software-tools">
+<h3>Software &amp; Tools<a class="headerlink" href="#software-tools" title="Link to this heading">#</a></h3>
+<p><strong>Data Processing</strong>: Python (pandas, numpy)<br />
+<strong>Statistical Analysis</strong>: R (tidyverse, survey packages)<br />
+<strong>Visualization</strong>: matplotlib, ggplot2, Plotly<br />
+<strong>Text Analysis</strong>: NLTK, spaCy, tidytext<br />
+<strong>Survey Platform</strong>: Qualtrics XM</p>
+</section>
+</section>
+<section id="ethical-considerations">
+<h2>Ethical Considerations<a class="headerlink" href="#ethical-considerations" title="Link to this heading">#</a></h2>
+<section id="irb-approval">
+<h3>IRB Approval<a class="headerlink" href="#irb-approval" title="Link to this heading">#</a></h3>
+<p>This research was reviewed and approved by the UW-Madison Institutional Review Board (IRB Protocol #2024-0243).</p>
+</section>
+<section id="informed-consent">
+<h3>Informed Consent<a class="headerlink" href="#informed-consent" title="Link to this heading">#</a></h3>
+<p>All participants provided informed consent through:</p>
+<ul class="simple">
+<li><p>Clear study description and purpose</p></li>
+<li><p>Data usage and retention policies</p></li>
+<li><p>Voluntary participation emphasis</p></li>
+<li><p>Withdrawal procedures</p></li>
+</ul>
+</section>
+<section id="data-protection">
+<h3>Data Protection<a class="headerlink" href="#data-protection" title="Link to this heading">#</a></h3>
+<div class="important admonition">
+<p class="admonition-title">Privacy Safeguards</p>
+<ul class="simple">
+<li><p><strong>Anonymization</strong>: All PII removed before analysis</p></li>
+<li><p><strong>Data Security</strong>: Encrypted storage and transmission</p></li>
+<li><p><strong>Access Control</strong>: Limited to authorized research team</p></li>
+<li><p><strong>Retention Policy</strong>: Data deleted after 7-year retention period</p></li>
+<li><p><strong>Sharing Guidelines</strong>: Only aggregated, anonymized results published</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="limitations-validity">
+<h2>Limitations &amp; Validity<a class="headerlink" href="#limitations-validity" title="Link to this heading">#</a></h2>
+<section id="internal-validity">
+<h3>Internal Validity<a class="headerlink" href="#internal-validity" title="Link to this heading">#</a></h3>
+<p><strong>Strengths</strong>:</p>
+<ul class="simple">
+<li><p>Pilot testing reduced measurement error</p></li>
+<li><p>Multiple validation checks ensure data quality</p></li>
+<li><p>Standardized instruments enable comparison</p></li>
+</ul>
+<p><strong>Limitations</strong>:</p>
+<ul class="simple">
+<li><p>Self-report bias in usage frequency estimates</p></li>
+<li><p>Social desirability bias in contribution reporting</p></li>
+<li><p>Survey fatigue in longer sections</p></li>
+</ul>
+</section>
+<section id="external-validity">
+<h3>External Validity<a class="headerlink" href="#external-validity" title="Link to this heading">#</a></h3>
+<p><strong>Generalizability Considerations</strong>:</p>
+<ul class="simple">
+<li><p>Sampling bias toward technically sophisticated users</p></li>
+<li><p>English-language limitation reduces global representation</p></li>
+<li><p>Platform recruitment bias (GitHub, Twitter users)</p></li>
+<li><p>Temporal limitations (Spring 2024 snapshot)</p></li>
+</ul>
+</section>
+<section id="construct-validity">
+<h3>Construct Validity<a class="headerlink" href="#construct-validity" title="Link to this heading">#</a></h3>
+<p>Validated through:</p>
+<ul class="simple">
+<li><p>Expert review of survey instruments</p></li>
+<li><p>Factor analysis of multi-item scales</p></li>
+<li><p>Comparison with established metrics from prior studies</p></li>
+<li><p>Pilot testing with target population</p></li>
+</ul>
+</section>
+</section>
+<section id="reproducibility">
+<h2>Reproducibility<a class="headerlink" href="#reproducibility" title="Link to this heading">#</a></h2>
+<section id="open-science-practices">
+<h3>Open Science Practices<a class="headerlink" href="#open-science-practices" title="Link to this heading">#</a></h3>
+<p>All materials are publicly available:</p>
+<ul class="simple">
+<li><p><strong>Survey Instrument</strong>: Complete question text and logic</p></li>
+<li><p><strong>Data Processing Code</strong>: Python/R scripts with documentation</p></li>
+<li><p><strong>Analysis Notebooks</strong>: Jupyter notebooks for all analyses</p></li>
+<li><p><strong>Anonymized Dataset</strong>: Available upon request for research purposes</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Reproducibility Statement</p>
+<p>Complete analysis code and documentation are available in our GitHub repository. Researchers can reproduce all findings using provided scripts and anonymized data.</p>
+</div>
+<hr class="docutils" />
+<p><em>For questions about methodology or access to research materials, contact the UW-Madison Data Science Institute research team.</em></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="data_overview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data Overview</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="results.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Survey Results</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-design">Research Design</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#survey-framework">Survey Framework</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-collection">Data Collection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#survey-platform">Survey Platform</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-strategy">Sampling Strategy</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#target-population">Target Population</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recruitment-methods">Recruitment Methods</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-collection-timeline">Data Collection Timeline</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#survey-instrument">Survey Instrument</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-categories">Question Categories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-types">Question Types</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing-analysis">Data Processing &amp; Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-pipeline">Data Cleaning Pipeline</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-methods">Statistical Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-analysis">Descriptive Analysis</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inferential-statistics">Inferential Statistics</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#qualitative-analysis">Qualitative Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#software-tools">Software &amp; Tools</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ethical-considerations">Ethical Considerations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#irb-approval">IRB Approval</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informed-consent">Informed Consent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-protection">Data Protection</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-validity">Limitations &amp; Validity</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-validity">Internal Validity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#external-validity">External Validity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#construct-validity">Construct Validity</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducibility">Reproducibility</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-practices">Open Science Practices</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By UW-Madison Data Science Institute
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

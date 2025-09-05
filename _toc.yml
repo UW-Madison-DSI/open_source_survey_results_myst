@@ -1,8 +1,0 @@
-format: jb-book
-root: index
-chapters:
-  - file: usage
-  - file: sentiments
-  - file: campus
-  - file: reproduction
-  - file: sample

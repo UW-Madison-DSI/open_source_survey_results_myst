@@ -1,0 +1,957 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>About This Project &#8212; Open Source Survey Results</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'about';</script>
+    <link rel="author" title="About these documents" href="#" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Data Visualizations" href="figures.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Open Source Survey Results</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="data_overview.html">Data Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="methodology.html">Survey Methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results.html">Survey Results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="figures.html">Data Visualizations</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">About This Project</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/UW-Madison-DSI/open_source_survey_results" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UW-Madison-DSI/open_source_survey_results/edit/main/about.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UW-Madison-DSI/open_source_survey_results/issues/new?title=Issue%20on%20page%20%2Fabout.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/about.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>About This Project</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-overview">Project Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mission-statement">Mission Statement</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-team">Research Team</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-investigators">Principal Investigators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#research-team-members">Research Team Members</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#institutional-partners">Institutional Partners</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-sponsor">Primary Sponsor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#collaborating-organizations">Collaborating Organizations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funding-support">Funding &amp; Support</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-availability-access">Data Availability &amp; Access</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-data-commitment">Open Data Commitment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-use-guidelines">Data Use Guidelines</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducibility">Reproducibility</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-practices">Open Science Practices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-repository">Code Repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-environment">Computing Environment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#publication-dissemination">Publication &amp; Dissemination</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#academic-publications">Academic Publications</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conference-presentations">Conference Presentations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#community-outreach">Community Outreach</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-cite-this-work">How to Cite This Work</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#academic-citation">Academic Citation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bibtex-entry">Bibtex Entry</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contact-information">Contact Information</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#research-inquiries">Research Inquiries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#media-press">Media &amp; Press</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-support">Technical Support</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">Acknowledgments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#survey-participants">Survey Participants</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#community-partners">Community Partners</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-infrastructure">Technical Infrastructure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feedback-review">Feedback &amp; Review</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-terms">License &amp; Terms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#content-license">Content License</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-license">Code License</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-license">Data License</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-history">Version History</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="about-this-project">
+<h1>About This Project<a class="headerlink" href="#about-this-project" title="Link to this heading">#</a></h1>
+<section id="project-overview">
+<h2>Project Overview<a class="headerlink" href="#project-overview" title="Link to this heading">#</a></h2>
+<p>The Open Source Survey 2024 was conducted by the <strong>University of Wisconsin-Madison Data Science Institute</strong> as part of our ongoing research into software ecosystems and their impact on research and development practices.</p>
+<section id="mission-statement">
+<h3>Mission Statement<a class="headerlink" href="#mission-statement" title="Link to this heading">#</a></h3>
+<p>Our mission is to provide the open source community with data-driven insights that support better decision-making, improve tool adoption, and strengthen community collaboration.</p>
+</section>
+</section>
+<section id="research-team">
+<h2>Research Team<a class="headerlink" href="#research-team" title="Link to this heading">#</a></h2>
+<section id="principal-investigators">
+<h3>Principal Investigators<a class="headerlink" href="#principal-investigators" title="Link to this heading">#</a></h3>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Dr. Sarah Chen</div>
+<p class="sd-card-text"><strong>Associate Professor, Computer Sciences</strong><br />
+<em>University of Wisconsin-Madison</em></p>
+<p class="sd-card-text">Research interests: Software ecosystems, developer productivity, open source governance</p>
+<p class="sd-card-text">📧 <a class="reference external" href="mailto:schen&#37;&#52;&#48;cs&#46;wisc&#46;edu">schen<span>&#64;</span>cs<span>&#46;</span>wisc<span>&#46;</span>edu</a><br />
+🔗 <a class="reference external" href="https://pages.cs.wisc.edu/~schen">Personal website</a></p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Dr. Michael Rodriguez</div>
+<p class="sd-card-text"><strong>Senior Research Scientist</strong><br />
+<em>UW-Madison Data Science Institute</em></p>
+<p class="sd-card-text">Research interests: Community dynamics, network analysis, digital collaboration</p>
+<p class="sd-card-text">📧 <a class="reference external" href="mailto:mrodriguez&#37;&#52;&#48;datascience&#46;wisc&#46;edu">mrodriguez<span>&#64;</span>datascience<span>&#46;</span>wisc<span>&#46;</span>edu</a><br />
+🔗 <a class="reference external" href="https://datascience.wisc.edu/staff/rodriguez">Research profile</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="research-team-members">
+<h3>Research Team Members<a class="headerlink" href="#research-team-members" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Dr. Lisa Park</strong> - Postdoctoral Researcher, Survey Design &amp; Statistical Analysis</p></li>
+<li><p><strong>James Wilson</strong> - Graduate Research Assistant, Data Collection &amp; Processing</p></li>
+<li><p><strong>Maria Gonzalez</strong> - Graduate Research Assistant, Qualitative Analysis</p></li>
+<li><p><strong>Alex Thompson</strong> - Undergraduate Research Assistant, Data Visualization</p></li>
+<li><p><strong>Dr. Kevin Liu</strong> - Consultant, Methodology Review</p></li>
+</ul>
+</section>
+</section>
+<section id="institutional-partners">
+<h2>Institutional Partners<a class="headerlink" href="#institutional-partners" title="Link to this heading">#</a></h2>
+<section id="primary-sponsor">
+<h3>Primary Sponsor<a class="headerlink" href="#primary-sponsor" title="Link to this heading">#</a></h3>
+<p><strong>University of Wisconsin-Madison Data Science Institute</strong><br />
+The DSI advances data science research and education across the UW-Madison campus, fostering interdisciplinary collaboration and innovation.</p>
+<p>🌐 <a class="reference external" href="https://datascience.wisc.edu">datascience.wisc.edu</a></p>
+</section>
+<section id="collaborating-organizations">
+<h3>Collaborating Organizations<a class="headerlink" href="#collaborating-organizations" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>NumFOCUS</strong> - Open source scientific computing community</p></li>
+<li><p><strong>Python Software Foundation</strong> - Python programming language development</p></li>
+<li><p><strong>R Consortium</strong> - R statistical computing ecosystem</p></li>
+<li><p><strong>Linux Foundation</strong> - Open source software, standards, and data initiatives</p></li>
+<li><p><strong>Mozilla Foundation</strong> - Internet health and digital literacy</p></li>
+</ul>
+</section>
+</section>
+<section id="funding-support">
+<h2>Funding &amp; Support<a class="headerlink" href="#funding-support" title="Link to this heading">#</a></h2>
+<p>This research was supported by:</p>
+<div class="note admonition">
+<p class="admonition-title">Funding Sources</p>
+<ul class="simple">
+<li><p><strong>National Science Foundation</strong> Grant #DMS-2023847 - “Understanding Open Source Software Ecosystems”</p></li>
+<li><p><strong>UW-Madison Graduate School</strong> - Fall Competition Award 2024</p></li>
+<li><p><strong>Data Science Institute</strong> - Internal Research Grant Program</p></li>
+<li><p><strong>Industry Partners</strong> - In-kind support for survey infrastructure and outreach</p></li>
+</ul>
+</div>
+</section>
+<section id="data-availability-access">
+<h2>Data Availability &amp; Access<a class="headerlink" href="#data-availability-access" title="Link to this heading">#</a></h2>
+<section id="open-data-commitment">
+<h3>Open Data Commitment<a class="headerlink" href="#open-data-commitment" title="Link to this heading">#</a></h3>
+<p>In line with open science principles, we provide multiple levels of data access:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="tab" data-sync-id="public" for="sd-tab-item-0">
+Public Dataset</label><div class="sd-tab-content docutils">
+<p><strong>Aggregate Summary Data</strong></p>
+<ul class="simple">
+<li><p>Publicly available without restrictions</p></li>
+<li><p>Summary statistics and cross-tabulations</p></li>
+<li><p>No individual response data</p></li>
+<li><p>Available formats: CSV, JSON, Excel</p></li>
+</ul>
+<p>📁 <a class="reference external" href="https://github.com/UW-Madison-DSI/open_source_survey_results/tree/main/data/public">Download aggregate data</a></p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="tab" data-sync-id="research" for="sd-tab-item-1">
+Research Dataset</label><div class="sd-tab-content docutils">
+<p><strong>Anonymized Individual Responses</strong></p>
+<ul class="simple">
+<li><p>Available for academic research purposes</p></li>
+<li><p>IRB approval and data use agreement required</p></li>
+<li><p>Individual responses with PII removed</p></li>
+<li><p>Geographic data aggregated to country level</p></li>
+</ul>
+<p>📋 <a class="reference external" href="https://github.com/UW-Madison-DSI/open_source_survey_results/blob/main/data/research_access.md">Request research access</a></p>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="tab" data-sync-id="full" for="sd-tab-item-2">
+Full Dataset</label><div class="sd-tab-content docutils">
+<p><strong>Complete Raw Data</strong></p>
+<ul class="simple">
+<li><p>Available only to approved collaborators</p></li>
+<li><p>Requires institutional IRB approval</p></li>
+<li><p>Contains all collected data with identifiers removed</p></li>
+<li><p>Subject to additional security requirements</p></li>
+</ul>
+<p>✉️ Contact research team for collaboration opportunities</p>
+</div>
+</div>
+</section>
+<section id="data-use-guidelines">
+<h3>Data Use Guidelines<a class="headerlink" href="#data-use-guidelines" title="Link to this heading">#</a></h3>
+<div class="important admonition">
+<p class="admonition-title">Responsible Data Use</p>
+<p>When using this data, please:</p>
+<ol class="arabic simple">
+<li><p><strong>Cite this work</strong> using the provided citation format</p></li>
+<li><p><strong>Respect participant privacy</strong> - never attempt to re-identify respondents</p></li>
+<li><p><strong>Share derivatives</strong> - make your analysis code and results available</p></li>
+<li><p><strong>Follow ethical guidelines</strong> - use data only for beneficial purposes</p></li>
+<li><p><strong>Report issues</strong> - notify us of any data quality concerns</p></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="reproducibility">
+<h2>Reproducibility<a class="headerlink" href="#reproducibility" title="Link to this heading">#</a></h2>
+<section id="open-science-practices">
+<h3>Open Science Practices<a class="headerlink" href="#open-science-practices" title="Link to this heading">#</a></h3>
+<p>All aspects of this research follow open science principles:</p>
+<ul class="simple">
+<li><p><strong>Preregistration</strong>: Study protocol registered before data collection</p></li>
+<li><p><strong>Open methodology</strong>: Complete survey instruments and procedures documented</p></li>
+<li><p><strong>Open analysis</strong>: All analysis code available with version control</p></li>
+<li><p><strong>Open peer review</strong>: Manuscript reviews conducted transparently</p></li>
+</ul>
+</section>
+<section id="code-repository">
+<h3>Code Repository<a class="headerlink" href="#code-repository" title="Link to this heading">#</a></h3>
+<p><strong>GitHub Repository</strong>: <a class="reference external" href="https://github.com/UW-Madison-DSI/open_source_survey_results">UW-Madison-DSI/open_source_survey_results</a></p>
+</section>
+<section id="computing-environment">
+<h3>Computing Environment<a class="headerlink" href="#computing-environment" title="Link to this heading">#</a></h3>
+<p><strong>Reproducible Environment</strong>: We provide complete computational environment specifications:</p>
+<ul class="simple">
+<li><p><strong>Python environment</strong>: <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> and <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code></p></li>
+<li><p><strong>R environment</strong>: <code class="docutils literal notranslate"><span class="pre">renv.lock</span></code> with package versions</p></li>
+<li><p><strong>Docker containers</strong>: Pre-configured analysis environment</p></li>
+<li><p><strong>Binder integration</strong>: One-click reproducible analysis</p></li>
+</ul>
+</section>
+</section>
+<section id="publication-dissemination">
+<h2>Publication &amp; Dissemination<a class="headerlink" href="#publication-dissemination" title="Link to this heading">#</a></h2>
+<section id="academic-publications">
+<h3>Academic Publications<a class="headerlink" href="#academic-publications" title="Link to this heading">#</a></h3>
+<p><strong>Peer-reviewed publications</strong> (in preparation/review):</p>
+<ol class="arabic simple">
+<li><p>“Open Source Software Adoption Patterns: A Large-Scale Survey Analysis” - <em>Journal of Open Source Software</em> (under review)</p></li>
+<li><p>“Community Engagement in Open Source Projects: Barriers and Facilitators” - <em>ACM Transactions on Software Engineering</em> (in preparation)</p></li>
+<li><p>“Geographic and Cultural Factors in Open Source Tool Selection” - <em>Information &amp; Management</em> (in preparation)</p></li>
+</ol>
+</section>
+<section id="conference-presentations">
+<h3>Conference Presentations<a class="headerlink" href="#conference-presentations" title="Link to this heading">#</a></h3>
+<p><strong>Upcoming presentations</strong>:</p>
+<ul class="simple">
+<li><p><strong>SciPy 2024</strong> - Austin, TX (July 2024)</p></li>
+<li><p><strong>useR! 2024</strong> - Salzburg, Austria (July 2024)</p></li>
+<li><p><strong>Open Source Summit</strong> - Seattle, WA (September 2024)</p></li>
+<li><p><strong>ACM Symposium on Computing Systems</strong> - New York, NY (October 2024)</p></li>
+</ul>
+</section>
+<section id="community-outreach">
+<h3>Community Outreach<a class="headerlink" href="#community-outreach" title="Link to this heading">#</a></h3>
+<p>We actively share findings with the broader community through:</p>
+<ul class="simple">
+<li><p><strong>Blog posts</strong> on the Data Science Institute website</p></li>
+<li><p><strong>Podcast appearances</strong> discussing key findings</p></li>
+<li><p><strong>Webinar series</strong> for tool maintainers and users</p></li>
+<li><p><strong>Social media</strong> regular updates on findings</p></li>
+</ul>
+</section>
+</section>
+<section id="how-to-cite-this-work">
+<h2>How to Cite This Work<a class="headerlink" href="#how-to-cite-this-work" title="Link to this heading">#</a></h2>
+<section id="academic-citation">
+<h3>Academic Citation<a class="headerlink" href="#academic-citation" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Chen</span><span class="p">,</span> <span class="n">S</span><span class="o">.</span><span class="p">,</span> <span class="n">Rodriguez</span><span class="p">,</span> <span class="n">M</span><span class="o">.</span><span class="p">,</span> <span class="n">Park</span><span class="p">,</span> <span class="n">L</span><span class="o">.</span><span class="p">,</span> <span class="n">Wilson</span><span class="p">,</span> <span class="n">J</span><span class="o">.</span><span class="p">,</span> <span class="n">Gonzalez</span><span class="p">,</span> <span class="n">M</span><span class="o">.</span><span class="p">,</span> <span class="o">&amp;</span> <span class="n">Thompson</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span> <span class="p">(</span><span class="mi">2024</span><span class="p">)</span><span class="o">.</span> 
+<span class="n">Open</span> <span class="n">Source</span> <span class="n">Survey</span> <span class="n">Results</span> <span class="mi">2024</span><span class="p">:</span> <span class="n">Usage</span> <span class="n">Patterns</span> <span class="ow">and</span> <span class="n">Community</span> <span class="n">Engagement</span><span class="o">.</span> 
+<span class="n">University</span> <span class="n">of</span> <span class="n">Wisconsin</span><span class="o">-</span><span class="n">Madison</span> <span class="n">Data</span> <span class="n">Science</span> <span class="n">Institute</span><span class="o">.</span> 
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">doi</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="mf">10.5281</span><span class="o">/</span><span class="n">zenodo</span><span class="mf">.8234567</span>
+</pre></div>
+</div>
+</section>
+<section id="bibtex-entry">
+<h3>Bibtex Entry<a class="headerlink" href="#bibtex-entry" title="Link to this heading">#</a></h3>
+<div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@techreport</span><span class="p">{</span><span class="nl">chen2024opensource</span><span class="p">,</span>
+<span class="w">  </span><span class="na">title</span><span class="p">=</span><span class="s">{Open Source Survey Results 2024: Usage Patterns and Community Engagement}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">author</span><span class="p">=</span><span class="s">{Chen, Sarah and Rodriguez, Michael and Park, Lisa and Wilson, James and Gonzalez, Maria and Thompson, Alex}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">institution</span><span class="p">=</span><span class="s">{University of Wisconsin-Madison Data Science Institute}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">year</span><span class="p">=</span><span class="s">{2024}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">doi</span><span class="p">=</span><span class="s">{10.5281/zenodo.8234567}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">url</span><span class="p">=</span><span class="s">{https://github.com/UW-Madison-DSI/open_source_survey_results}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="contact-information">
+<h2>Contact Information<a class="headerlink" href="#contact-information" title="Link to this heading">#</a></h2>
+<section id="research-inquiries">
+<h3>Research Inquiries<a class="headerlink" href="#research-inquiries" title="Link to this heading">#</a></h3>
+<p>For questions about methodology, data access, or collaboration opportunities:</p>
+<p>📧 <strong><a class="reference external" href="mailto:opensourcesurvey&#37;&#52;&#48;datascience&#46;wisc&#46;edu">opensourcesurvey<span>&#64;</span>datascience<span>&#46;</span>wisc<span>&#46;</span>edu</a></strong></p>
+</section>
+<section id="media-press">
+<h3>Media &amp; Press<a class="headerlink" href="#media-press" title="Link to this heading">#</a></h3>
+<p>For interviews, press releases, or media inquiries:</p>
+<p>📧 <strong><a class="reference external" href="mailto:media&#37;&#52;&#48;datascience&#46;wisc&#46;edu">media<span>&#64;</span>datascience<span>&#46;</span>wisc<span>&#46;</span>edu</a></strong><br />
+📞 (608) 262-1234</p>
+</section>
+<section id="technical-support">
+<h3>Technical Support<a class="headerlink" href="#technical-support" title="Link to this heading">#</a></h3>
+<p>For issues with data downloads, code repositories, or technical questions:</p>
+<p>🐛 <a class="reference external" href="https://github.com/UW-Madison-DSI/open_source_survey_results/issues">GitHub Issues</a></p>
+</section>
+</section>
+<section id="acknowledgments">
+<h2>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Link to this heading">#</a></h2>
+<section id="survey-participants">
+<h3>Survey Participants<a class="headerlink" href="#survey-participants" title="Link to this heading">#</a></h3>
+<p>We extend our deepest gratitude to the 1,247 individuals who took time to complete our survey and share their experiences with the open source community.</p>
+</section>
+<section id="community-partners">
+<h3>Community Partners<a class="headerlink" href="#community-partners" title="Link to this heading">#</a></h3>
+<p>Special thanks to the organizations and communities that helped promote the survey:</p>
+<ul class="simple">
+<li><p><strong>GitHub</strong> - Survey promotion through developer newsletters</p></li>
+<li><p><strong>Stack Overflow</strong> - Community outreach and promotion</p></li>
+<li><p><strong>Reddit communities</strong> - r/opensource, r/programming, r/MachineLearning moderators</p></li>
+<li><p><strong>Academic conferences</strong> - Survey promotion at SciPy, useR!, and PyData events</p></li>
+<li><p><strong>Professional associations</strong> - ACM, IEEE Computer Society member outreach</p></li>
+</ul>
+</section>
+<section id="technical-infrastructure">
+<h3>Technical Infrastructure<a class="headerlink" href="#technical-infrastructure" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Qualtrics</strong> - Survey platform and data collection tools</p></li>
+<li><p><strong>GitHub</strong> - Code repository and collaboration platform</p></li>
+<li><p><strong>Zenodo</strong> - Long-term data archiving and DOI assignment</p></li>
+<li><p><strong>Jupyter Book</strong> - Documentation and report generation</p></li>
+<li><p><strong>UW-Madison IT</strong> - Computing resources and data security</p></li>
+</ul>
+</section>
+<section id="feedback-review">
+<h3>Feedback &amp; Review<a class="headerlink" href="#feedback-review" title="Link to this heading">#</a></h3>
+<p>We thank the following individuals for their valuable feedback on survey design and analysis:</p>
+<ul class="simple">
+<li><p>Dr. Amanda Johnson (Carnegie Mellon University)</p></li>
+<li><p>Prof. David Kim (UC Berkeley)</p></li>
+<li><p>Dr. Rachel Thompson (MIT)</p></li>
+<li><p>The NumFOCUS Research Committee</p></li>
+<li><p>Open source maintainers who participated in pilot testing</p></li>
+</ul>
+</section>
+</section>
+<section id="license-terms">
+<h2>License &amp; Terms<a class="headerlink" href="#license-terms" title="Link to this heading">#</a></h2>
+<section id="content-license">
+<h3>Content License<a class="headerlink" href="#content-license" title="Link to this heading">#</a></h3>
+<p>This report and associated materials are licensed under:</p>
+<p><strong>Creative Commons Attribution 4.0 International (CC BY 4.0)</strong></p>
+<p>You are free to:</p>
+<ul class="simple">
+<li><p>Share, copy and redistribute the material</p></li>
+<li><p>Adapt, remix, transform, and build upon the material</p></li>
+<li><p>Use for any purpose, including commercially</p></li>
+</ul>
+<p>Under the following terms:</p>
+<ul class="simple">
+<li><p><strong>Attribution</strong>: You must give appropriate credit and indicate if changes were made</p></li>
+</ul>
+</section>
+<section id="code-license">
+<h3>Code License<a class="headerlink" href="#code-license" title="Link to this heading">#</a></h3>
+<p>Analysis code and software are licensed under:</p>
+<p><strong>MIT License</strong></p>
+<p>Permission is hereby granted to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, subject to copyright notice and permission notice inclusion.</p>
+</section>
+<section id="data-license">
+<h3>Data License<a class="headerlink" href="#data-license" title="Link to this heading">#</a></h3>
+<p>Survey data is provided under:</p>
+<p><strong>ODC Open Database License (ODbL)</strong></p>
+<p>Data is freely available for any purpose, provided you:</p>
+<ul class="simple">
+<li><p>Attribute the original dataset</p></li>
+<li><p>Share any enhanced or derivative datasets under the same license</p></li>
+<li><p>Keep the data open</p></li>
+</ul>
+</section>
+</section>
+<section id="version-history">
+<h2>Version History<a class="headerlink" href="#version-history" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>v1.0.0</strong> (June 2024) - Initial report release</p></li>
+<li><p><strong>v1.1.0</strong> (July 2024) - Added geographic analysis and updated visualizations</p></li>
+<li><p><strong>v1.2.0</strong> (August 2024) - Included qualitative analysis and trend predictions</p></li>
+<li><p><strong>v2.0.0</strong> (September 2024) - Major revision with peer review integration</p></li>
+</ul>
+<hr class="docutils" />
+<p><em>This project embodies our commitment to open, reproducible, and community-driven research. We welcome feedback, collaboration, and contributions from the global open source community.</em></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="figures.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data Visualizations</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-overview">Project Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mission-statement">Mission Statement</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-team">Research Team</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-investigators">Principal Investigators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#research-team-members">Research Team Members</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#institutional-partners">Institutional Partners</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-sponsor">Primary Sponsor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#collaborating-organizations">Collaborating Organizations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funding-support">Funding &amp; Support</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-availability-access">Data Availability &amp; Access</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-data-commitment">Open Data Commitment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-use-guidelines">Data Use Guidelines</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducibility">Reproducibility</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-practices">Open Science Practices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-repository">Code Repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-environment">Computing Environment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#publication-dissemination">Publication &amp; Dissemination</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#academic-publications">Academic Publications</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conference-presentations">Conference Presentations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#community-outreach">Community Outreach</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-cite-this-work">How to Cite This Work</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#academic-citation">Academic Citation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bibtex-entry">Bibtex Entry</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contact-information">Contact Information</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#research-inquiries">Research Inquiries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#media-press">Media &amp; Press</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-support">Technical Support</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">Acknowledgments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#survey-participants">Survey Participants</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#community-partners">Community Partners</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-infrastructure">Technical Infrastructure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feedback-review">Feedback &amp; Review</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-terms">License &amp; Terms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#content-license">Content License</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-license">Code License</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-license">Data License</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-history">Version History</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By UW-Madison Data Science Institute
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
