@@ -34,11 +34,12 @@ jobs:
         with:
           python-version: '3.11'
           cache: 'pip'
+          cache-dependency-path: 'docs/requirements.txt'  # <— tell it where to hash
 
-      - name: Install Jupyter Book
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install jupyter-book
+          pip install -r docs/requirements.txt
 
       - name: Build Jupyter Book
         working-directory: docs
