@@ -8,6 +8,9 @@ copyright: "2024"
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: "auto"   # or "force" while debugging
+parse:
+  myst_enable_extensions:
+    - colon_fence
 html:
   remove_input_tags: ["remove-input"]  # so our per-cell tags hide code
 

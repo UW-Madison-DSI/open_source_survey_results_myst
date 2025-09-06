@@ -12,6 +12,7 @@ kernelspec:
 # Perceptions of Open Source Culture On Campus
 
 ```{code-cell} ipython3
+:tags: [hide-input]
 # Imports
 import pandas as pd
 import plotly.express as px
@@ -42,6 +43,7 @@ print(f"Percentage who find vibrant culture 'Very valuable': {very_valuable_pct}
 ## Value of Open Source Culture
 
 ```{code-cell} ipython3
+:tags: [hide-input]
 # ----- Figure 1: "Value of a vibrant culture" by Respondent Type -----
 
 # Map / order categories to match your R code
