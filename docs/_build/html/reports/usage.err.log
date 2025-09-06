@@ -36,31 +36,90 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-fig3 = px.bar(
-    f3_df, x="QID12", y="Percent",
-    color="Respondent Type",
-    barmode="stack"
-)
-fig3.update_layout(
-    yaxis=dict(tickformat=".1%"),
-    xaxis_title="",
+df = survey_results
+os_tools_pct = prop(df["QID13"], lambda s: s == "Yes")
+print(f"{os_tools_pct}% of respondents identified open source tools that are key in their workflows or their fields.")
+# Text processing for word frequency analysis
+rm_terms = {
+    'open', 'and', 'source', 'analysis', 'use', 'used', 'data', 'many', 'software',
+    'programming', 'language', 'languages', 'tools', 'code', 'etc', 'package',
+    'packages', 'list', 'everything', 'including', 'libraries', 'like',
+    'various', 'research', 'statistical', 'ecosystem', 'opensource', 'web',
+    'google', 'system', 'compilers', 'academy', 'numerous', 'systems'
+}
+
+def clean_text(text):
+    if pd.isna(text):
+        return ""
+    # Convert to lowercase and remove punctuation
+    text = re.sub(r'[^\w\s]', ' ', text.lower())
+    # Split into words and filter
+    words = [word for word in text.split() 
+             if word not in rm_terms and len(word) > 2]
+    return ' '.join(words)
+
+# Process text responses
+tools_text = df['QID15'].dropna().apply(clean_text)
+all_words = ' '.join(tools_text).split()
+word_freq = Counter(all_words)
+
+# Create dataframe for plotting
+tools_highlight = ['python', 'r', 'julia', 'git', 'latex']
+top_25_words = dict(word_freq.most_common(25))
+
+tools_df = pd.DataFrame([
+    {'word': word, 'freq': freq, 'pct': freq / len(df)}
+    for word, freq in top_25_words.items()
+    if word != '•'
+]).sort_values('freq')
+
+# Create lollipop plot
+fig4 = go.Figure()
+
+colors = ['#1f77b4' if word in tools_highlight else '#7f7f7f' 
+          for word in tools_df['word']]
+
+fig4.add_trace(go.Scatter(
+    x=tools_df['pct'],
+    y=tools_df['word'],
+    mode='markers+lines',
+    marker=dict(size=8, color=colors),
+    line=dict(color='lightgray', width=1),
+    orientation='h',
+    hovertemplate='Tool: %{y}<br>Percent: %{x:.2%}<extra></extra>'
+))
+
+# Add line segments
+for i, row in tools_df.iterrows():
+    fig4.add_shape(
+        type="line",
+        x0=0, x1=row['pct'],
+        y0=row['word'], y1=row['word'],
+        line=dict(color=colors[i], width=2)
+    )
+
+fig4.update_layout(
+    xaxis=dict(
+        title="Responses Identifying Open Source Tool Use",
+        tickformat='.0%'
+    ),
+    yaxis_title="",
+    showlegend=False,
     plot_bgcolor="white",
     paper_bgcolor="white"
 )
-fig3.show()
-fig3.write_html('_static/familiarity_educational.html', full_html=False, include_plotlyjs='cdn')
-
-
-os_tools_pct = prop(df["QID13"], lambda s: s == "Yes")
+fig4.show()
+fig4.write_html('_static/tools_lollipop.html', full_html=False, include_plotlyjs='cdn')
 ------------------
 
 
 [31m---------------------------------------------------------------------------[39m
 [31mNameError[39m                                 Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[5][39m[32m, line 16[39m
-[32m     12[39m fig3.show()
-[32m     13[39m fig3.write_html([33m'[39m[33m_static/familiarity_educational.html[39m[33m'[39m, full_html=[38;5;28;01mFalse[39;00m, include_plotlyjs=[33m'[39m[33mcdn[39m[33m'[39m)
-[32m---> [39m[32m16[39m os_tools_pct = [43mprop[49m[43m([49m[43mdf[49m[43m[[49m[33;43m"[39;49m[33;43mQID13[39;49m[33;43m"[39;49m[43m][49m[43m,[49m[43m [49m[38;5;28;43;01mlambda[39;49;00m[43m [49m[43ms[49m[43m:[49m[43m [49m[43ms[49m[43m [49m[43m==[49m[43m [49m[33;43m"[39;49m[33;43mYes[39;49m[33;43m"[39;49m[43m)[49m
+[36mCell[39m[36m [39m[32mIn[6][39m[32m, line 2[39m
+[32m      1[39m df = survey_results
+[32m----> [39m[32m2[39m os_tools_pct = [43mprop[49m[43m([49m[43mdf[49m[43m[[49m[33;43m"[39;49m[33;43mQID13[39;49m[33;43m"[39;49m[43m][49m[43m,[49m[43m [49m[38;5;28;43;01mlambda[39;49;00m[43m [49m[43ms[49m[43m:[49m[43m [49m[43ms[49m[43m [49m[43m==[49m[43m [49m[33;43m"[39;49m[33;43mYes[39;49m[33;43m"[39;49m[43m)[49m
+[32m      3[39m [38;5;28mprint[39m([33mf[39m[33m"[39m[38;5;132;01m{[39;00mos_tools_pct[38;5;132;01m}[39;00m[33m% of respondents identified open source tools that are key in their workflows or their fields.[39m[33m"[39m)
+[32m      4[39m [38;5;66;03m# Text processing for word frequency analysis[39;00m
 
 [36mFile [39m[32m~/Documents/DSI/2026/open_source_survey_results_myst/docs/setup.py:108[39m, in [36mprop[39m[34m(series, condition)[39m
 [32m    106[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mprop[39m(series, condition):

@@ -100,15 +100,3 @@ __all__ = [
     "survey_template", "survey_results",
     "prop", "fill_unaffiliated",
 ]
-
-
-# Helper: safe proportion
-def prop(series, condition):
-    series = series.dropna()
-    if len(df) == 0:
-        return 0.0
-    return round((series[condition(series)].shape[0]) / len(df), 2) * 100
-
-# Clean label helpers
-def fill_unaffiliated(x):
-    return "Unaffiliated" if pd.isna(x) else x

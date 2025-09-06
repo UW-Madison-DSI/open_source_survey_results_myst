@@ -157,9 +157,6 @@ fig3.update_layout(
 )
 fig3.show()
 fig3.write_html('_static/familiarity_educational.html', full_html=False, include_plotlyjs='cdn')
-
-
-os_tools_pct = prop(df["QID13"], lambda s: s == "Yes")
 ```
 
 ```{raw} html
@@ -174,6 +171,8 @@ Tools respondents identified included:
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
+os_tools_pct = prop(df["QID13"], lambda s: s == "Yes")
 print(f"{os_tools_pct}% of respondents identified open source tools that are key in their workflows or their fields.")
 # Text processing for word frequency analysis
 rm_terms = {
@@ -357,20 +356,22 @@ df_u1 = (
 )
 
 u1_df = (
-    df_u1.groupby(["QID40_clean_cat", "Respondent Type"], observed=True, dropna=False)
+    df_u1.groupby(["QID40_clean_cat", "Respondent Type"], 
+            observed=True, dropna=False)
          .size()
          .reset_index(name="Count")
 )
 
 fig6 = px.bar(
-    u1_df, x="QID40_clean_cat", y="Count",
-    color="Respondent Type",
-    barmode="stack"
+    u1_df,
+    x="QID40_clean_cat",
+    y="Count",
+    color="Respondent Type",   # <- will use template colorway
+    barmode="stack",
+    category_orders={"QID40_clean_cat": usage_order}  # keep your order
 )
 fig6.update_layout(
-    xaxis_title="",
-    plot_bgcolor="white",
-    paper_bgcolor="white"
+    xaxis_title=""
 )
 fig6.show()
 fig6.write_html('_static/usage_comparison.html', full_html=False, include_plotlyjs='cdn')

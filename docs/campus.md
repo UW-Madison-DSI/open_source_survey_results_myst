@@ -131,6 +131,7 @@ fig2.write_html('_static/fig2.html', full_html=False, include_plotlyjs='cdn')
 ```{code-cell} ipython3
 :tags: [remove-input]
 # Agreement about contributing to OSS being sensible for the university
+
 yes_pct = prop(df["QID19"], lambda s: s == "Yes")
 unsure_pct = prop(df["QID19"], lambda s: s == "Not sure")
 no_pct = prop(df["QID19"], lambda s: s == "No")

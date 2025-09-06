@@ -37,6 +37,7 @@ Traceback (most recent call last):
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
 # Agreement about contributing to OSS being sensible for the university
+df = survey_results
 yes_pct = prop(df["QID19"], lambda s: s == "Yes")
 unsure_pct = prop(df["QID19"], lambda s: s == "Not sure")
 no_pct = prop(df["QID19"], lambda s: s == "No")
@@ -50,11 +51,12 @@ print(f"- No: {no_pct}%")
 
 [31m---------------------------------------------------------------------------[39m
 [31mNameError[39m                                 Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[4][39m[32m, line 2[39m
+[36mCell[39m[36m [39m[32mIn[4][39m[32m, line 3[39m
 [32m      1[39m [38;5;66;03m# Agreement about contributing to OSS being sensible for the university[39;00m
-[32m----> [39m[32m2[39m yes_pct = [43mprop[49m[43m([49m[43mdf[49m[43m[[49m[33;43m"[39;49m[33;43mQID19[39;49m[33;43m"[39;49m[43m][49m[43m,[49m[43m [49m[38;5;28;43;01mlambda[39;49;00m[43m [49m[43ms[49m[43m:[49m[43m [49m[43ms[49m[43m [49m[43m==[49m[43m [49m[33;43m"[39;49m[33;43mYes[39;49m[33;43m"[39;49m[43m)[49m
-[32m      3[39m unsure_pct = prop(df[[33m"[39m[33mQID19[39m[33m"[39m], [38;5;28;01mlambda[39;00m s: s == [33m"[39m[33mNot sure[39m[33m"[39m)
-[32m      4[39m no_pct = prop(df[[33m"[39m[33mQID19[39m[33m"[39m], [38;5;28;01mlambda[39;00m s: s == [33m"[39m[33mNo[39m[33m"[39m)
+[32m      2[39m df = survey_results
+[32m----> [39m[32m3[39m yes_pct = [43mprop[49m[43m([49m[43mdf[49m[43m[[49m[33;43m"[39;49m[33;43mQID19[39;49m[33;43m"[39;49m[43m][49m[43m,[49m[43m [49m[38;5;28;43;01mlambda[39;49;00m[43m [49m[43ms[49m[43m:[49m[43m [49m[43ms[49m[43m [49m[43m==[49m[43m [49m[33;43m"[39;49m[33;43mYes[39;49m[33;43m"[39;49m[43m)[49m
+[32m      4[39m unsure_pct = prop(df[[33m"[39m[33mQID19[39m[33m"[39m], [38;5;28;01mlambda[39;00m s: s == [33m"[39m[33mNot sure[39m[33m"[39m)
+[32m      5[39m no_pct = prop(df[[33m"[39m[33mQID19[39m[33m"[39m], [38;5;28;01mlambda[39;00m s: s == [33m"[39m[33mNo[39m[33m"[39m)
 
 [36mFile [39m[32m~/Documents/DSI/2026/open_source_survey_results_myst/docs/setup.py:108[39m, in [36mprop[39m[34m(series, condition)[39m
 [32m    106[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mprop[39m(series, condition):
