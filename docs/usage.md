@@ -171,6 +171,9 @@ fig3.update_layout(
 )
 fig3.show()
 fig3.write_html('_static/familiarity_educational.html', full_html=False, include_plotlyjs='cdn')
+
+
+os_tools_pct = prop(df["QID13"], lambda s: s == "Yes")
 ```
 
 ```{raw} html
@@ -181,9 +184,7 @@ fig3.write_html('_static/familiarity_educational.html', full_html=False, include
 ## What Open Source Tools Do Respondents Use?
 
 ```{code-cell} ipython3
-
-os_tools_pct = prop(df["QID13"], lambda s: s == "Yes")
-print(f"**{os_tools_pct}%** of respondents identified open source tools that are key in their workflows or their fields.")
+print(f"{os_tools_pct}% of respondents identified open source tools that are key in their workflows or their fields.")
 ```
 
 Tools respondents identified included:
