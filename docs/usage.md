@@ -22,7 +22,6 @@ import plotly.graph_objects as go
 from pathlib import Path
 import plotly.io as pio
 import matplotlib as mpl
-from wordcloud import WordCloud
 import numpy as np
 from collections import Counter
 import re
@@ -123,11 +122,11 @@ fig1.update_layout(
     paper_bgcolor="white"
 )
 fig1.show()
-fig1.write_html('familiarity_software.html', full_html=False, include_plotlyjs='cdn')
+fig1.write_html('_static/familiarity_software.html', full_html=False, include_plotlyjs='cdn')
 ```
 
 ```{raw} html
-:file: familiarity_software.html
+:file: _static/familiarity_software.html
 ```
 
 [Arduino boards](https://www.arduino.cc/) are an example of open source hardware
@@ -147,11 +146,11 @@ fig2.update_layout(
     paper_bgcolor="white"
 )
 fig2.show()
-fig2.write_html('familiarity_hardware.html', full_html=False, include_plotlyjs='cdn')
+fig2.write_html('_static/familiarity_hardware.html', full_html=False, include_plotlyjs='cdn')
 ```
 
 ```{raw} html
-:file: familiarity_hardware.html
+:file: _static/familiarity_hardware.html
 ```
 
 [Khan Academy](https://www.khanacademy.org/) and [MIT OpenCourseWare](https://ocw.mit.edu/) are examples of open source educational materials.
@@ -171,11 +170,11 @@ fig3.update_layout(
     paper_bgcolor="white"
 )
 fig3.show()
-fig3.write_html('familiarity_educational.html', full_html=False, include_plotlyjs='cdn')
+fig3.write_html('_static/familiarity_educational.html', full_html=False, include_plotlyjs='cdn')
 ```
 
 ```{raw} html
-:file: familiarity_educational.html
+:file: _static/familiarity_educational.html
 ```
 
 
@@ -261,11 +260,11 @@ fig4.update_layout(
     paper_bgcolor="white"
 )
 fig4.show()
-fig4.write_html('tools_lollipop.html', full_html=False, include_plotlyjs='cdn')
+fig4.write_html('_static/tools_lollipop.html', full_html=False, include_plotlyjs='cdn')
 ```
 
 ```{raw} html
-:file: tools_lollipop.html
+:file: _static/tools_lollipop.html
 ```
 
 Note that these are respondents' answers so not all tools may actually be open-source tools.
@@ -331,11 +330,11 @@ fig5.update_layout(
     paper_bgcolor="white"
 )
 fig5.show()
-fig5.write_html('licensed_tools.html', full_html=False, include_plotlyjs='cdn')
+fig5.write_html('_static/licensed_tools.html', full_html=False, include_plotlyjs='cdn')
 ```
 
 ```{raw} html
-:file: licensed_tools.html
+:file: _static/licensed_tools.html
 ```
 
 ## Usage of Open Source Tools vs. Licensed Tools
@@ -390,9 +389,9 @@ fig6.update_layout(
     paper_bgcolor="white"
 )
 fig6.show()
-fig6.write_html('usage_comparison.html', full_html=False, include_plotlyjs='cdn')
+fig6.write_html('_static/usage_comparison.html', full_html=False, include_plotlyjs='cdn')
 ```
 
 ```{raw} html
-:file: usage_comparison.html
+:file: _static/usage_comparison.html
 ```
