@@ -35,3 +35,4 @@ pillow>=9.0.0
 
 jupytext
 ipykernel
+wordcloud
