@@ -14,7 +14,7 @@ kernelspec:
 ## Familiarity with Open Source Tools
 
 ```{code-cell} ipython3
-:tags: [remove-input]
+
 # Imports
 import pandas as pd
 import plotly.express as px
@@ -46,7 +46,7 @@ def fill_unaffiliated(x):
 We asked respondents how familiar they are with the concepts of open source...
 
 ```{code-cell} ipython3
-:tags: [remove-input]
+
 # Software familiarity
 familiarity_order = [
     'Extremely familiar',
@@ -105,12 +105,11 @@ f3_df = (
 f3_df["Percent"] = f3_df["Count"] / len(df)
 ```
 
-````{tab-set}
-```{tab-item} ...software
+
 Examples of open source software include [Python](https://www.python.org/) and [git](https://git-scm.com/)
 
 ```{code-cell} ipython3
-:tags: [remove-input]
+
 fig1 = px.bar(
     f1_df, x="QID11", y="Percent",
     color="Respondent Type",
@@ -124,19 +123,17 @@ fig1.update_layout(
     paper_bgcolor="white"
 )
 fig1.show()
-fig1.write_html('_static/familiarity_software.html', full_html=False, include_plotlyjs='cdn')
+fig1.write_html('familiarity_software.html', full_html=False, include_plotlyjs='cdn')
 ```
 
 ```{raw} html
-:file: _static/familiarity_software.html
-```
+:file: familiarity_software.html
 ```
 
-```{tab-item} ...hardware
 [Arduino boards](https://www.arduino.cc/) are an example of open source hardware
 
 ```{code-cell} ipython3
-:tags: [remove-input]
+
 fig2 = px.bar(
     f2_df, x="QID10", y="Percent",
     color="Respondent Type",
@@ -150,19 +147,17 @@ fig2.update_layout(
     paper_bgcolor="white"
 )
 fig2.show()
-fig2.write_html('_static/familiarity_hardware.html', full_html=False, include_plotlyjs='cdn')
+fig2.write_html('familiarity_hardware.html', full_html=False, include_plotlyjs='cdn')
 ```
 
 ```{raw} html
-:file: _static/familiarity_hardware.html
-```
+:file: familiarity_hardware.html
 ```
 
-```{tab-item} ...educational materials
 [Khan Academy](https://www.khanacademy.org/) and [MIT OpenCourseWare](https://ocw.mit.edu/) are examples of open source educational materials.
 
 ```{code-cell} ipython3
-:tags: [remove-input]
+
 fig3 = px.bar(
     f3_df, x="QID12", y="Percent",
     color="Respondent Type",
@@ -176,19 +171,18 @@ fig3.update_layout(
     paper_bgcolor="white"
 )
 fig3.show()
-fig3.write_html('_static/familiarity_educational.html', full_html=False, include_plotlyjs='cdn')
+fig3.write_html('familiarity_educational.html', full_html=False, include_plotlyjs='cdn')
 ```
 
 ```{raw} html
-:file: _static/familiarity_educational.html
+:file: familiarity_educational.html
 ```
-```
-````
+
 
 ## What Open Source Tools Do Respondents Use?
 
 ```{code-cell} ipython3
-:tags: [remove-input]
+
 os_tools_pct = prop(df["QID13"], lambda s: s == "Yes")
 print(f"**{os_tools_pct}%** of respondents identified open source tools that are key in their workflows or their fields.")
 ```
@@ -196,7 +190,7 @@ print(f"**{os_tools_pct}%** of respondents identified open source tools that are
 Tools respondents identified included:
 
 ```{code-cell} ipython3
-:tags: [remove-input]
+
 # Text processing for word frequency analysis
 rm_terms = {
     'open', 'and', 'source', 'analysis', 'use', 'used', 'data', 'many', 'software',
@@ -267,11 +261,11 @@ fig4.update_layout(
     paper_bgcolor="white"
 )
 fig4.show()
-fig4.write_html('_static/tools_lollipop.html', full_html=False, include_plotlyjs='cdn')
+fig4.write_html('tools_lollipop.html', full_html=False, include_plotlyjs='cdn')
 ```
 
 ```{raw} html
-:file: _static/tools_lollipop.html
+:file: tools_lollipop.html
 ```
 
 Note that these are respondents' answers so not all tools may actually be open-source tools.
@@ -281,7 +275,7 @@ Note that these are respondents' answers so not all tools may actually be open-s
 We asked respondents which university-provided licensed software they use that are available in the university's software library.
 
 ```{code-cell} ipython3
-:tags: [remove-input]
+
 # Process licensed software responses
 licensed_highlight = ['Matlab', 'STATA']
 
@@ -337,11 +331,11 @@ fig5.update_layout(
     paper_bgcolor="white"
 )
 fig5.show()
-fig5.write_html('_static/licensed_tools.html', full_html=False, include_plotlyjs='cdn')
+fig5.write_html('licensed_tools.html', full_html=False, include_plotlyjs='cdn')
 ```
 
 ```{raw} html
-:file: _static/licensed_tools.html
+:file: licensed_tools.html
 ```
 
 ## Usage of Open Source Tools vs. Licensed Tools
@@ -349,7 +343,7 @@ fig5.write_html('_static/licensed_tools.html', full_html=False, include_plotlyjs
 Additionally, we asked respondents if they use open-source tools more than, as much as, or less than the licensed software provided by the university.
 
 ```{code-cell} ipython3
-:tags: [remove-input]
+
 # Clean and categorize usage comparison responses
 usage_mapping = {
     'I use open source software much more than the licensed software in CSL': 'Use OS more than licensed',
@@ -396,9 +390,9 @@ fig6.update_layout(
     paper_bgcolor="white"
 )
 fig6.show()
-fig6.write_html('_static/usage_comparison.html', full_html=False, include_plotlyjs='cdn')
+fig6.write_html('usage_comparison.html', full_html=False, include_plotlyjs='cdn')
 ```
 
 ```{raw} html
-:file: _static/usage_comparison.html
+:file: usage_comparison.html
 ```

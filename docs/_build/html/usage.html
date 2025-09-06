@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; Open Source Survey Results</title>
+    <title>Usage &#8212; Open Source Survey Results</title>
   
   
   
@@ -60,6 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'usage';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Sentiment Analysis of Open Source Survey" href="perceptions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +123,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -148,8 +147,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Open Source Survey Results - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Open Source Survey Results - Home"/>`);</script>
   
-    <p class="title logo__title">Open Source Survey Results</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -165,9 +170,11 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="reproduction.html">Reproducing the Survey</a></li>
 <li class="toctree-l1"><a class="reference internal" href="campus.html">Campus Culture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perceptions.html">Perceptions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Usage</a></li>
 </ul>
 
     </div>
@@ -370,7 +377,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Usage</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -379,9 +386,12 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#familiarity-with-open-source-tools">Familiarity with Open Source Tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-open-source-tools-do-respondents-use">What Open Source Tools Do Respondents Use?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-are-respondents-using-university-provided-licensed-software">How Are Respondents Using University-Provided Licensed Software?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-of-open-source-tools-vs-licensed-tools">Usage of Open Source Tools vs. Licensed Tools</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -392,7 +402,398 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  
+  <section class="tex2jax_ignore mathjax_ignore" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h1>
+<section id="familiarity-with-open-source-tools">
+<h2>Familiarity with Open Source Tools<a class="headerlink" href="#familiarity-with-open-source-tools" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.io</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpl</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">wordcloud</span><span class="w"> </span><span class="kn">import</span> <span class="n">WordCloud</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">setup</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="c1"># Load data (adjust path if needed)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">survey_results</span>
+
+<span class="c1"># Helper: safe proportion</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">prop</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">condition</span><span class="p">):</span>
+    <span class="n">series</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">((</span><span class="n">series</span><span class="p">[</span><span class="n">condition</span><span class="p">(</span><span class="n">series</span><span class="p">)]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="c1"># Clean label helpers</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fill_unaffiliated</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;Unaffiliated&quot;</span> <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">else</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span><span class="w"> </span><span class="nn">plotly.io</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pio</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpl</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="kn">from</span><span class="w"> </span><span class="nn">wordcloud</span><span class="w"> </span><span class="kn">import</span> <span class="n">WordCloud</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;wordcloud&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We asked respondents how familiar they are with the concepts of open source…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Software familiarity</span>
+<span class="n">familiarity_order</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Extremely familiar&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Very familiar&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Moderately familiar&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Slightly familiar&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Not familiar at all&#39;</span>
+<span class="p">]</span>
+
+<span class="c1"># Software (QID11)</span>
+<span class="n">df_f1</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span>
+        <span class="n">QID4</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;QID4&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">fill_unaffiliated</span><span class="p">),</span>
+        <span class="n">QID11</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;QID11&quot;</span><span class="p">],</span> <span class="n">categories</span><span class="o">=</span><span class="n">familiarity_order</span><span class="p">,</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;QID4&quot;</span><span class="p">:</span> <span class="s2">&quot;Respondent Type&quot;</span><span class="p">})</span>
+<span class="p">)</span>
+
+<span class="n">f1_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df_f1</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;QID11&quot;</span><span class="p">,</span> <span class="s2">&quot;Respondent Type&quot;</span><span class="p">],</span> <span class="n">observed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+         <span class="o">.</span><span class="n">size</span><span class="p">()</span>
+         <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">f1_df</span><span class="p">[</span><span class="s2">&quot;Percent&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">f1_df</span><span class="p">[</span><span class="s2">&quot;Count&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Hardware (QID10)</span>
+<span class="n">df_f2</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span>
+        <span class="n">QID4</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;QID4&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">fill_unaffiliated</span><span class="p">),</span>
+        <span class="n">QID10</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;QID10&quot;</span><span class="p">],</span> <span class="n">categories</span><span class="o">=</span><span class="n">familiarity_order</span><span class="p">,</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;QID4&quot;</span><span class="p">:</span> <span class="s2">&quot;Respondent Type&quot;</span><span class="p">})</span>
+<span class="p">)</span>
+
+<span class="n">f2_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df_f2</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;QID10&quot;</span><span class="p">,</span> <span class="s2">&quot;Respondent Type&quot;</span><span class="p">],</span> <span class="n">observed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+         <span class="o">.</span><span class="n">size</span><span class="p">()</span>
+         <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">f2_df</span><span class="p">[</span><span class="s2">&quot;Percent&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">f2_df</span><span class="p">[</span><span class="s2">&quot;Count&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Educational materials (QID12)</span>
+<span class="n">df_f3</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span>
+        <span class="n">QID4</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;QID4&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">fill_unaffiliated</span><span class="p">),</span>
+        <span class="n">QID12</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;QID12&quot;</span><span class="p">],</span> <span class="n">categories</span><span class="o">=</span><span class="n">familiarity_order</span><span class="p">,</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;QID4&quot;</span><span class="p">:</span> <span class="s2">&quot;Respondent Type&quot;</span><span class="p">})</span>
+<span class="p">)</span>
+
+<span class="n">f3_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df_f3</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;QID12&quot;</span><span class="p">,</span> <span class="s2">&quot;Respondent Type&quot;</span><span class="p">],</span> <span class="n">observed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+         <span class="o">.</span><span class="n">size</span><span class="p">()</span>
+         <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">f3_df</span><span class="p">[</span><span class="s2">&quot;Percent&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">f3_df</span><span class="p">[</span><span class="s2">&quot;Count&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Examples of open source software include <a class="reference external" href="https://www.python.org/">Python</a> and <a class="reference external" href="https://git-scm.com/">git</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig1</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+    <span class="n">f1_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;QID11&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Percent&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;Respondent Type&quot;</span><span class="p">,</span>
+    <span class="n">barmode</span><span class="o">=</span><span class="s2">&quot;stack&quot;</span><span class="p">,</span>
+    <span class="n">color_discrete_sequence</span><span class="o">=</span><span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">qualitative</span><span class="o">.</span><span class="n">Plotly</span>
+<span class="p">)</span>
+<span class="n">fig1</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+    <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">tickformat</span><span class="o">=</span><span class="s2">&quot;.1%&quot;</span><span class="p">),</span>
+    <span class="n">xaxis_title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+    <span class="n">paper_bgcolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span>
+<span class="p">)</span>
+<span class="n">fig1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">fig1</span><span class="o">.</span><span class="n">write_html</span><span class="p">(</span><span class="s1">&#39;familiarity_software.html&#39;</span><span class="p">,</span> <span class="n">full_html</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">include_plotlyjs</span><span class="o">=</span><span class="s1">&#39;cdn&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference external" href="https://www.arduino.cc/">Arduino boards</a> are an example of open source hardware</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig2</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+    <span class="n">f2_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;QID10&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Percent&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;Respondent Type&quot;</span><span class="p">,</span>
+    <span class="n">barmode</span><span class="o">=</span><span class="s2">&quot;stack&quot;</span><span class="p">,</span>
+    <span class="n">color_discrete_sequence</span><span class="o">=</span><span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">qualitative</span><span class="o">.</span><span class="n">Plotly</span>
+<span class="p">)</span>
+<span class="n">fig2</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+    <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">tickformat</span><span class="o">=</span><span class="s2">&quot;.1%&quot;</span><span class="p">),</span>
+    <span class="n">xaxis_title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+    <span class="n">paper_bgcolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span>
+<span class="p">)</span>
+<span class="n">fig2</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">fig2</span><span class="o">.</span><span class="n">write_html</span><span class="p">(</span><span class="s1">&#39;familiarity_hardware.html&#39;</span><span class="p">,</span> <span class="n">full_html</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">include_plotlyjs</span><span class="o">=</span><span class="s1">&#39;cdn&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference external" href="https://www.khanacademy.org/">Khan Academy</a> and <a class="reference external" href="https://ocw.mit.edu/">MIT OpenCourseWare</a> are examples of open source educational materials.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig3</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+    <span class="n">f3_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;QID12&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Percent&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;Respondent Type&quot;</span><span class="p">,</span>
+    <span class="n">barmode</span><span class="o">=</span><span class="s2">&quot;stack&quot;</span><span class="p">,</span>
+    <span class="n">color_discrete_sequence</span><span class="o">=</span><span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">qualitative</span><span class="o">.</span><span class="n">Plotly</span>
+<span class="p">)</span>
+<span class="n">fig3</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+    <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">tickformat</span><span class="o">=</span><span class="s2">&quot;.1%&quot;</span><span class="p">),</span>
+    <span class="n">xaxis_title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+    <span class="n">paper_bgcolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span>
+<span class="p">)</span>
+<span class="n">fig3</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">fig3</span><span class="o">.</span><span class="n">write_html</span><span class="p">(</span><span class="s1">&#39;familiarity_educational.html&#39;</span><span class="p">,</span> <span class="n">full_html</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">include_plotlyjs</span><span class="o">=</span><span class="s1">&#39;cdn&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="what-open-source-tools-do-respondents-use">
+<h2>What Open Source Tools Do Respondents Use?<a class="headerlink" href="#what-open-source-tools-do-respondents-use" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os_tools_pct</span> <span class="o">=</span> <span class="n">prop</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;QID13&quot;</span><span class="p">],</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;Yes&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;**</span><span class="si">{</span><span class="n">os_tools_pct</span><span class="si">}</span><span class="s2">%** of respondents identified open source tools that are key in their workflows or their fields.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tools respondents identified included:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Text processing for word frequency analysis</span>
+<span class="n">rm_terms</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;open&#39;</span><span class="p">,</span> <span class="s1">&#39;and&#39;</span><span class="p">,</span> <span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="s1">&#39;analysis&#39;</span><span class="p">,</span> <span class="s1">&#39;use&#39;</span><span class="p">,</span> <span class="s1">&#39;used&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;many&#39;</span><span class="p">,</span> <span class="s1">&#39;software&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;programming&#39;</span><span class="p">,</span> <span class="s1">&#39;language&#39;</span><span class="p">,</span> <span class="s1">&#39;languages&#39;</span><span class="p">,</span> <span class="s1">&#39;tools&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;etc&#39;</span><span class="p">,</span> <span class="s1">&#39;package&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;packages&#39;</span><span class="p">,</span> <span class="s1">&#39;list&#39;</span><span class="p">,</span> <span class="s1">&#39;everything&#39;</span><span class="p">,</span> <span class="s1">&#39;including&#39;</span><span class="p">,</span> <span class="s1">&#39;libraries&#39;</span><span class="p">,</span> <span class="s1">&#39;like&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;various&#39;</span><span class="p">,</span> <span class="s1">&#39;research&#39;</span><span class="p">,</span> <span class="s1">&#39;statistical&#39;</span><span class="p">,</span> <span class="s1">&#39;ecosystem&#39;</span><span class="p">,</span> <span class="s1">&#39;opensource&#39;</span><span class="p">,</span> <span class="s1">&#39;web&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;google&#39;</span><span class="p">,</span> <span class="s1">&#39;system&#39;</span><span class="p">,</span> <span class="s1">&#39;compilers&#39;</span><span class="p">,</span> <span class="s1">&#39;academy&#39;</span><span class="p">,</span> <span class="s1">&#39;numerous&#39;</span><span class="p">,</span> <span class="s1">&#39;systems&#39;</span>
+<span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">clean_text</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+    <span class="c1"># Convert to lowercase and remove punctuation</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^\w\s]&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+    <span class="c1"># Split into words and filter</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> 
+             <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">rm_terms</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+
+<span class="c1"># Process text responses</span>
+<span class="n">tools_text</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;QID15&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">clean_text</span><span class="p">)</span>
+<span class="n">all_words</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tools_text</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="n">word_freq</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">all_words</span><span class="p">)</span>
+
+<span class="c1"># Create dataframe for plotting</span>
+<span class="n">tools_highlight</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;julia&#39;</span><span class="p">,</span> <span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;latex&#39;</span><span class="p">]</span>
+<span class="n">top_25_words</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">word_freq</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>
+
+<span class="n">tools_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
+    <span class="p">{</span><span class="s1">&#39;word&#39;</span><span class="p">:</span> <span class="n">word</span><span class="p">,</span> <span class="s1">&#39;freq&#39;</span><span class="p">:</span> <span class="n">freq</span><span class="p">,</span> <span class="s1">&#39;pct&#39;</span><span class="p">:</span> <span class="n">freq</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)}</span>
+    <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">freq</span> <span class="ow">in</span> <span class="n">top_25_words</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">word</span> <span class="o">!=</span> <span class="s1">&#39;•&#39;</span>
+<span class="p">])</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;freq&#39;</span><span class="p">)</span>
+
+<span class="c1"># Create lollipop plot</span>
+<span class="n">fig4</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#1f77b4&#39;</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">tools_highlight</span> <span class="k">else</span> <span class="s1">&#39;#7f7f7f&#39;</span> 
+          <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">tools_df</span><span class="p">[</span><span class="s1">&#39;word&#39;</span><span class="p">]]</span>
+
+<span class="n">fig4</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">tools_df</span><span class="p">[</span><span class="s1">&#39;pct&#39;</span><span class="p">],</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">tools_df</span><span class="p">[</span><span class="s1">&#39;word&#39;</span><span class="p">],</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers+lines&#39;</span><span class="p">,</span>
+    <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">),</span>
+    <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">,</span>
+    <span class="n">hovertemplate</span><span class="o">=</span><span class="s1">&#39;Tool: %</span><span class="si">{y}</span><span class="s1">&lt;br&gt;Percent: %</span><span class="si">{x:.2%}</span><span class="s1">&lt;extra&gt;&lt;/extra&gt;&#39;</span>
+<span class="p">))</span>
+
+<span class="c1"># Add line segments</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">tools_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">fig4</span><span class="o">.</span><span class="n">add_shape</span><span class="p">(</span>
+        <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">,</span>
+        <span class="n">x0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">x1</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;pct&#39;</span><span class="p">],</span>
+        <span class="n">y0</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;word&#39;</span><span class="p">],</span> <span class="n">y1</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;word&#39;</span><span class="p">],</span>
+        <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="p">)</span>
+
+<span class="n">fig4</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+    <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Responses Identifying Open Source Tool Use&quot;</span><span class="p">,</span>
+        <span class="n">tickformat</span><span class="o">=</span><span class="s1">&#39;.0%&#39;</span>
+    <span class="p">),</span>
+    <span class="n">yaxis_title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+    <span class="n">paper_bgcolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span>
+<span class="p">)</span>
+<span class="n">fig4</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">fig4</span><span class="o">.</span><span class="n">write_html</span><span class="p">(</span><span class="s1">&#39;tools_lollipop.html&#39;</span><span class="p">,</span> <span class="n">full_html</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">include_plotlyjs</span><span class="o">=</span><span class="s1">&#39;cdn&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that these are respondents’ answers so not all tools may actually be open-source tools.</p>
+</section>
+<section id="how-are-respondents-using-university-provided-licensed-software">
+<h2>How Are Respondents Using University-Provided Licensed Software?<a class="headerlink" href="#how-are-respondents-using-university-provided-licensed-software" title="Link to this heading">#</a></h2>
+<p>We asked respondents which university-provided licensed software they use that are available in the university’s software library.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Process licensed software responses</span>
+<span class="n">licensed_highlight</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Matlab&#39;</span><span class="p">,</span> <span class="s1">&#39;STATA&#39;</span><span class="p">]</span>
+
+<span class="c1"># Split comma-separated responses and count</span>
+<span class="n">licensed_tools</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">response</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;QID17&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">():</span>
+    <span class="n">tools</span> <span class="o">=</span> <span class="p">[</span><span class="n">tool</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">tool</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">response</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)]</span>
+    <span class="n">licensed_tools</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">tools</span><span class="p">)</span>
+
+<span class="n">licensed_freq</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">licensed_tools</span><span class="p">)</span>
+<span class="n">licensed_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
+    <span class="p">{</span><span class="s1">&#39;tool&#39;</span><span class="p">:</span> <span class="n">tool</span><span class="p">,</span> <span class="s1">&#39;freq&#39;</span><span class="p">:</span> <span class="n">freq</span><span class="p">,</span> <span class="s1">&#39;pct&#39;</span><span class="p">:</span> <span class="n">freq</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)}</span>
+    <span class="k">for</span> <span class="n">tool</span><span class="p">,</span> <span class="n">freq</span> <span class="ow">in</span> <span class="n">licensed_freq</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="p">])</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;freq&#39;</span><span class="p">)</span>
+
+<span class="c1"># Handle None/NaN values</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">licensed_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+    <span class="n">licensed_df</span> <span class="o">=</span> <span class="n">licensed_df</span><span class="p">[</span><span class="n">licensed_df</span><span class="p">[</span><span class="s1">&#39;tool&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;nan&#39;</span><span class="p">]</span>
+
+<span class="c1"># Create lollipop plot for licensed tools</span>
+<span class="n">fig5</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+<span class="n">colors_licensed</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#1f77b4&#39;</span> <span class="k">if</span> <span class="n">tool</span> <span class="ow">in</span> <span class="n">licensed_highlight</span> <span class="k">else</span> <span class="s1">&#39;#7f7f7f&#39;</span> 
+                   <span class="k">for</span> <span class="n">tool</span> <span class="ow">in</span> <span class="n">licensed_df</span><span class="p">[</span><span class="s1">&#39;tool&#39;</span><span class="p">]]</span>
+
+<span class="n">fig5</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">licensed_df</span><span class="p">[</span><span class="s1">&#39;pct&#39;</span><span class="p">],</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">licensed_df</span><span class="p">[</span><span class="s1">&#39;tool&#39;</span><span class="p">],</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers+lines&#39;</span><span class="p">,</span>
+    <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors_licensed</span><span class="p">),</span>
+    <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">,</span>
+    <span class="n">hovertemplate</span><span class="o">=</span><span class="s1">&#39;Tool: %</span><span class="si">{y}</span><span class="s1">&lt;br&gt;Percent: %</span><span class="si">{x:.2%}</span><span class="s1">&lt;extra&gt;&lt;/extra&gt;&#39;</span>
+<span class="p">))</span>
+
+<span class="c1"># Add line segments</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">licensed_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">fig5</span><span class="o">.</span><span class="n">add_shape</span><span class="p">(</span>
+        <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">,</span>
+        <span class="n">x0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">x1</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;pct&#39;</span><span class="p">],</span>
+        <span class="n">y0</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;tool&#39;</span><span class="p">],</span> <span class="n">y1</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;tool&#39;</span><span class="p">],</span>
+        <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">colors_licensed</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="p">)</span>
+
+<span class="n">fig5</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+    <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Responses Identifying Licensed Tool Use&quot;</span><span class="p">,</span>
+        <span class="n">tickformat</span><span class="o">=</span><span class="s1">&#39;.0%&#39;</span>
+    <span class="p">),</span>
+    <span class="n">yaxis_title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+    <span class="n">paper_bgcolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span>
+<span class="p">)</span>
+<span class="n">fig5</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">fig5</span><span class="o">.</span><span class="n">write_html</span><span class="p">(</span><span class="s1">&#39;licensed_tools.html&#39;</span><span class="p">,</span> <span class="n">full_html</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">include_plotlyjs</span><span class="o">=</span><span class="s1">&#39;cdn&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="usage-of-open-source-tools-vs-licensed-tools">
+<h2>Usage of Open Source Tools vs. Licensed Tools<a class="headerlink" href="#usage-of-open-source-tools-vs-licensed-tools" title="Link to this heading">#</a></h2>
+<p>Additionally, we asked respondents if they use open-source tools more than, as much as, or less than the licensed software provided by the university.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clean and categorize usage comparison responses</span>
+<span class="n">usage_mapping</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;I use open source software much more than the licensed software in CSL&#39;</span><span class="p">:</span> <span class="s1">&#39;Use OS more than licensed&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;I use open source software much less than the licensed software in CSL&#39;</span><span class="p">:</span> <span class="s1">&#39;Use OS less than licensed&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;I use open source software about the same as the licensed software in CSL&#39;</span><span class="p">:</span> <span class="s1">&#39;About the same&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;N/A, I don</span><span class="se">\&#39;</span><span class="s1">t use either&#39;</span><span class="p">:</span> <span class="s1">&#39;Use neither&#39;</span>
+<span class="p">}</span>
+
+<span class="n">usage_order</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Use OS more than licensed&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;About the same&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Use OS less than licensed&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Use neither&#39;</span>
+<span class="p">]</span>
+
+<span class="n">df_u1</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span>
+        <span class="n">QID4</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;QID4&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">fill_unaffiliated</span><span class="p">),</span>
+        <span class="n">QID40_clean</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;QID40&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">usage_mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)),</span>
+        <span class="n">QID40_clean_cat</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span>
+            <span class="n">df</span><span class="p">[</span><span class="s2">&quot;QID40&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">usage_mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)),</span> 
+            <span class="n">categories</span><span class="o">=</span><span class="n">usage_order</span><span class="p">,</span> 
+            <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;QID4&quot;</span><span class="p">:</span> <span class="s2">&quot;Respondent Type&quot;</span><span class="p">})</span>
+<span class="p">)</span>
+
+<span class="n">u1_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df_u1</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;QID40_clean_cat&quot;</span><span class="p">,</span> <span class="s2">&quot;Respondent Type&quot;</span><span class="p">],</span> <span class="n">observed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+         <span class="o">.</span><span class="n">size</span><span class="p">()</span>
+         <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">fig6</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+    <span class="n">u1_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;QID40_clean_cat&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Count&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;Respondent Type&quot;</span><span class="p">,</span>
+    <span class="n">barmode</span><span class="o">=</span><span class="s2">&quot;stack&quot;</span><span class="p">,</span>
+    <span class="n">color_discrete_sequence</span><span class="o">=</span><span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">qualitative</span><span class="o">.</span><span class="n">Plotly</span>
+<span class="p">)</span>
+<span class="n">fig6</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+    <span class="n">xaxis_title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+    <span class="n">paper_bgcolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span>
+<span class="p">)</span>
+<span class="n">fig6</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">fig6</span><span class="o">.</span><span class="n">write_html</span><span class="p">(</span><span class="s1">&#39;usage_comparison.html&#39;</span><span class="p">,</span> <span class="n">full_html</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">include_plotlyjs</span><span class="o">=</span><span class="s1">&#39;cdn&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
@@ -423,6 +824,15 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="perceptions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Sentiment Analysis of Open Source Survey</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
@@ -438,9 +848,12 @@ document.write(`
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#familiarity-with-open-source-tools">Familiarity with Open Source Tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-open-source-tools-do-respondents-use">What Open Source Tools Do Respondents Use?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-are-respondents-using-university-provided-licensed-software">How Are Respondents Using University-Provided Licensed Software?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-of-open-source-tools-vs-licensed-tools">Usage of Open Source Tools vs. Licensed Tools</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
