@@ -4,12 +4,13 @@ title: Campus Culture
 
 # Perceptions of Open Source Culture On Campus
 
-```{code-cell} ipython3
+```{code-cell} python
 # Imports
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from pathlib import Path
+from myst_nb import glue
 
 # Load data (adjust path if needed)
 df = pd.read_csv("data/survey_data.csv")
@@ -27,11 +28,12 @@ def fill_unaffiliated(x):
 
 very_valuable_pct = prop(df["QID24"], lambda s: s == "Very valuable")
 print(f"Percentage who find vibrant culture 'Very valuable': {very_valuable_pct}%")
+
 ```
 
 ## Value of Open Source Culture
 
-```{code-cell} ipython3
+```{code-cell} python
 # ----- Figure 1: "Value of a vibrant culture" by Respondent Type -----
 
 # Map / order categories to match your R code
@@ -69,7 +71,8 @@ fig1.update_layout(
     plot_bgcolor="white",
     paper_bgcolor="white"
 )
-fig1.show()
+
+glue("test", fig1, display=False)
 ```
 
 ## Current Campus Culture Perception

@@ -4,12 +4,16 @@ title: Campus Culture
 
 # Perceptions of Open Source Culture On Campus
 
-```{code-cell} ipython3
+```{code-cell} python
 # Imports
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from pathlib import Path
+from myst_nb import glue
+import plotly.io as pio
+pio.renderers.default = "plotly_mimetype"   # good default for Jupyter Book/Sphinx
+
 
 # Load data (adjust path if needed)
 df = pd.read_csv("data/survey_data.csv")
@@ -27,11 +31,12 @@ def fill_unaffiliated(x):
 
 very_valuable_pct = prop(df["QID24"], lambda s: s == "Very valuable")
 print(f"Percentage who find vibrant culture 'Very valuable': {very_valuable_pct}%")
+
 ```
 
 ## Value of Open Source Culture
 
-```{code-cell} ipython3
+```{code-cell} python
 # ----- Figure 1: "Value of a vibrant culture" by Respondent Type -----
 
 # Map / order categories to match your R code
@@ -57,18 +62,14 @@ c1_df = (
 )
 c1_df["Percent"] = c1_df["Count"] / len(df)
 
+
 fig1 = px.bar(
     c1_df, x="QID24", y="Percent",
     color="Respondent Type",
     barmode="stack",
     title='"Do you see value in having a vibrant culture around open source software?"'
 )
-fig1.update_layout(
-    yaxis=dict(tickformat=".1%"),
-    xaxis_title="",
-    plot_bgcolor="white",
-    paper_bgcolor="white"
-)
+fig1.update_layout(yaxis=dict(tickformat=".1%"), xaxis_title="", plot_bgcolor="white", paper_bgcolor="white")
 fig1.show()
 ```
 
