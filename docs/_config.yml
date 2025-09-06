@@ -18,10 +18,14 @@ latex:
 bibtex_bibfiles:
   - references.bib
 
+myst_substitutions:
+  uni_name: "University of Wisconsin–Madison"
+  today: "September 2025"   # or keep this current by updating when you build
+
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/UW-Madison-DSI/open_source_survey_results
-  path_to_book: docs
+  url: https://github.com/UW-Madison-DSI/open_source_survey_results_myst
+  path_to_book: "."
   branch: main
 
 # Add GitHub buttons to your book
@@ -52,7 +56,7 @@ parse:
 sphinx:
   config:
     html_theme_options:
-      repository_url: https://github.com/UW-Madison-DSI/open_source_survey_results
+      repository_url: https://github.com/UW-Madison-DSI/open_source_survey_results_myst
       use_repository_button: true
       use_issues_button: true
       use_edit_page_button: true

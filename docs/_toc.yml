@@ -4,10 +4,15 @@
 format: jb-book
 root: index
 chapters:
-- file: data_overview
-- file: methodology
-- file: results
-- file: figures
-#- file: campus
-- file: sentiment
-#- file: usage
+  - file: sample
+    title: Results
+  - file: perceptions
+    title: Perceptions
+  - file: usage
+    title: Usage
+  - file: sentiments
+    title: Demographics   # if this page is actually perceptions/sentiment, consider renaming the file later
+  - file: campus
+    title: Campus Culture
+  - file: reproduction
+    title: Reproducing the Survey
