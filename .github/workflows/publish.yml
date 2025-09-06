@@ -1,4 +1,4 @@
-name: Deploy Jupyter Book to GitHub Pages
+name: Deploy MyST to GitHub Pages
 
 on:
   push:
@@ -12,6 +12,12 @@ permissions:
 concurrency:
   group: pages
   cancel-in-progress: false
+
+env:
+  # Configure base URL for your site
+  # For custom domain: BASE_URL: ''
+  # For github.io subdomain: BASE_URL: /${{ github.event.repository.name }}
+  BASE_URL: /${{ github.event.repository.name }}
 
 jobs:
   deploy:
@@ -27,26 +33,30 @@ jobs:
         with:
           enablement: true
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          python-version: '3.11'
-          cache: 'pip'
-          cache-dependency-path: 'docs/requirements.txt'
+          node-version: '18.x'
 
-      - name: Install dependencies
+      - name: Install MyST Markdown
+        run: npm install -g mystmd
+
+      - name: Build MyST site
+        run: myst build --html
+
+      - name: List build structure (for debugging)
         run: |
-          python -m pip install --upgrade pip
-          pip install -r docs/requirements.txt
-
-      - name: Build Jupyter Book
-        working-directory: docs
-        run: jupyter-book build .
+          echo "Build directory contents:"
+          ls -la _build/ || echo "No _build directory found"
+          if [ -d "_build/html" ]; then
+            echo "HTML build contents:"
+            ls -la _build/html/
+          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/_build/html
+          path: '_build/html'
 
       - name: Deploy to GitHub Pages
         id: deployment
