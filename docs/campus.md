@@ -24,22 +24,9 @@ import plotly.io as pio
 import matplotlib as mpl
 
 from setup import *
-# Load data (adjust path if needed)
+
 df = survey_results
 
-# Helper: safe proportion
-def prop(series, condition):
-    series = series.dropna()
-    if len(df) == 0:
-        return 0.0
-    return round((series[condition(series)].shape[0]) / len(df), 2) * 100
-
-# Clean label helpers
-def fill_unaffiliated(x):
-    return "Unaffiliated" if pd.isna(x) else x
-
-very_valuable_pct = prop(df["QID24"], lambda s: s == "Very valuable")
-print(f"Percentage who find vibrant culture 'Very valuable': {very_valuable_pct}%")
 
 # ----- Figure 1: "Value of a vibrant culture" by Respondent Type -----
 
@@ -91,9 +78,6 @@ fig1.write_html('_static/plotly_example.html', full_html=False, include_plotlyjs
 ```{code-cell} ipython3
 :tags: [remove-input]
 agree_options = {"Strongly agree", "Somewhat agree"}
-vibrant_agree_pct = prop(df["QID23"], lambda s: s.isin(agree_options))
-
-print(f"In comparison, only **{vibrant_agree_pct}%** agreed that there is a vibrant open source culture at the university.")
 ```
 
 ```{code-cell} ipython3

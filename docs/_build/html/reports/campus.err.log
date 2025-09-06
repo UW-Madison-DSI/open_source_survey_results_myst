@@ -36,208 +36,32 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# Imports
-import pandas as pd
-import plotly.express as px
-import plotly.graph_objects as go
-from pathlib import Path
-import plotly.io as pio
-import matplotlib as mpl
+# Agreement about contributing to OSS being sensible for the university
+yes_pct = prop(df["QID19"], lambda s: s == "Yes")
+unsure_pct = prop(df["QID19"], lambda s: s == "Not sure")
+no_pct = prop(df["QID19"], lambda s: s == "No")
 
-from setup import *
-# Load data (adjust path if needed)
-df = survey_results
-
-# Helper: safe proportion
-def prop(series, condition):
-    series = series.dropna()
-    if len(df) == 0:
-        return 0.0
-    return round((series[condition(series)].shape[0]) / len(df), 2) * 100
-
-# Clean label helpers
-def fill_unaffiliated(x):
-    return "Unaffiliated" if pd.isna(x) else x
-
-very_valuable_pct = prop(df["QID24"], lambda s: s == "Very valuable")
-print(f"Percentage who find vibrant culture 'Very valuable': {very_valuable_pct}%")
+print(f"Should the university contribute to open source:")
+print(f"- Yes: {yes_pct}%")
+print(f"- Not sure: {unsure_pct}%") 
+print(f"- No: {no_pct}%")
 ------------------
 
 
 [31m---------------------------------------------------------------------------[39m
-[31mValueError[39m                                Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 9[39m
-[32m      6[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mplotly[39;00m[34;01m.[39;00m[34;01mio[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[34;01mpio[39;00m
-[32m      7[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mmatplotlib[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[34;01mmpl[39;00m
-[32m----> [39m[32m9[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01msetup[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m *
-[32m     10[39m [38;5;66;03m# Load data (adjust path if needed)[39;00m
-[32m     11[39m df = survey_results
+[31mNameError[39m                                 Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[4][39m[32m, line 2[39m
+[32m      1[39m [38;5;66;03m# Agreement about contributing to OSS being sensible for the university[39;00m
+[32m----> [39m[32m2[39m yes_pct = [43mprop[49m[43m([49m[43mdf[49m[43m[[49m[33;43m"[39;49m[33;43mQID19[39;49m[33;43m"[39;49m[43m][49m[43m,[49m[43m [49m[38;5;28;43;01mlambda[39;49;00m[43m [49m[43ms[49m[43m:[49m[43m [49m[43ms[49m[43m [49m[43m==[49m[43m [49m[33;43m"[39;49m[33;43mYes[39;49m[33;43m"[39;49m[43m)[49m
+[32m      3[39m unsure_pct = prop(df[[33m"[39m[33mQID19[39m[33m"[39m], [38;5;28;01mlambda[39;00m s: s == [33m"[39m[33mNot sure[39m[33m"[39m)
+[32m      4[39m no_pct = prop(df[[33m"[39m[33mQID19[39m[33m"[39m], [38;5;28;01mlambda[39;00m s: s == [33m"[39m[33mNo[39m[33m"[39m)
 
-[36mFile [39m[32m~/Documents/DSI/2026/open_source_survey_results_myst/docs/setup.py:17[39m
-[32m     13[39m UNI_NAME           = [33m"[39m[33mUW-Madison[39m[33m"[39m
-[32m     15[39m [38;5;66;03m# ===== Plotly theme (rough analog to your ggplot2 themes) =====[39;00m
-[32m     16[39m [38;5;66;03m# See: https://plotly.com/python/templates/[39;00m
-[32m---> [39m[32m17[39m [43mpio[49m[43m.[49m[43mtemplates[49m[43m[[49m[33;43m"[39;49m[33;43muw_theme[39;49m[33;43m"[39;49m[43m][49m = pio.templates[[33m"[39m[33mplotly_white[39m[33m"[39m].layout.update(
-[32m     18[39m     {
-[32m     19[39m         [33m"[39m[33mfont[39m[33m"[39m: {[33m"[39m[33mfamily[39m[33m"[39m: [33m"[39m[33mRed Hat Text, Arial, sans-serif[39m[33m"[39m},
-[32m     20[39m         [33m"[39m[33mpaper_bgcolor[39m[33m"[39m: BACKGROUND_COLOR,
-[32m     21[39m         [33m"[39m[33mplot_bgcolor[39m[33m"[39m: BACKGROUND_COLOR,
-[32m     22[39m         [33m"[39m[33mcolorway[39m[33m"[39m: [PRIMARY_COLOR, [33m"[39m[33m#666666[39m[33m"[39m, [33m"[39m[33m#B60205[39m[33m"[39m, [33m"[39m[33m#8c1515[39m[33m"[39m, [33m"[39m[33m#9c9c9c[39m[33m"[39m],
-[32m     23[39m         [33m"[39m[33mlegend[39m[33m"[39m: {[33m"[39m[33morientation[39m[33m"[39m: [33m"[39m[33mh[39m[33m"[39m, [33m"[39m[33myanchor[39m[33m"[39m: [33m"[39m[33mbottom[39m[33m"[39m, [33m"[39m[33my[39m[33m"[39m: -[32m0.2[39m},
-[32m     24[39m         [33m"[39m[33mxaxis[39m[33m"[39m: {[33m"[39m[33mgridcolor[39m[33m"[39m: [33m"[39m[33mrgba(0,0,0,0)[39m[33m"[39m},
-[32m     25[39m         [33m"[39m[33myaxis[39m[33m"[39m: {[33m"[39m[33mgridcolor[39m[33m"[39m: DARK_ACCENT},
-[32m     26[39m     }
-[32m     27[39m )
-[32m     28[39m pio.templates.default = [33m"[39m[33muw_theme[39m[33m"[39m
-[32m     30[39m [38;5;66;03m# ===== Matplotlib defaults (if you make static figures too) =====[39;00m
-[32m     31[39m [38;5;66;03m# rcParams guide: https://matplotlib.org/stable/users/explain/customizing.html[39;00m
+[36mFile [39m[32m~/Documents/DSI/2026/open_source_survey_results_myst/docs/setup.py:108[39m, in [36mprop[39m[34m(series, condition)[39m
+[32m    106[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mprop[39m(series, condition):
+[32m    107[39m     series = series.dropna()
+[32m--> [39m[32m108[39m     [38;5;28;01mif[39;00m [38;5;28mlen[39m([43mdf[49m) == [32m0[39m:
+[32m    109[39m         [38;5;28;01mreturn[39;00m [32m0.0[39m
+[32m    110[39m     [38;5;28;01mreturn[39;00m [38;5;28mround[39m((series[condition(series)].shape[[32m0[39m]) / [38;5;28mlen[39m(df), [32m2[39m) * [32m100[39m
 
-[36mFile [39m[32m~/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/plotly/io/_templates.py:94[39m, in [36mTemplatesConfig.__setitem__[39m[34m(self, key, value)[39m
-[32m     93[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34m__setitem__[39m([38;5;28mself[39m, key, value):
-[32m---> [39m[32m94[39m     [38;5;28mself[39m._templates[key] = [38;5;28;43mself[39;49m[43m.[49m[43m_validate[49m[43m([49m[43mvalue[49m[43m)[49m
-
-[36mFile [39m[32m~/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/plotly/io/_templates.py:110[39m, in [36mTemplatesConfig._validate[39m[34m(self, value)[39m
-[32m    106[39m     [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mplotly[39;00m[34;01m.[39;00m[34;01mvalidator_cache[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m ValidatorCache
-[32m    108[39m     [38;5;28mself[39m._validator = ValidatorCache.get_validator([33m"[39m[33mlayout[39m[33m"[39m, [33m"[39m[33mtemplate[39m[33m"[39m)
-[32m--> [39m[32m110[39m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[43m.[49m[43m_validator[49m[43m.[49m[43mvalidate_coerce[49m[43m([49m[43mvalue[49m[43m)[49m
-
-[36mFile [39m[32m~/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/_plotly_utils/basevalidators.py:2709[39m, in [36mBaseTemplateValidator.validate_coerce[39m[34m(self, v, skip_invalid)[39m
-[32m   2703[39m [38;5;28;01mif[39;00m v == {} [38;5;129;01mor[39;00m [38;5;28misinstance[39m(v, [38;5;28mself[39m.data_class) [38;5;129;01mand[39;00m v.to_plotly_json() == {}:
-[32m   2704[39m     [38;5;66;03m# Replace empty template with {'data': {'scatter': [{}]}} so that we can[39;00m
-[32m   2705[39m     [38;5;66;03m# tell the difference between an un-initialized template and a template[39;00m
-[32m   2706[39m     [38;5;66;03m# explicitly set to empty.[39;00m
-[32m   2707[39m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m.data_class(data_scatter=[{}])
-[32m-> [39m[32m2709[39m [38;5;28;01mreturn[39;00m [38;5;28;43msuper[39;49m[43m([49m[43mBaseTemplateValidator[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[43m)[49m[43m.[49m[43mvalidate_coerce[49m[43m([49m
-[32m   2710[39m [43m    [49m[43mv[49m[43m,[49m[43m [49m[43mskip_invalid[49m[43m=[49m[43mskip_invalid[49m
-[32m   2711[39m [43m[49m[43m)[49m
-
-[36mFile [39m[32m~/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/_plotly_utils/basevalidators.py:2434[39m, in [36mCompoundValidator.validate_coerce[39m[34m(self, v, skip_invalid, _validate)[39m
-[32m   2432[39m         v = [38;5;28mself[39m.data_class()
-[32m   2433[39m     [38;5;28;01melse[39;00m:
-[32m-> [39m[32m2434[39m         [38;5;28;43mself[39;49m[43m.[49m[43mraise_invalid_val[49m[43m([49m[43mv[49m[43m)[49m
-[32m   2436[39m v._plotly_name = [38;5;28mself[39m.plotly_name
-[32m   2437[39m [38;5;28;01mreturn[39;00m v
-
-[36mFile [39m[32m~/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/_plotly_utils/basevalidators.py:298[39m, in [36mBaseValidator.raise_invalid_val[39m[34m(self, v, inds)[39m
-[32m    295[39m             [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m inds:
-[32m    296[39m                 name += [33m"[39m[33m[[39m[33m"[39m + [38;5;28mstr[39m(i) + [33m"[39m[33m][39m[33m"[39m
-[32m--> [39m[32m298[39m         [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
-[32m    299[39m [38;5;250m            [39m[33;03m"""[39;00m
-[32m    300[39m [33;03m    Invalid value of type {typ} received for the '{name}' property of {pname}[39;00m
-[32m    301[39m [33;03m        Received value: {v}[39;00m
-[32m    302[39m 
-[32m    303[39m [33;03m{valid_clr_desc}"""[39;00m.format(
-[32m    304[39m                 name=name,
-[32m    305[39m                 pname=[38;5;28mself[39m.parent_name,
-[32m    306[39m                 typ=type_str(v),
-[32m    307[39m                 v=[38;5;28mrepr[39m(v),
-[32m    308[39m                 valid_clr_desc=[38;5;28mself[39m.description(),
-[32m    309[39m             )
-[32m    310[39m         )
-
-[31mValueError[39m: 
-    Invalid value of type 'plotly.graph_objs._layout.Layout' received for the 'template' property of layout
-        Received value: Layout({
-    'annotationdefaults': {'arrowcolor': '#2a3f5f', 'arrowhead': 0, 'arrowwidth': 1},
-    'autotypenumbers': 'strict',
-    'coloraxis': {'colorbar': {'outlinewidth': 0, 'ticks': ''}},
-    'colorscale': {'diverging': [[0, '#8e0152'], [0.1, '#c51b7d'], [0.2,
-                                 '#de77ae'], [0.3, '#f1b6da'], [0.4, '#fde0ef'],
-                                 [0.5, '#f7f7f7'], [0.6, '#e6f5d0'], [0.7,
-                                 '#b8e186'], [0.8, '#7fbc41'], [0.9, '#4d9221'],
-                                 [1, '#276419']],
-                   'sequential': [[0.0, '#0d0887'], [0.1111111111111111,
-                                  '#46039f'], [0.2222222222222222, '#7201a8'],
-                                  [0.3333333333333333, '#9c179e'],
-                                  [0.4444444444444444, '#bd3786'],
-                                  [0.5555555555555556, '#d8576b'],
-                                  [0.6666666666666666, '#ed7953'],
-                                  [0.7777777777777778, '#fb9f3a'],
-                                  [0.8888888888888888, '#fdca26'], [1.0,
-                                  '#f0f921']],
-                   'sequentialminus': [[0.0, '#0d0887'], [0.1111111111111111,
-                                       '#46039f'], [0.2222222222222222, '#7201a8'],
-                                       [0.3333333333333333, '#9c179e'],
-                                       [0.4444444444444444, '#bd3786'],
-                                       [0.5555555555555556, '#d8576b'],
-                                       [0.6666666666666666, '#ed7953'],
-                                       [0.7777777777777778, '#fb9f3a'],
-                                       [0.8888888888888888, '#fdca26'], [1.0,
-                                       '#f0f921']]},
-    'colorway': [#9B0000, #666666, #B60205, #8c1515, #9c9c9c],
-    'font': {'color': '#2a3f5f', 'family': 'Red Hat Text, Arial, sans-serif'},
-    'geo': {'bgcolor': 'white',
-            'lakecolor': 'white',
-            'landcolor': 'white',
-            'showlakes': True,
-            'showland': True,
-            'subunitcolor': '#C8D4E3'},
-    'hoverlabel': {'align': 'left'},
-    'hovermode': 'closest',
-    'legend': {'orientation': 'h', 'y': -0.2, 'yanchor': 'bottom'},
-    'mapbox': {'style': 'light'},
-    'paper_bgcolor': '#F7F7F7',
-    'plot_bgcolor': '#F7F7F7',
-    'polar': {'angularaxis': {'gridcolor': '#EBF0F8', 'linecolor': '#EBF0F8', 'ticks': ''},
-              'bgcolor': 'white',
-              'radialaxis': {'gridcolor': '#EBF0F8', 'linecolor': '#EBF0F8', 'ticks': ''}},
-    'scene': {'xaxis': {'backgroundcolor': 'white',
-                        'gridcolor': '#DFE8F3',
-                        'gridwidth': 2,
-                        'linecolor': '#EBF0F8',
-                        'showbackground': True,
-                        'ticks': '',
-                        'zerolinecolor': '#EBF0F8'},
-              'yaxis': {'backgroundcolor': 'white',
-                        'gridcolor': '#DFE8F3',
-                        'gridwidth': 2,
-                        'linecolor': '#EBF0F8',
-                        'showbackground': True,
-                        'ticks': '',
-                        'zerolinecolor': '#EBF0F8'},
-              'zaxis': {'backgroundcolor': 'white',
-                        'gridcolor': '#DFE8F3',
-                        'gridwidth': 2,
-                        'linecolor': '#EBF0F8',
-                        'showbackground': True,
-                        'ticks': '',
-                        'zerolinecolor': '#EBF0F8'}},
-    'shapedefaults': {'line': {'color': '#2a3f5f'}},
-    'ternary': {'aaxis': {'gridcolor': '#DFE8F3', 'linecolor': '#A2B1C6', 'ticks': ''},
-                'baxis': {'gridcolor': '#DFE8F3', 'linecolor': '#A2B1C6', 'ticks': ''},
-                'bgcolor': 'white',
-                'caxis': {'gridcolor': '#DFE8F3', 'linecolor': '#A2B1C6', 'ticks': ''}},
-    'title': {'x': 0.05},
-    'xaxis': {'automargin': True,
-              'gridcolor': 'rgba(0,0,0,0)',
-              'linecolor': '#EBF0F8',
-              'ticks': '',
-              'title': {'standoff': 15},
-              'zerolinecolor': '#EBF0F8',
-              'zerolinewidth': 2},
-    'yaxis': {'automargin': True,
-              'gridcolor': '#333333',
-              'linecolor': '#EBF0F8',
-              'ticks': '',
-              'title': {'standoff': 15},
-              'zerolinecolor': '#EBF0F8',
-              'zerolinewidth': 2}
-})
-
-    The 'template' property is an instance of Template
-    that may be specified as:
-      - An instance of :class:`plotly.graph_objs.layout.Template`
-      - A dict of string/value properties that will be passed
-        to the Template constructor
-      - The name of a registered template where current registered templates
-        are stored in the plotly.io.templates configuration object. The names
-        of all registered templates can be retrieved with:
-            >>> import plotly.io as pio
-            >>> list(pio.templates)  # doctest: +ELLIPSIS
-            ['ggplot2', 'seaborn', 'simple_white', 'plotly', 'plotly_white', ...]
-
-      - A string containing multiple registered template names, joined on '+'
-        characters (e.g. 'template1+template2'). In this case the resulting
-        template is computed by merging together the collection of registered
-        templates
+[31mNameError[39m: name 'df' is not defined
 

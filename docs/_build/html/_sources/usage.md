@@ -27,22 +27,11 @@ from collections import Counter
 import re
 
 from setup import *
-# Load data (adjust path if needed)
+
 df = survey_results
-
-# Helper: safe proportion
-def prop(series, condition):
-    series = series.dropna()
-    if len(df) == 0:
-        return 0.0
-    return round((series[condition(series)].shape[0]) / len(df), 2) * 100
-
-# Clean label helpers
-def fill_unaffiliated(x):
-    return "Unaffiliated" if pd.isna(x) else x
 ```
 
-We asked respondents how familiar they are with the concepts of open source...
+We asked respondents how familiar they are with the concepts of open source.
 
 ```{code-cell} ipython3
 :tags: [remove-input]
@@ -112,8 +101,7 @@ Examples of open source software include [Python](https://www.python.org/) and [
 fig1 = px.bar(
     f1_df, x="QID11", y="Percent",
     color="Respondent Type",
-    barmode="stack",
-    color_discrete_sequence=px.colors.qualitative.Plotly
+    barmode="stack"
 )
 fig1.update_layout(
     yaxis=dict(tickformat=".1%"),
@@ -122,11 +110,11 @@ fig1.update_layout(
     paper_bgcolor="white"
 )
 fig1.show()
-fig1.write_html('familiarity_software.html', full_html=False, include_plotlyjs='cdn')
+fig1.write_html('_static/familiarity_software.html', full_html=False, include_plotlyjs='cdn')
 ```
 
 ```{raw} html
-:file: familiarity_software.html
+:file: _static/familiarity_software.html
 ```
 
 [Arduino boards](https://www.arduino.cc/) are an example of open source hardware
@@ -136,8 +124,7 @@ fig1.write_html('familiarity_software.html', full_html=False, include_plotlyjs='
 fig2 = px.bar(
     f2_df, x="QID10", y="Percent",
     color="Respondent Type",
-    barmode="stack",
-    color_discrete_sequence=px.colors.qualitative.Plotly
+    barmode="stack"
 )
 fig2.update_layout(
     yaxis=dict(tickformat=".1%"),
@@ -146,11 +133,11 @@ fig2.update_layout(
     paper_bgcolor="white"
 )
 fig2.show()
-fig2.write_html('familiarity_hardware.html', full_html=False, include_plotlyjs='cdn')
+fig2.write_html('_static/familiarity_hardware.html', full_html=False, include_plotlyjs='cdn')
 ```
 
 ```{raw} html
-:file: familiarity_hardware.html
+:file: _static/familiarity_hardware.html
 ```
 
 [Khan Academy](https://www.khanacademy.org/) and [MIT OpenCourseWare](https://ocw.mit.edu/) are examples of open source educational materials.
@@ -160,8 +147,7 @@ fig2.write_html('familiarity_hardware.html', full_html=False, include_plotlyjs='
 fig3 = px.bar(
     f3_df, x="QID12", y="Percent",
     color="Respondent Type",
-    barmode="stack",
-    color_discrete_sequence=px.colors.qualitative.Plotly
+    barmode="stack"
 )
 fig3.update_layout(
     yaxis=dict(tickformat=".1%"),
@@ -170,26 +156,25 @@ fig3.update_layout(
     paper_bgcolor="white"
 )
 fig3.show()
-fig3.write_html('familiarity_educational.html', full_html=False, include_plotlyjs='cdn')
+fig3.write_html('_static/familiarity_educational.html', full_html=False, include_plotlyjs='cdn')
+
+
+os_tools_pct = prop(df["QID13"], lambda s: s == "Yes")
 ```
 
 ```{raw} html
-:file: familiarity_educational.html
+:file: _static/familiarity_educational.html
 ```
 
 
 ## What Open Source Tools Do Respondents Use?
 
-```{code-cell} ipython3
-
-os_tools_pct = prop(df["QID13"], lambda s: s == "Yes")
-print(f"**{os_tools_pct}%** of respondents identified open source tools that are key in their workflows or their fields.")
-```
 
 Tools respondents identified included:
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+print(f"{os_tools_pct}% of respondents identified open source tools that are key in their workflows or their fields.")
 # Text processing for word frequency analysis
 rm_terms = {
     'open', 'and', 'source', 'analysis', 'use', 'used', 'data', 'many', 'software',
@@ -260,11 +245,11 @@ fig4.update_layout(
     paper_bgcolor="white"
 )
 fig4.show()
-fig4.write_html('tools_lollipop.html', full_html=False, include_plotlyjs='cdn')
+fig4.write_html('_static/tools_lollipop.html', full_html=False, include_plotlyjs='cdn')
 ```
 
 ```{raw} html
-:file: tools_lollipop.html
+:file: _static/tools_lollipop.html
 ```
 
 Note that these are respondents' answers so not all tools may actually be open-source tools.
@@ -330,11 +315,11 @@ fig5.update_layout(
     paper_bgcolor="white"
 )
 fig5.show()
-fig5.write_html('licensed_tools.html', full_html=False, include_plotlyjs='cdn')
+fig5.write_html('_static/licensed_tools.html', full_html=False, include_plotlyjs='cdn')
 ```
 
 ```{raw} html
-:file: licensed_tools.html
+:file: _static/licensed_tools.html
 ```
 
 ## Usage of Open Source Tools vs. Licensed Tools
@@ -380,8 +365,7 @@ u1_df = (
 fig6 = px.bar(
     u1_df, x="QID40_clean_cat", y="Count",
     color="Respondent Type",
-    barmode="stack",
-    color_discrete_sequence=px.colors.qualitative.Plotly
+    barmode="stack"
 )
 fig6.update_layout(
     xaxis_title="",
@@ -389,9 +373,9 @@ fig6.update_layout(
     paper_bgcolor="white"
 )
 fig6.show()
-fig6.write_html('usage_comparison.html', full_html=False, include_plotlyjs='cdn')
+fig6.write_html('_static/usage_comparison.html', full_html=False, include_plotlyjs='cdn')
 ```
 
 ```{raw} html
-:file: usage_comparison.html
+:file: _static/usage_comparison.html
 ```

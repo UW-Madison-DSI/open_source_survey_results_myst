@@ -27,22 +27,11 @@ from collections import Counter
 import re
 
 from setup import *
-# Load data (adjust path if needed)
+
 df = survey_results
-
-# Helper: safe proportion
-def prop(series, condition):
-    series = series.dropna()
-    if len(df) == 0:
-        return 0.0
-    return round((series[condition(series)].shape[0]) / len(df), 2) * 100
-
-# Clean label helpers
-def fill_unaffiliated(x):
-    return "Unaffiliated" if pd.isna(x) else x
 ```
 
-We asked respondents how familiar they are with the concepts of open source...
+We asked respondents how familiar they are with the concepts of open source.
 
 ```{code-cell} ipython3
 :tags: [remove-input]
@@ -112,8 +101,7 @@ Examples of open source software include [Python](https://www.python.org/) and [
 fig1 = px.bar(
     f1_df, x="QID11", y="Percent",
     color="Respondent Type",
-    barmode="stack",
-    color_discrete_sequence=px.colors.qualitative.Plotly
+    barmode="stack"
 )
 fig1.update_layout(
     yaxis=dict(tickformat=".1%"),
@@ -136,8 +124,7 @@ fig1.write_html('_static/familiarity_software.html', full_html=False, include_pl
 fig2 = px.bar(
     f2_df, x="QID10", y="Percent",
     color="Respondent Type",
-    barmode="stack",
-    color_discrete_sequence=px.colors.qualitative.Plotly
+    barmode="stack"
 )
 fig2.update_layout(
     yaxis=dict(tickformat=".1%"),
@@ -160,8 +147,7 @@ fig2.write_html('_static/familiarity_hardware.html', full_html=False, include_pl
 fig3 = px.bar(
     f3_df, x="QID12", y="Percent",
     color="Respondent Type",
-    barmode="stack",
-    color_discrete_sequence=px.colors.qualitative.Plotly
+    barmode="stack"
 )
 fig3.update_layout(
     yaxis=dict(tickformat=".1%"),
@@ -183,14 +169,12 @@ os_tools_pct = prop(df["QID13"], lambda s: s == "Yes")
 
 ## What Open Source Tools Do Respondents Use?
 
-```{code-cell} ipython3
-print(f"{os_tools_pct}% of respondents identified open source tools that are key in their workflows or their fields.")
-```
 
 Tools respondents identified included:
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+print(f"{os_tools_pct}% of respondents identified open source tools that are key in their workflows or their fields.")
 # Text processing for word frequency analysis
 rm_terms = {
     'open', 'and', 'source', 'analysis', 'use', 'used', 'data', 'many', 'software',
@@ -381,8 +365,7 @@ u1_df = (
 fig6 = px.bar(
     u1_df, x="QID40_clean_cat", y="Count",
     color="Respondent Type",
-    barmode="stack",
-    color_discrete_sequence=px.colors.qualitative.Plotly
+    barmode="stack"
 )
 fig6.update_layout(
     xaxis_title="",
