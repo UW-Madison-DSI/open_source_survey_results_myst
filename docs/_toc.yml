@@ -4,8 +4,6 @@
 format: jb-book
 root: index
 chapters:
-  - file: index
-    title: Results
   - file: campus
     title: Campus Culture
   - file: reproduction
