@@ -7,7 +7,13 @@ copyright: "2024"
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: force
+  execute_notebooks: "auto"   # or "force" while debugging
+parse:
+  myst_enable_extensions:
+    - colon_fence
+html:
+  remove_input_tags: ["remove-input"]  # so our per-cell tags hide code
+
 
 # Define the name of the latex output file for PDF builds
 latex:

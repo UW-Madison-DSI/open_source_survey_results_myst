@@ -11,7 +11,9 @@ kernelspec:
 
 # Perceptions of Open Source Culture On Campus
 
+
 ```{code-cell} ipython3
+:tags: [remove-input]
 # Imports
 import pandas as pd
 import plotly.express as px
@@ -38,7 +40,9 @@ print(f"Percentage who find vibrant culture 'Very valuable': {very_valuable_pct}
 
 ## Value of Open Source Culture
 
+
 ```{code-cell} ipython3
+:tags: [remove-input]
 # ----- Figure 1: "Value of a vibrant culture" by Respondent Type -----
 
 # Map / order categories to match your R code
@@ -81,14 +85,18 @@ fig1.show()
 
 ## Current Campus Culture Perception
 
+
 ```{code-cell} ipython3
+:tags: [remove-input]
 agree_options = {"Strongly agree", "Somewhat agree"}
 vibrant_agree_pct = prop(df["QID23"], lambda s: s.isin(agree_options))
 
 print(f"In comparison, only **{vibrant_agree_pct}%** agreed that there is a vibrant open source culture at the university.")
 ```
 
+
 ```{code-cell} ipython3
+:tags: [remove-input]
 # ----- Figure 2: "There is a vibrant culture at UNI" by Respondent Type -----
 
 qid23_order = [
@@ -130,7 +138,9 @@ fig2.show()
 
 ## University Contribution to Open Source
 
+
 ```{code-cell} ipython3
+:tags: [remove-input]
 # Agreement about contributing to OSS being sensible for the university
 yes_pct = prop(df["QID19"], lambda s: s == "Yes")
 unsure_pct = prop(df["QID19"], lambda s: s == "Not sure")
@@ -145,6 +155,7 @@ print(f"- No: {no_pct}%")
 ## Open Source Training On Campus
 
 ```{code-cell} ipython3
+:tags: [remove-input]
 # QID25 == "Yes" for received at least some formal training
 training_yes_pct = prop(df["QID25"], lambda s: s == "Yes")
 print(f"Percentage who have received open source training: {training_yes_pct}%")
@@ -179,6 +190,7 @@ c4_df["Percent"] = c4_df["Count"] / len(df)
 ### Training by Role
 
 ```{code-cell} ipython3
+:tags: [remove-input]
 fig3 = px.bar(
     c3_df, x="QID25", y="Percent",
     color="Respondent Type",
@@ -196,6 +208,7 @@ fig3.show()
 ### Training by Affiliation
 
 ```{code-cell} ipython3
+:tags: [remove-input]
 fig4 = px.bar(
     c4_df, x="QID25", y="Percent",
     color="Affiliation",
@@ -214,6 +227,7 @@ fig4.show()
 ## Interest in Additional Training
 
 ```{code-cell} ipython3
+:tags: [remove-input]
 # Interest in more training (QID28) and OSPO workshops (QID29)
 more_training_pct = prop(df["QID28"], lambda s: s == "Yes")
 ospo_workshops_pct = prop(df["QID29"], lambda s: s == "Yes")

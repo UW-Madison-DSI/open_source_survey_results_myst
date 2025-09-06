@@ -4,7 +4,7 @@
 format: jb-book
 root: index
 chapters:
-  - file: campus
-    title: Campus Culture
   - file: reproduction
     title: Reproducing the Survey
+  - file: campus
+    title: Campus Culture
