@@ -12,8 +12,9 @@ kernelspec:
 # Perceptions of Open Source Culture On Campus
 
 ## Value of Open Source Culture
+
 ```{code-cell} ipython3
-:tags: [hide-input]
+:tags: [remove-input]
 # Imports
 import pandas as pd
 import plotly.express as px
@@ -88,7 +89,7 @@ fig1.write_html('_static/plotly_example.html', full_html=False, include_plotlyjs
 ## Current Campus Culture Perception
 
 ```{code-cell} ipython3
-:tags: [hide-input]
+:tags: [remove-input]
 agree_options = {"Strongly agree", "Somewhat agree"}
 vibrant_agree_pct = prop(df["QID23"], lambda s: s.isin(agree_options))
 
