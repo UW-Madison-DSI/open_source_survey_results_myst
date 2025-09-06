@@ -17,9 +17,12 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from pathlib import Path
+import plotly.io as pio
+import matplotlib as mpl
 
+from setup import *
 # Load data (adjust path if needed)
-df = pd.read_csv("data/survey_data.csv")
+df = survey_results
 
 # Helper: safe proportion
 def prop(series, condition):
