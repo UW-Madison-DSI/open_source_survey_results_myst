@@ -3,13 +3,11 @@ title: "Reproducing the Survey"
 ---
 
 
-Both the 2024 `r uni_name` open source survey and this Quarto analysis are open source. Instructions for customizing and reproducing this analysis are included here for ease of use.
+Both the 2024 `r uni_name` open source survey and this MyST analysis are open source. Instructions for customizing and reproducing this analysis are included here for ease of use.
 
 This project was inspired by [a needs assessment survey](https://github.com/ds3-nyu/Needs-Assessment-Survey) conducted by the [NYU Data Science and Software Services](https://cds.nyu.edu/ds3/) (DS3), an open source survey which was reproduced at the University of Washington.
 
 ## About the Survey
-
-
 
 The 2024 open source survey at `r uni_name` was administered with Qualtrics. Both the [.qsf file](https://github.com/UW-Madison-DSI/open_source_survey_results/blob/main/Open_Source_Program_Office_Survey.qsf) for the survey and [an example CSV](https://github.com/UW-Madison-DSI/open_source_survey_results/blob/main/data/survey_data.csv) of anonymized survey response data are available in this project's GitHub repo.
 

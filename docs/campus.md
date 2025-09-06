@@ -5,7 +5,6 @@ title: Campus Culture
 # Perceptions of Open Source Culture On Campus
 
 ```{code-cell} ipython3
-
 # Imports
 import pandas as pd
 import plotly.express as px
@@ -27,13 +26,18 @@ def fill_unaffiliated(x):
     return "Unaffiliated" if pd.isna(x) else x
 
 very_valuable_pct = prop(df["QID24"], lambda s: s == "Very valuable")
-very_valuable_pct
+print(f"Percentage who find vibrant culture 'Very valuable': {very_valuable_pct}%")
+```
+
+## Value of Open Source Culture
+
+```{code-cell} ipython3
 # ----- Figure 1: "Value of a vibrant culture" by Respondent Type -----
 
 # Map / order categories to match your R code
 qid24_order = [
     "Very valuable",
-    "Some value",
+    "Some value", 
     "Neutral",
     "No value"
 ]
@@ -52,11 +56,7 @@ c1_df = (
          .reset_index(name="Count")
 )
 c1_df["Percent"] = c1_df["Count"] / len(df)
-```
 
-In comparison, only 
-
-```{code-cell} ipython3
 fig1 = px.bar(
     c1_df, x="QID24", y="Percent",
     color="Respondent Type",
@@ -69,15 +69,24 @@ fig1.update_layout(
     plot_bgcolor="white",
     paper_bgcolor="white"
 )
-fig1
+fig1.show()
+```
+
+## Current Campus Culture Perception
+
+```{code-cell} ipython3
 agree_options = {"Strongly agree", "Somewhat agree"}
 vibrant_agree_pct = prop(df["QID23"], lambda s: s.isin(agree_options))
-vibrant_agree_pct
+
+print(f"In comparison, only **{vibrant_agree_pct}%** agreed that there is a vibrant open source culture at the university.")
+```
+
+```{code-cell} ipython3
 # ----- Figure 2: "There is a vibrant culture at UNI" by Respondent Type -----
 
 qid23_order = [
     "Strongly agree",
-    "Somewhat agree",
+    "Somewhat agree", 
     "Neither agree nor disagree",
     "Somewhat disagree",
     "Strongly disagree",
@@ -109,32 +118,30 @@ fig2.update_layout(
     plot_bgcolor="white",
     paper_bgcolor="white"
 )
-fig2
+fig2.show()
+```
+
+## University Contribution to Open Source
+
+```{code-cell} ipython3
 # Agreement about contributing to OSS being sensible for the university
 yes_pct = prop(df["QID19"], lambda s: s == "Yes")
 unsure_pct = prop(df["QID19"], lambda s: s == "Not sure")
 no_pct = prop(df["QID19"], lambda s: s == "No")
-yes_pct, unsure_pct, no_pct
+
+print(f"Should the university contribute to open source:")
+print(f"- Yes: {yes_pct}%")
+print(f"- Not sure: {unsure_pct}%") 
+print(f"- No: {no_pct}%")
 ```
 
-```{code-cell} ipython3
-from textwrap import dedent
-agree_options = {"Strongly agree", "Somewhat agree"}
-vibrant_agree_pct = round((df["QID23"].isin(agree_options)).sum() / len(df), 2) * 100
-print(dedent(f"""
-In comparison, only **{vibrant_agree_pct}%** agreed that there is a vibrant open source culture at { {sub-ref}`uni_name` }.
-"""))
-```
-
-### Open Source Training On Campus
-
-
-
-
-## Training by Role and Affiliation
+## Open Source Training On Campus
 
 ```{code-cell} ipython3
 # QID25 == "Yes" for received at least some formal training
+training_yes_pct = prop(df["QID25"], lambda s: s == "Yes")
+print(f"Percentage who have received open source training: {training_yes_pct}%")
+
 df_c3 = (
     df.assign(
         QID4=df["QID4"].map(fill_unaffiliated)
@@ -162,11 +169,9 @@ c4_df = (
 c4_df["Percent"] = c4_df["Count"] / len(df)
 ```
 
-### Role
+### Training by Role
+
 ```{code-cell} ipython3
-# headline % for QID25 == "Yes"
-training_yes_pct = prop(df["QID25"], lambda s: s == "Yes")
-training_yes_pct
 fig3 = px.bar(
     c3_df, x="QID25", y="Percent",
     color="Respondent Type",
@@ -178,15 +183,16 @@ fig3.update_layout(
     plot_bgcolor="white",
     paper_bgcolor="white",
 )
-fig3
+fig3.show()
 ```
 
-### Affiliation
+### Training by Affiliation
+
 ```{code-cell} ipython3
 fig4 = px.bar(
     c4_df, x="QID25", y="Percent",
     color="Affiliation",
-    barmode="stack",
+    barmode="stack", 
     title="Have received open source training at the university (by affiliation)"
 )
 fig4.update_layout(
@@ -195,9 +201,16 @@ fig4.update_layout(
     paper_bgcolor="white"
 )
 fig4.update_layout(hoverlabel=dict(namelength=-1))
-fig4
+fig4.show()
+```
+
+## Interest in Additional Training
+
+```{code-cell} ipython3
 # Interest in more training (QID28) and OSPO workshops (QID29)
 more_training_pct = prop(df["QID28"], lambda s: s == "Yes")
 ospo_workshops_pct = prop(df["QID29"], lambda s: s == "Yes")
-more_training_pct, ospo_workshops_pct
+
+print(f"Interest in more training: {more_training_pct}%")
+print(f"Interest in OSPO workshops: {ospo_workshops_pct}%")
 ```
