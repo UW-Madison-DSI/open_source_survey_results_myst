@@ -41,6 +41,7 @@ jobs:
           pip install -U jupyter-book
           pip install -U pandas 
           pip install -U plotly
+          pip install -U matplotlib
 
       - name: Debug - Check docs directory
         run: |
