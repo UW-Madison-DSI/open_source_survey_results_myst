@@ -12,8 +12,7 @@ kernelspec:
 # Perceptions of Open Source Culture On Campus
 
 
-```{code-cell} python
-:tags: [remove-input]
+```{code-cell} ipython3
 # Imports
 import pandas as pd
 import plotly.express as px
