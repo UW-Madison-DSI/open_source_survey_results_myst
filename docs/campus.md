@@ -11,6 +11,7 @@ kernelspec:
 
 # Perceptions of Open Source Culture On Campus
 
+## Value of Open Source Culture
 ```{code-cell} ipython3
 :tags: [hide-input]
 # Imports
@@ -38,12 +39,7 @@ def fill_unaffiliated(x):
 
 very_valuable_pct = prop(df["QID24"], lambda s: s == "Very valuable")
 print(f"Percentage who find vibrant culture 'Very valuable': {very_valuable_pct}%")
-```
 
-## Value of Open Source Culture
-
-```{code-cell} ipython3
-:tags: [hide-input]
 # ----- Figure 1: "Value of a vibrant culture" by Respondent Type -----
 
 # Map / order categories to match your R code
@@ -63,7 +59,7 @@ df_c1 = (
 
 # Group and compute percentages over all responses (like your R code)
 c1_df = (
-    df_c1.groupby(["QID24", "Respondent Type"], dropna=False)
+    df_c1.groupby(["QID24", "Respondent Type"], observed=True, dropna=False)
          .size()
          .reset_index(name="Count")
 )
@@ -119,7 +115,7 @@ df_c2 = (
 )
 
 c2_df = (
-    df_c2.groupby(["QID23", "Respondent Type"], dropna=False)
+    df_c2.groupby(["QID23", "Respondent Type"], observed=True, dropna=False)
          .size()
          .reset_index(name="Count")
 )
@@ -175,7 +171,7 @@ df_c3 = (
     .rename(columns={"QID4": "Respondent Type"})
 )
 c3_df = (
-    df_c3.groupby(["QID25", "Respondent Type"], dropna=False)
+    df_c3.groupby(["QID25", "Respondent Type"], observed=True, dropna=False)
          .size()
          .reset_index(name="Count")
 )
@@ -188,7 +184,7 @@ df_c4 = (
     .rename(columns={"QID8": "Affiliation"})
 )
 c4_df = (
-    df_c4.groupby(["QID25", "Affiliation"], dropna=False)
+    df_c4.groupby(["QID25", "Affiliation"], observed=True, dropna=False)
          .size()
          .reset_index(name="Count")
 )
