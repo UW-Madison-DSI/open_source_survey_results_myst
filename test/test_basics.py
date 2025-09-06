@@ -62,11 +62,7 @@ def check_content_files():
 
     required_files = [
         'docs/index.md',
-        'docs/data_overview.md',
-        'docs/methodology.md',
-        'docs/results.md',
-        'docs/figures.md',
-        'docs/about.md'
+        'docs/reproduction.md'
     ]
 
     missing_files = []
