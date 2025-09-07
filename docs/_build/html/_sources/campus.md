@@ -9,9 +9,9 @@ kernelspec:
   name: python3
 ---
 
-# Perceptions of Open Source Culture On Campus
+# Campus Culture
 
-## Value of Open Source Culture
+## Perceptions of Open Source Culture On Campus
 
 ```{code-cell} ipython3
 :tags: [remove-input]
@@ -22,21 +22,17 @@ import plotly.graph_objects as go
 from pathlib import Path
 import plotly.io as pio
 import matplotlib as mpl
-
+from myst_nb import glue
 from setup import *
 
 df = survey_results
 
+# Compute & glue (no visible output)
+valuable_pct = int(100 * df['QID24'].eq("Very valuable").mean())
+_ = glue("valuable_pct", valuable_pct)  # prevents display
 
-# ----- Figure 1: "Value of a vibrant culture" by Respondent Type -----
-
-# Map / order categories to match your R code
-qid24_order = [
-    "Very valuable",
-    "Some value", 
-    "Neutral",
-    "No value"
-]
+# Figure
+qid24_order = ["Very valuable","Some value","Neutral","No value"]
 df_c1 = (
     df.assign(
         QID4=df["QID4"].map(fill_unaffiliated),
@@ -44,8 +40,6 @@ df_c1 = (
     )
     .rename(columns={"QID4": "Respondent Type"})
 )
-
-# Group and compute percentages over all responses (like your R code)
 c1_df = (
     df_c1.groupby(["QID24", "Respondent Type"], observed=True, dropna=False)
          .size()
@@ -59,15 +53,11 @@ fig1 = px.bar(
     barmode="stack",
     title='"Do you see value in having a vibrant culture around open source software?"'
 )
-fig1.update_layout(
-    yaxis=dict(tickformat=".1%"),
-    xaxis_title="",
-    plot_bgcolor="white",
-    paper_bgcolor="white"
-)
-fig1.show()
+fig1.update_layout(yaxis=dict(tickformat=".1%"), xaxis_title="", plot_bgcolor="white", paper_bgcolor="white")
+fig1  # let Jupyter-Book render the figure
 fig1.write_html('_static/plotly_example.html', full_html=False, include_plotlyjs='cdn')
 ```
+**{glue:}`valuable_pct`%** of respondents said that having a vibrant open source culture is **“very valuable”**.
 
 ```{raw} html
 :file: _static/plotly_example.html

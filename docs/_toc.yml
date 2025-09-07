@@ -4,13 +4,14 @@
 format: jb-book
 root: index
 
-chapters:
-  - file: results
-    title: Results
-    sections:
+parts:
+  - caption: Results
+    chapters:
       - file: usage
         title: Usage
       - file: campus
         title: Campus Culture
-  - file: reproduction
-    title: Reproducing the Survey
+  - caption: How to Reproduce
+    chapters:
+      - file: reproduction
+        title: Reproducing the Survey

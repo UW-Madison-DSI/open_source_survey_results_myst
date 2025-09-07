@@ -36,34 +36,86 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# Agreement about contributing to OSS being sensible for the university
-df = survey_results
-yes_pct = prop(df["QID19"], lambda s: s == "Yes")
-unsure_pct = prop(df["QID19"], lambda s: s == "Not sure")
-no_pct = prop(df["QID19"], lambda s: s == "No")
+# Imports
+import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+from pathlib import Path
+import plotly.io as pio
+import matplotlib as mpl
+from myst_nb import glue
 
-print(f"Should the university contribute to open source:")
-print(f"- Yes: {yes_pct}%")
-print(f"- Not sure: {unsure_pct}%") 
-print(f"- No: {no_pct}%")
+from setup import *
+
+df = survey_results
+
+
+# ----- Figure 1: "Value of a vibrant culture" by Respondent Type -----
+
+# Map / order categories to match your R code
+qid24_order = [
+    "Very valuable",
+    "Some value", 
+    "Neutral",
+    "No value"
+]
+
+valuable_pct = np.round(100*len(df[df['QID24']=="Very valuable"])/len(df))
+glue("valuable_pct", valuable_pct)
+
+
+df_c1 = (
+    df.assign(
+        QID4=df["QID4"].map(fill_unaffiliated),
+        QID24=pd.Categorical(df["QID24"], categories=qid24_order, ordered=True)
+    )
+    .rename(columns={"QID4": "Respondent Type"})
+)
+
+# Group and compute percentages over all responses (like your R code)
+c1_df = (
+    df_c1.groupby(["QID24", "Respondent Type"], observed=True, dropna=False)
+         .size()
+         .reset_index(name="Count")
+)
+c1_df["Percent"] = c1_df["Count"] / len(df)
+
+fig1 = px.bar(
+    c1_df, x="QID24", y="Percent",
+    color="Respondent Type",
+    barmode="stack",
+    title='"Do you see value in having a vibrant culture around open source software?"'
+)
+fig1.update_layout(
+    yaxis=dict(tickformat=".1%"),
+    xaxis_title="",
+    plot_bgcolor="white",
+    paper_bgcolor="white"
+)
+fig1.show()
+fig1.write_html('_static/plotly_example.html', full_html=False, include_plotlyjs='cdn')
 ------------------
 
 
 [31m---------------------------------------------------------------------------[39m
 [31mNameError[39m                                 Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[4][39m[32m, line 3[39m
-[32m      1[39m [38;5;66;03m# Agreement about contributing to OSS being sensible for the university[39;00m
-[32m      2[39m df = survey_results
-[32m----> [39m[32m3[39m yes_pct = [43mprop[49m[43m([49m[43mdf[49m[43m[[49m[33;43m"[39;49m[33;43mQID19[39;49m[33;43m"[39;49m[43m][49m[43m,[49m[43m [49m[38;5;28;43;01mlambda[39;49;00m[43m [49m[43ms[49m[43m:[49m[43m [49m[43ms[49m[43m [49m[43m==[49m[43m [49m[33;43m"[39;49m[33;43mYes[39;49m[33;43m"[39;49m[43m)[49m
-[32m      4[39m unsure_pct = prop(df[[33m"[39m[33mQID19[39m[33m"[39m], [38;5;28;01mlambda[39;00m s: s == [33m"[39m[33mNot sure[39m[33m"[39m)
-[32m      5[39m no_pct = prop(df[[33m"[39m[33mQID19[39m[33m"[39m], [38;5;28;01mlambda[39;00m s: s == [33m"[39m[33mNo[39m[33m"[39m)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 25[39m
+[32m     15[39m [38;5;66;03m# ----- Figure 1: "Value of a vibrant culture" by Respondent Type -----[39;00m
+[32m     16[39m 
+[32m     17[39m [38;5;66;03m# Map / order categories to match your R code[39;00m
+[32m     18[39m qid24_order = [
+[32m     19[39m     [33m"[39m[33mVery valuable[39m[33m"[39m,
+[32m     20[39m     [33m"[39m[33mSome value[39m[33m"[39m, 
+[32m     21[39m     [33m"[39m[33mNeutral[39m[33m"[39m,
+[32m     22[39m     [33m"[39m[33mNo value[39m[33m"[39m
+[32m     23[39m ]
+[32m---> [39m[32m25[39m valuable_pct = [43mnp[49m.round([32m100[39m*[38;5;28mlen[39m(df[df[[33m'[39m[33mQID24[39m[33m'[39m]==[33m"[39m[33mVery valuable[39m[33m"[39m])/[38;5;28mlen[39m(df))
+[32m     26[39m glue([33m"[39m[33mvaluable_pct[39m[33m"[39m, valuable_pct)
+[32m     29[39m df_c1 = (
+[32m     30[39m     df.assign(
+[32m     31[39m         QID4=df[[33m"[39m[33mQID4[39m[33m"[39m].map(fill_unaffiliated),
+[32m   (...)[39m[32m     34[39m     .rename(columns={[33m"[39m[33mQID4[39m[33m"[39m: [33m"[39m[33mRespondent Type[39m[33m"[39m})
+[32m     35[39m )
 
-[36mFile [39m[32m~/Documents/DSI/2026/open_source_survey_results_myst/docs/setup.py:108[39m, in [36mprop[39m[34m(series, condition)[39m
-[32m    106[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mprop[39m(series, condition):
-[32m    107[39m     series = series.dropna()
-[32m--> [39m[32m108[39m     [38;5;28;01mif[39;00m [38;5;28mlen[39m([43mdf[49m) == [32m0[39m:
-[32m    109[39m         [38;5;28;01mreturn[39;00m [32m0.0[39m
-[32m    110[39m     [38;5;28;01mreturn[39;00m [38;5;28mround[39m((series[condition(series)].shape[[32m0[39m]) / [38;5;28mlen[39m(df), [32m2[39m) * [32m100[39m
-
-[31mNameError[39m: name 'df' is not defined
+[31mNameError[39m: name 'np' is not defined
 
