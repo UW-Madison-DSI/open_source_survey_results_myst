@@ -111,7 +111,6 @@ fig2.update_layout(
     plot_bgcolor="white",
     paper_bgcolor="white"
 )
-fig2.show()  # This was missing!
 fig2.write_html('_static/fig2.html', full_html=False, include_plotlyjs='cdn')
 ```
 
@@ -185,6 +184,7 @@ fig3 = px.bar(
 )
 fig3.update_layout(
     yaxis=dict(tickformat=".1%"),
+    xaxis_title="",
     plot_bgcolor="white",
     paper_bgcolor="white",
 )
@@ -208,6 +208,7 @@ fig4 = px.bar(
 )
 fig4.update_layout(
     yaxis=dict(tickformat=".1%"),
+    xaxis_title="",
     plot_bgcolor="white",
     paper_bgcolor="white"
 )

@@ -187,7 +187,7 @@ fig = px.bar(
 fig.update_layout(
     barmode="stack",
     title="Have contributed to open source projects?",
-    xaxis_title="Have contributed to open source projects?",
+    xaxis_title="",
     yaxis=dict(
         zerolinecolor="#ffffff",
         zerolinewidth=2,
@@ -265,6 +265,7 @@ fig.update_traces(
 
 fig.update_layout(
     title="Years Served (Faculty vs Staff)",
+    xaxis_title="Number of Responses",
     bargap=0.2,
     showlegend=False,
     margin=dict(t=60, l=20, r=20, b=40),
@@ -273,7 +274,7 @@ fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
 
 # Axis labels like your labs()
 fig.for_each_yaxis(lambda a: a.update(title_text="Years Served"))
-fig.for_each_xaxis(lambda a: a.update(title_text="Respondents"))
+fig.for_each_xaxis(lambda a: a.update(title_text=""))
 
 # Optional: save for Jupyter-Book embed
 from pathlib import Path
@@ -360,13 +361,14 @@ fig.update_traces(
 # Labels & theme (akin to labs + coord_flip theme)
 fig.update_layout(
     title="Student Majors (Graduate vs Undergraduate)",
+    xaxis_title="Number of Responses",
     bargap=0.2,
     margin=dict(t=60, l=40, r=20, b=40),
 )
 fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
 
 fig.for_each_yaxis(lambda a: a.update(title_text="Major"))
-fig.for_each_xaxis(lambda a: a.update(title_text="Respondents"))
+fig.for_each_xaxis(lambda a: a.update(title_text=""))
 
 
 # Optional: save for Jupyter-Book embed

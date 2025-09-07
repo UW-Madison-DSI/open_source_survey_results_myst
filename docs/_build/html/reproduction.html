@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>About the Survey &#8212; Open Source Survey Results</title>
+    <title>Reproducing the Survey &#8212; Open Source Survey Results</title>
   
   
   
@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'reproduction';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Perceptions of Open Source Culture On Campus" href="campus.html" />
+    <link rel="prev" title="Campus Culture" href="campus.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -182,6 +182,7 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Results</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="sample.html">Demographics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="campus.html">Campus Culture</a></li>
 </ul>
@@ -390,7 +391,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>About the Survey</h1>
+    <h1>Reproducing the Survey</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -400,8 +401,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-survey-data-from-qualtrics">Exporting Survey Data From Qualtrics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-the-site-theming">Customizing the Site Theming</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-survey">About the Survey</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-survey-data-from-qualtrics">Exporting Survey Data From Qualtrics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-the-site-theming">Customizing the Site Theming</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -413,20 +417,23 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <p>Both the 2024 <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">uni_name</span></code> open source survey and this MyST analysis are open source. Instructions for customizing and reproducing this analysis are included here for ease of use.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="reproducing-the-survey">
+<h1>Reproducing the Survey<a class="headerlink" href="#reproducing-the-survey" title="Link to this heading">#</a></h1>
+<p>Both the 2024 <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">uni_name</span></code> open source survey and this MyST analysis are open source. Instructions for customizing and reproducing this analysis are included here for ease of use.</p>
 <p>This project was inspired by <a class="reference external" href="https://github.com/ds3-nyu/Needs-Assessment-Survey">a needs assessment survey</a> conducted by the <a class="reference external" href="https://cds.nyu.edu/ds3/">NYU Data Science and Software Services</a> (DS3), an open source survey which was reproduced at the University of Washington.</p>
 <section id="about-the-survey">
-<h1>About the Survey<a class="headerlink" href="#about-the-survey" title="Link to this heading">#</a></h1>
+<h2>About the Survey<a class="headerlink" href="#about-the-survey" title="Link to this heading">#</a></h2>
 <p>The 2024 open source survey at <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">uni_name</span></code> was administered with Qualtrics. Both the <a class="reference external" href="https://github.com/UW-Madison-DSI/open_source_survey_results/blob/main/Open_Source_Program_Office_Survey.qsf">.qsf file</a> for the survey and <a class="reference external" href="https://github.com/UW-Madison-DSI/open_source_survey_results_myst/blob/main/docs/data/survey_data.csv">an example CSV</a> of anonymized survey response data are available in this project’s GitHub repo.</p>
 <section id="exporting-survey-data-from-qualtrics">
-<h2>Exporting Survey Data From Qualtrics<a class="headerlink" href="#exporting-survey-data-from-qualtrics" title="Link to this heading">#</a></h2>
+<h3>Exporting Survey Data From Qualtrics<a class="headerlink" href="#exporting-survey-data-from-qualtrics" title="Link to this heading">#</a></h3>
 <p>Once your survey period is over, you can easily export your survey data. Within the Qualtrics project site for your survey, navigate to “Data and Analysis” <span class="math notranslate nohighlight">\(\rightarrow\)</span> “Export &amp; Import” <span class="math notranslate nohighlight">\(\rightarrow\)</span> “Export Data…” and use the default settings in the options menu (“Download all fields” and “Use choice text”) to export the survey response data as a CSV file.</p>
 </section>
 <section id="customizing-the-site-theming">
-<h2>Customizing the Site Theming<a class="headerlink" href="#customizing-the-site-theming" title="Link to this heading">#</a></h2>
+<h3>Customizing the Site Theming<a class="headerlink" href="#customizing-the-site-theming" title="Link to this heading">#</a></h3>
 <p>Most universities have a brand guidelines webpage that provides the color hex codes and typefaces that conform with the university’s brand identity. <a class="reference external" href="https://github.com/UW-Madison-DSI/open_source_survey_results/blob/main/custom.scss"><code class="docutils literal notranslate"><span class="pre">custom.scss</span></code></a> contains the <a class="reference external" href="https://sass-lang.com/">SASS</a> that styles all elements of the site that are not plots generated by python. You can customize the theme of the Quarto site here using your institutional brand’s colors and typefaces. Custom fonts can be imported directly from <a class="reference external" href="https://fonts.google.com/">Google Fonts</a> in <code class="docutils literal notranslate"><span class="pre">custom.scss</span></code> or downloaded and installed locally.</p>
 <p><a class="reference external" href="https://github.com/UW-Madison-DSI/open_source_survey_results_myst/blob/main/setup.py"><code class="docutils literal notranslate"><span class="pre">setup.py</span></code></a> is an python script that loads necessary packages and handles theming of python code output, like plots. Customize the sections of this script that define variables for your institution’s name and color palette. The .qmd files that make up this Quarto site each <code class="docutils literal notranslate"><span class="pre">source</span></code> this file, so color variables, names, and plot themes customized in <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> will apply to python output throughout the site.</p>
 <p>Some python chunks in the site md files, such as in <code class="docutils literal notranslate"><span class="pre">usage.md</span></code>, also contain vectors that you can edit to remove unwanted words or characters from free response field analyses or to highlight certain elements of plots.</p>
+</section>
 </section>
 </section>
 
@@ -466,7 +473,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Perceptions of Open Source Culture On Campus</p>
+        <p class="prev-next-title">Campus Culture</p>
       </div>
     </a>
 </div>
@@ -485,8 +492,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-survey-data-from-qualtrics">Exporting Survey Data From Qualtrics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-the-site-theming">Customizing the Site Theming</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-survey">About the Survey</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-survey-data-from-qualtrics">Exporting Survey Data From Qualtrics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-the-site-theming">Customizing the Site Theming</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
