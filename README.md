@@ -4,6 +4,7 @@ In Spring 2024 the Open Source Program Office at UW-Madison distributed an open 
 
 Run locally 
 ```aiignore
+cd docs
 pip install -U jupyter-book
 jupyter-book build .
 # open the site:

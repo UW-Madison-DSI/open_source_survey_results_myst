@@ -1,0 +1,99 @@
+Traceback (most recent call last):
+  File "/Users/mariaoros/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 154, in wrapped
+    asyncio.get_running_loop()
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/mariaoros/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/Users/mariaoros/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/mariaoros/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 158, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/mariaoros/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/Users/mariaoros/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/mariaoros/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Create lollipop plot (corrected version)
+fig = go.Figure()
+
+# Add only the markers (no connecting lines between different categories)
+fig.add_trace(go.Scatter(
+    x=s4["pct"],
+    y=s4["Benefit"],
+    mode='markers',  # Changed from 'lines+markers' to just 'markers'
+    marker=dict(size=8, color=PRIMARY_COLOR),
+    orientation='h',
+    hovertemplate='%{y}<br>%{x:.2%}<extra></extra>',
+    showlegend=False
+))
+
+# Add individual line segments for lollipop effect (from 0 to each point)
+for i, row in s4.iterrows():
+    fig.add_shape(
+        type="line",
+        x0=0, x1=row["pct"],
+        y0=row["Benefit"], y1=row["Benefit"],
+        line=dict(color=PRIMARY_COLOR, width=2)
+    )
+
+# Update layout
+fig.update_layout(
+    xaxis=dict(
+        title="Percent of Respondents Agreeing with Benefits of Using Open Source Software",
+        tickformat=".1%",
+        range=[0, 1]
+    ),
+    yaxis=dict(
+        title="",
+        categoryorder="array",
+        categoryarray=s4.sort_values("pct")["Benefit"].tolist()
+    ),
+    showlegend=False
+)
+
+fig.write_html('_static/benefits.html', full_html=False, include_plotlyjs='cdn')
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mNameError[39m                                 Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[3][39m[32m, line 6[39m
+[32m      2[39m fig = go.Figure()
+[32m      4[39m [38;5;66;03m# Add only the markers (no connecting lines between different categories)[39;00m
+[32m      5[39m fig.add_trace(go.Scatter(
+[32m----> [39m[32m6[39m     x=[43ms4[49m[[33m"[39m[33mpct[39m[33m"[39m],
+[32m      7[39m     y=s4[[33m"[39m[33mBenefit[39m[33m"[39m],
+[32m      8[39m     mode=[33m'[39m[33mmarkers[39m[33m'[39m,  [38;5;66;03m# Changed from 'lines+markers' to just 'markers'[39;00m
+[32m      9[39m     marker=[38;5;28mdict[39m(size=[32m8[39m, color=PRIMARY_COLOR),
+[32m     10[39m     orientation=[33m'[39m[33mh[39m[33m'[39m,
+[32m     11[39m     hovertemplate=[33m'[39m[33m%[39m[38;5;132;01m{y}[39;00m[33m<br>[39m[33m%[39m[38;5;132;01m{x:.2%}[39;00m[33m<extra></extra>[39m[33m'[39m,
+[32m     12[39m     showlegend=[38;5;28;01mFalse[39;00m
+[32m     13[39m ))
+[32m     15[39m [38;5;66;03m# Add individual line segments for lollipop effect (from 0 to each point)[39;00m
+[32m     16[39m [38;5;28;01mfor[39;00m i, row [38;5;129;01min[39;00m s4.iterrows():
+
+[31mNameError[39m: name 's4' is not defined
+

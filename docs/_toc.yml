@@ -11,6 +11,8 @@ parts:
         title: Demographics
       - file: usage
         title: Usage
+      - file: sentiments
+        title: Perceptions
       - file: campus
         title: Campus Culture
   - caption: How to Reproduce
