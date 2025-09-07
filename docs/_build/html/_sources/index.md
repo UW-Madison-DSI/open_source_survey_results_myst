@@ -2,6 +2,8 @@
 title: Home
 ---
 
+# Home
+
 Thanks to a grant from the [Alfred P. Sloan Foundation](https://sloan.org/), the [University of Wisconsin–Madison Open Source Program Office](https://ospo.wisc.edu/) (OSPO) is positioned to support and grow our vibrant open source ecosystem.
 
 
