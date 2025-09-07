@@ -29,7 +29,7 @@ df = survey_results
 
 # Compute & glue (no visible output)
 valuable_pct = int(100 * df['QID24'].eq("Very valuable").mean())
-_ = glue("valuable_pct", valuable_pct)  # prevents display
+_ = glue("valuable_pct", valuable_pct, display=False)  # prevents display
 
 # Figure
 qid24_order = ["Very valuable","Some value","Neutral","No value"]
@@ -63,7 +63,6 @@ fig1.write_html('_static/plotly_example.html', full_html=False, include_plotlyjs
 :file: _static/plotly_example.html
 ```
 
-## Current Campus Culture Perception
 
 ```{code-cell} ipython3
 :tags: [remove-input]
@@ -73,6 +72,10 @@ agree_options = {"Strongly agree", "Somewhat agree"}
 ```{code-cell} ipython3
 :tags: [remove-input]
 # ----- Figure 2: "There is a vibrant culture at UNI" by Respondent Type -----
+
+
+agree_vibrant = int(100 * df['QID23'].eq("Strongly agree").mean())
+_ = glue("agree_vibrant", agree_vibrant, display=False)  # prevents display
 
 qid23_order = [
     "Strongly agree",
@@ -112,11 +115,14 @@ fig2.show()  # This was missing!
 fig2.write_html('_static/fig2.html', full_html=False, include_plotlyjs='cdn')
 ```
 
+In comparison, only **{glue:}`agree_vibrant`%** agreed that there is a vibrant open source culture at UW-Madison.
+
 ```{raw} html
 :file: _static/fig2.html
 ```
+89% of respondents agreed that **“it makes sense for the university to contribute to open source software that is vital to its educational and research enterprise”** (11% were “unsure,” and 0% disagreed).
 
-## University Contribution to Open Source
+## Open Source Training On Campus
 
 ```{code-cell} ipython3
 :tags: [remove-input]
@@ -132,7 +138,7 @@ print(f"- Not sure: {unsure_pct}%")
 print(f"- No: {no_pct}%")
 ```
 
-## Open Source Training On Campus
+
 
 ```{code-cell} ipython3
 :tags: [remove-input]
