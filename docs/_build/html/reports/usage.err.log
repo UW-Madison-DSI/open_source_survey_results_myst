@@ -36,9 +36,9 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-df = survey_results
 os_tools_pct = prop(df["QID13"], lambda s: s == "Yes")
-print(f"{os_tools_pct}% of respondents identified open source tools that are key in their workflows or their fields.")
+glue("respondents_pct", respondents_pct, display=False)
+ 
 # Text processing for word frequency analysis
 rm_terms = {
     'open', 'and', 'source', 'analysis', 'use', 'used', 'data', 'many', 'software',
@@ -116,17 +116,14 @@ fig4.write_html('_static/tools_lollipop.html', full_html=False, include_plotlyjs
 [31m---------------------------------------------------------------------------[39m
 [31mNameError[39m                                 Traceback (most recent call last)
 [36mCell[39m[36m [39m[32mIn[6][39m[32m, line 2[39m
-[32m      1[39m df = survey_results
-[32m----> [39m[32m2[39m os_tools_pct = [43mprop[49m[43m([49m[43mdf[49m[43m[[49m[33;43m"[39;49m[33;43mQID13[39;49m[33;43m"[39;49m[43m][49m[43m,[49m[43m [49m[38;5;28;43;01mlambda[39;49;00m[43m [49m[43ms[49m[43m:[49m[43m [49m[43ms[49m[43m [49m[43m==[49m[43m [49m[33;43m"[39;49m[33;43mYes[39;49m[33;43m"[39;49m[43m)[49m
-[32m      3[39m [38;5;28mprint[39m([33mf[39m[33m"[39m[38;5;132;01m{[39;00mos_tools_pct[38;5;132;01m}[39;00m[33m% of respondents identified open source tools that are key in their workflows or their fields.[39m[33m"[39m)
+[32m      1[39m os_tools_pct = prop(df[[33m"[39m[33mQID13[39m[33m"[39m], [38;5;28;01mlambda[39;00m s: s == [33m"[39m[33mYes[39m[33m"[39m)
+[32m----> [39m[32m2[39m glue([33m"[39m[33mrespondents_pct[39m[33m"[39m, [43mrespondents_pct[49m, display=[38;5;28;01mFalse[39;00m)
 [32m      4[39m [38;5;66;03m# Text processing for word frequency analysis[39;00m
+[32m      5[39m rm_terms = {
+[32m      6[39m     [33m'[39m[33mopen[39m[33m'[39m, [33m'[39m[33mand[39m[33m'[39m, [33m'[39m[33msource[39m[33m'[39m, [33m'[39m[33manalysis[39m[33m'[39m, [33m'[39m[33muse[39m[33m'[39m, [33m'[39m[33mused[39m[33m'[39m, [33m'[39m[33mdata[39m[33m'[39m, [33m'[39m[33mmany[39m[33m'[39m, [33m'[39m[33msoftware[39m[33m'[39m,
+[32m      7[39m     [33m'[39m[33mprogramming[39m[33m'[39m, [33m'[39m[33mlanguage[39m[33m'[39m, [33m'[39m[33mlanguages[39m[33m'[39m, [33m'[39m[33mtools[39m[33m'[39m, [33m'[39m[33mcode[39m[33m'[39m, [33m'[39m[33metc[39m[33m'[39m, [33m'[39m[33mpackage[39m[33m'[39m,
+[32m   (...)[39m[32m     10[39m     [33m'[39m[33mgoogle[39m[33m'[39m, [33m'[39m[33msystem[39m[33m'[39m, [33m'[39m[33mcompilers[39m[33m'[39m, [33m'[39m[33macademy[39m[33m'[39m, [33m'[39m[33mnumerous[39m[33m'[39m, [33m'[39m[33msystems[39m[33m'[39m
+[32m     11[39m }
 
-[36mFile [39m[32m~/Documents/DSI/2026/open_source_survey_results_myst/docs/setup.py:108[39m, in [36mprop[39m[34m(series, condition)[39m
-[32m    106[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mprop[39m(series, condition):
-[32m    107[39m     series = series.dropna()
-[32m--> [39m[32m108[39m     [38;5;28;01mif[39;00m [38;5;28mlen[39m([43mdf[49m) == [32m0[39m:
-[32m    109[39m         [38;5;28;01mreturn[39;00m [32m0.0[39m
-[32m    110[39m     [38;5;28;01mreturn[39;00m [38;5;28mround[39m((series[condition(series)].shape[[32m0[39m]) / [38;5;28mlen[39m(df), [32m2[39m) * [32m100[39m
-
-[31mNameError[39m: name 'df' is not defined
+[31mNameError[39m: name 'respondents_pct' is not defined
 

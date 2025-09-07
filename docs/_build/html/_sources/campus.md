@@ -74,7 +74,7 @@ agree_options = {"Strongly agree", "Somewhat agree"}
 # ----- Figure 2: "There is a vibrant culture at UNI" by Respondent Type -----
 
 
-agree_vibrant = int(100 * df['QID23'].eq("Strongly agree").mean())
+agree_vibrant = int(100 * df['QID23'].isin(["Strongly agree","Somewhat agree"]).mean())
 _ = glue("agree_vibrant", agree_vibrant, display=False)  # prevents display
 
 qid23_order = [

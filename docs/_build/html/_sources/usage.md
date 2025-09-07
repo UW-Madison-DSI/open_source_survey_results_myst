@@ -25,7 +25,7 @@ import matplotlib as mpl
 import numpy as np
 from collections import Counter
 import re
-
+from myst_nb import glue
 from setup import *
 
 df = survey_results
@@ -172,8 +172,9 @@ Tools respondents identified included:
 ```{code-cell} ipython3
 :tags: [remove-input]
 
-os_tools_pct = prop(df["QID13"], lambda s: s == "Yes")
-print(f"{os_tools_pct}% of respondents identified open source tools that are key in their workflows or their fields.")
+respondents_pct = prop(df["QID13"], lambda s: s == "Yes")
+glue("respondents_pct", respondents_pct, display=False)
+ 
 # Text processing for word frequency analysis
 rm_terms = {
     'open', 'and', 'source', 'analysis', 'use', 'used', 'data', 'many', 'software',
@@ -246,6 +247,8 @@ fig4.update_layout(
 fig4.show()
 fig4.write_html('_static/tools_lollipop.html', full_html=False, include_plotlyjs='cdn')
 ```
+
+**{glue:}`respondents_pct`%** of respondents identified open source tools that are key in their workflows or their fields.
 
 ```{raw} html
 :file: _static/tools_lollipop.html
