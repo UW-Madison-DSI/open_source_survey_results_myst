@@ -167,8 +167,6 @@ fig3.write_html('_static/familiarity_educational.html', full_html=False, include
 ## What Open Source Tools Do Respondents Use?
 
 
-Tools respondents identified included:
-
 ```{code-cell} ipython3
 :tags: [remove-input]
 

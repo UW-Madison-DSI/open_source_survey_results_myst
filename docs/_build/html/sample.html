@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; Open Source Survey Results</title>
+    <title>Demographics &#8212; Open Source Survey Results</title>
   
   
   
@@ -389,7 +389,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Demographics</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -398,9 +398,10 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#faculty-and-staff">Faculty and Staff</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#students">Students</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -411,7 +412,126 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  
+  <section class="tex2jax_ignore mathjax_ignore" id="demographics">
+<h1>Demographics<a class="headerlink" href="#demographics" title="Link to this heading">#</a></h1>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">68</span>
+<span class="g g-Whitespace">     </span><span class="mi">64</span> <span class="n">plot_df</span><span class="p">[</span><span class="s2">&quot;n&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">plot_df</span><span class="p">[</span><span class="s2">&quot;n&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span> <span class="c1"># 4) Treemap</span>
+<span class="g g-Whitespace">     </span><span class="mi">67</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span>
+<span class="ne">---&gt; </span><span class="mi">68</span>     <span class="n">go</span><span class="o">.</span><span class="n">Treemap</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>         <span class="n">labels</span><span class="o">=</span><span class="n">plot_df</span><span class="p">[</span><span class="s2">&quot;division&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">70</span>         <span class="n">parents</span><span class="o">=</span><span class="n">plot_df</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>         <span class="n">ids</span><span class="o">=</span><span class="n">plot_df</span><span class="p">[</span><span class="s2">&quot;ids&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>         <span class="n">values</span><span class="o">=</span><span class="n">plot_df</span><span class="p">[</span><span class="s2">&quot;n&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>         <span class="n">branchvalues</span><span class="o">=</span><span class="s2">&quot;total&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span>         <span class="n">hoverinfo</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span>         <span class="n">hovertemplate</span><span class="o">=</span><span class="s2">&quot;&lt;b&gt;%</span><span class="si">{parent}</span><span class="s2">&lt;/b&gt;&lt;br&gt;Type: %</span><span class="si">{label}</span><span class="s2">&lt;br&gt;Responses: %</span><span class="si">{value}</span><span class="s2">&lt;extra&gt;&lt;/extra&gt;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span>         <span class="n">textposition</span><span class="o">=</span><span class="s2">&quot;middle&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span>         <span class="n">textfont</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">),</span>
+<span class="g g-Whitespace">     </span><span class="mi">78</span>     <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">81</span> <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span>     <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Survey Respondents&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span>     <span class="n">plot_bgcolor</span><span class="o">=</span><span class="n">BACKGROUND_COLOR</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span>     <span class="n">paper_bgcolor</span><span class="o">=</span><span class="n">BACKGROUND_COLOR</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">85</span>     <span class="n">margin</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">86</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">88</span> <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nn">File ~/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/plotly/graph_objs/_treemap.py:1726,</span> in <span class="ni">Treemap.__init__</span><span class="nt">(self, arg, branchvalues, count, customdata, customdatasrc, domain, hoverinfo, hoverinfosrc, hoverlabel, hovertemplate, hovertemplatesrc, hovertext, hovertextsrc, ids, idssrc, insidetextfont, labels, labelssrc, legend, legendgrouptitle, legendrank, legendwidth, level, marker, maxdepth, meta, metasrc, name, opacity, outsidetextfont, parents, parentssrc, pathbar, root, sort, stream, text, textfont, textinfo, textposition, textsrc, texttemplate, texttemplatesrc, tiling, uid, uirevision, values, valuessrc, visible, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1724</span> <span class="bp">self</span><span class="o">.</span><span class="n">_set_property</span><span class="p">(</span><span class="s2">&quot;textfont&quot;</span><span class="p">,</span> <span class="n">arg</span><span class="p">,</span> <span class="n">textfont</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1725</span> <span class="bp">self</span><span class="o">.</span><span class="n">_set_property</span><span class="p">(</span><span class="s2">&quot;textinfo&quot;</span><span class="p">,</span> <span class="n">arg</span><span class="p">,</span> <span class="n">textinfo</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1726</span> <span class="bp">self</span><span class="o">.</span><span class="n">_set_property</span><span class="p">(</span><span class="s2">&quot;textposition&quot;</span><span class="p">,</span> <span class="n">arg</span><span class="p">,</span> <span class="n">textposition</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1727</span> <span class="bp">self</span><span class="o">.</span><span class="n">_set_property</span><span class="p">(</span><span class="s2">&quot;textsrc&quot;</span><span class="p">,</span> <span class="n">arg</span><span class="p">,</span> <span class="n">textsrc</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1728</span> <span class="bp">self</span><span class="o">.</span><span class="n">_set_property</span><span class="p">(</span><span class="s2">&quot;texttemplate&quot;</span><span class="p">,</span> <span class="n">arg</span><span class="p">,</span> <span class="n">texttemplate</span><span class="p">)</span>
+
+<span class="nn">File ~/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/plotly/basedatatypes.py:4403,</span> in <span class="ni">BasePlotlyType._set_property</span><span class="nt">(self, name, arg, provided)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4397</span> <span class="k">def</span><span class="w"> </span><span class="nf">_set_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">arg</span><span class="p">,</span> <span class="n">provided</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">4398</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">4399</span><span class="sd">     Initialize a property of this object using the provided value</span>
+<span class="g g-Whitespace">   </span><span class="mi">4400</span><span class="sd">     or a value popped from the arguments dictionary. If neither</span>
+<span class="g g-Whitespace">   </span><span class="mi">4401</span><span class="sd">     is available, do not set the property.</span>
+<span class="g g-Whitespace">   </span><span class="mi">4402</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">4403</span>     <span class="n">_set_property_provided_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">arg</span><span class="p">,</span> <span class="n">provided</span><span class="p">)</span>
+
+<span class="nn">File ~/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/plotly/basedatatypes.py:398,</span> in <span class="ni">_set_property_provided_value</span><span class="nt">(obj, name, arg, provided)</span>
+<span class="g g-Whitespace">    </span><span class="mi">396</span> <span class="n">val</span> <span class="o">=</span> <span class="n">provided</span> <span class="k">if</span> <span class="n">provided</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">val</span>
+<span class="g g-Whitespace">    </span><span class="mi">397</span> <span class="k">if</span> <span class="n">val</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">398</span>     <span class="n">obj</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+
+<span class="nn">File ~/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/plotly/basedatatypes.py:4932,</span> in <span class="ni">BasePlotlyType.__setitem__</span><span class="nt">(self, prop, value)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4928</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_set_array_prop</span><span class="p">(</span><span class="n">prop</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4930</span>     <span class="c1"># ### Handle simple property ###</span>
+<span class="g g-Whitespace">   </span><span class="mi">4931</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">4932</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_set_prop</span><span class="p">(</span><span class="n">prop</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4933</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">4934</span>     <span class="c1"># Make sure properties dict is initialized</span>
+<span class="g g-Whitespace">   </span><span class="mi">4935</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_init_props</span><span class="p">()</span>
+
+<span class="nn">File ~/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/plotly/basedatatypes.py:5276,</span> in <span class="ni">BasePlotlyType._set_prop</span><span class="nt">(self, prop, val)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5274</span>         <span class="k">return</span>
+<span class="g g-Whitespace">   </span><span class="mi">5275</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">5276</span>         <span class="k">raise</span> <span class="n">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">5278</span> <span class="c1"># val is None</span>
+<span class="g g-Whitespace">   </span><span class="mi">5279</span> <span class="c1"># -----------</span>
+<span class="g g-Whitespace">   </span><span class="mi">5280</span> <span class="k">if</span> <span class="n">val</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">5281</span>     <span class="c1"># Check if we should send null update</span>
+
+<span class="nn">File ~/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/plotly/basedatatypes.py:5271,</span> in <span class="ni">BasePlotlyType._set_prop</span><span class="nt">(self, prop, val)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5268</span> <span class="n">validator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_validator</span><span class="p">(</span><span class="n">prop</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5270</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">5271</span>     <span class="n">val</span> <span class="o">=</span> <span class="n">validator</span><span class="o">.</span><span class="n">validate_coerce</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5272</span> <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">5273</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_skip_invalid</span><span class="p">:</span>
+
+<span class="nn">File ~/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/_plotly_utils/basevalidators.py:611,</span> in <span class="ni">EnumeratedValidator.validate_coerce</span><span class="nt">(self, v)</span>
+<span class="g g-Whitespace">    </span><span class="mi">609</span>     <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">perform_replacemenet</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">610</span>     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">in_values</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">611</span>         <span class="bp">self</span><span class="o">.</span><span class="n">raise_invalid_val</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">612</span> <span class="k">return</span> <span class="n">v</span>
+
+<span class="nn">File ~/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/_plotly_utils/basevalidators.py:298,</span> in <span class="ni">BaseValidator.raise_invalid_val</span><span class="nt">(self, v, inds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">295</span>             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">inds</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">296</span>                 <span class="n">name</span> <span class="o">+=</span> <span class="s2">&quot;[&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;]&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">298</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span><span class="w">             </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">300</span><span class="sd">     Invalid value of type {typ} received for the &#39;{name}&#39; property of {pname}</span>
+<span class="g g-Whitespace">    </span><span class="mi">301</span><span class="sd">         Received value: {v}</span>
+<span class="g g-Whitespace">    </span><span class="mi">302</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">303</span><span class="sd"> {valid_clr_desc}&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">304</span>                 <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">305</span>                 <span class="n">pname</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parent_name</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">306</span>                 <span class="n">typ</span><span class="o">=</span><span class="n">type_str</span><span class="p">(</span><span class="n">v</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">307</span>                 <span class="n">v</span><span class="o">=</span><span class="nb">repr</span><span class="p">(</span><span class="n">v</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">308</span>                 <span class="n">valid_clr_desc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">description</span><span class="p">(),</span>
+<span class="g g-Whitespace">    </span><span class="mi">309</span>             <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span>         <span class="p">)</span>
+
+<span class="ne">ValueError</span>: 
+    <span class="n">Invalid</span> <span class="n">value</span> <span class="n">of</span> <span class="nb">type</span> <span class="s1">&#39;builtins.str&#39;</span> <span class="n">received</span> <span class="k">for</span> <span class="n">the</span> <span class="s1">&#39;textposition&#39;</span> <span class="nb">property</span> <span class="n">of</span> <span class="n">treemap</span>
+        <span class="n">Received</span> <span class="n">value</span><span class="p">:</span> <span class="s1">&#39;middle&#39;</span>
+
+    <span class="n">The</span> <span class="s1">&#39;textposition&#39;</span> <span class="nb">property</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">enumeration</span> <span class="n">that</span> <span class="n">may</span> <span class="n">be</span> <span class="n">specified</span> <span class="k">as</span><span class="p">:</span>
+      <span class="o">-</span> <span class="n">One</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">enumeration</span> <span class="n">values</span><span class="p">:</span>
+            <span class="p">[</span><span class="s1">&#39;top left&#39;</span><span class="p">,</span> <span class="s1">&#39;top center&#39;</span><span class="p">,</span> <span class="s1">&#39;top right&#39;</span><span class="p">,</span> <span class="s1">&#39;middle left&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;middle center&#39;</span><span class="p">,</span> <span class="s1">&#39;middle right&#39;</span><span class="p">,</span> <span class="s1">&#39;bottom left&#39;</span><span class="p">,</span> <span class="s1">&#39;bottom</span>
+            <span class="n">center</span><span class="s1">&#39;, &#39;</span><span class="n">bottom</span> <span class="n">right</span><span class="s1">&#39;]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="faculty-and-staff">
+<h2>Faculty and Staff<a class="headerlink" href="#faculty-and-staff" title="Link to this heading">#</a></h2>
+</section>
+<section id="students">
+<h2>Students<a class="headerlink" href="#students" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
@@ -457,9 +577,10 @@ document.write(`
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#faculty-and-staff">Faculty and Staff</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#students">Students</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
