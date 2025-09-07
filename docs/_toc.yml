@@ -7,10 +7,10 @@ root: index
 parts:
   - caption: Results
     chapters:
+      - file: sample
+        title: Demographics
       - file: usage
         title: Usage
-      - file: social
-        title: Demographics
       - file: campus
         title: Campus Culture
   - caption: How to Reproduce
