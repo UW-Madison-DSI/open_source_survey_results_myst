@@ -367,7 +367,7 @@ fig.update_layout(
 )
 fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
 
-fig.for_each_yaxis(lambda a: a.update(title_text="Major"))
+fig.for_each_yaxis(lambda a: a.update(title_text=""))
 fig.for_each_xaxis(lambda a: a.update(title_text=""))
 
 

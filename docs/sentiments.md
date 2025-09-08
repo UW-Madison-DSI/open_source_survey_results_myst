@@ -26,8 +26,9 @@ from setup import *
 
 df = survey_results
 ```
+# Perceptions
 
-# Value of Open Source Projects
+## Value of Open Source Projects
 When asked to characterize the importance of open source tools to their education, teaching, and research, respondents said the following:
 
 
