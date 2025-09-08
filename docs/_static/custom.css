@@ -1,0 +1,23 @@
+/* 1. Widen sidebar so logo has more horizontal room */
+:root {
+  --pst-sidebar-width: 400px;   /* default ~300px, bump up to 360–400px */
+}
+
+/* 2. Sidebar logo – scale up naturally */
+.bd-sidebar .navbar-brand img.logo__image,
+.sidebar-logo img,
+img[src$="OPENSOURDA_color-center-reverse.png"] {
+  height: 90% !important;        /* preserve aspect ratio */
+  max-height: 95% !important;   /* ⬅️ increase this for bigger logo */
+  width: 95% !important;
+  max-width: 95% !important;      /* fill most of sidebar */
+  display: block;
+  margin-inline: auto;
+}
+
+/* 3. Give logo container breathing room */
+.bd-sidebar .navbar-brand,
+.sidebar-logo {
+  padding: 1rem 0 !important;
+  overflow: visible !important;
+}
