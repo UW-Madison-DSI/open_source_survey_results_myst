@@ -17,8 +17,8 @@
 /* 3) Scale the logo naturally (no distortion) */
 .bd-sidebar .navbar-brand img,
 .sidebar-logo img,
-img[src*="_static/output-onlinepngtools.png"],
-img[src*="_static/output-onlinepngtools.png"] {
+img[src*="_static/logo.png"],
+img[src*="_static/logo.png"] {
   height: auto !important;          /* keep aspect ratio */
   width: auto !important;
   max-height: 200px !important;     /* ⬅️ increase for bigger logo (e.g., 240px) */
