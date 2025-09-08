@@ -1,10 +1,8 @@
 # Book settings
-# Book settings
 title: Open Source Survey Results
 author: UW-Madison Data Science Institute
-logo: _static/OPENSOURDA_color-flush-reverse.png
+logo: _static/output-onlinepngtools.png
 copyright: "© 2025 UW–Madison Data Science Institute"
-
 
 # Execute notebooks
 execute:
