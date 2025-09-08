@@ -1,9 +1,9 @@
 # Book settings
 title: Open Source Survey Results
 author: UW-Madison Data Science Institute
-logo: _static/logo.png
+logo: _static/OPENSOURDA_color-center-reverse.png
 favicon: _static/favicon.ico
-copyright: "© {year} UW–Madison Data Science Institute"
+copyright: "© 2025 UW–Madison Data Science Institute"
 
 # Execute notebooks
 execute:
