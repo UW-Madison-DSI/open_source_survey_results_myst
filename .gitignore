@@ -2,3 +2,6 @@
 venv/
 docs/__init__/
 __pycache__/
+docs/__pycache__/
+images/__pycache__/
+test/__pycache__/
