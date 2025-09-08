@@ -93,7 +93,7 @@ f3_df = (
 f3_df["Percent"] = f3_df["Count"] / len(df)
 ```
 
-
+### Familiarity with Software
 Examples of open source software include [Python](https://www.python.org/) and [git](https://git-scm.com/)
 
 ```{code-cell} ipython3
@@ -116,7 +116,7 @@ fig1.write_html('_static/familiarity_software.html', full_html=False, include_pl
 ```{raw} html
 :file: _static/familiarity_software.html
 ```
-
+### Familiarity with Hardware
 [Arduino boards](https://www.arduino.cc/) are an example of open source hardware
 
 ```{code-cell} ipython3
@@ -139,6 +139,8 @@ fig2.write_html('_static/familiarity_hardware.html', full_html=False, include_pl
 ```{raw} html
 :file: _static/familiarity_hardware.html
 ```
+
+### Familiarity with Educational Materials
 
 [Khan Academy](https://www.khanacademy.org/) and [MIT OpenCourseWare](https://ocw.mit.edu/) are examples of open source educational materials.
 

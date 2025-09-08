@@ -1,114 +1,87 @@
 Traceback (most recent call last):
-  File "/Users/mariaoros/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 154, in wrapped
-    asyncio.get_running_loop()
-    ~~~~~~~~~~~~~~~~~~~~~~~~^^
-RuntimeError: no running event loop
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/mariaoros/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/usr/local/Caskroom/mambaforge/base/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-    ~~~~~~~~~^
-        nb,
-        ^^^
-    ...<4 lines>...
-        **kwargs,
-        ^^^^^^^^^
-    )
-    ^
-  File "/Users/mariaoros/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/nbclient/client.py", line 1319, in execute
+  File "/usr/local/Caskroom/mambaforge/base/lib/python3.10/site-packages/nbclient/client.py", line 1319, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "/Users/mariaoros/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 158, in wrapped
+  File "/usr/local/Caskroom/mambaforge/base/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
-           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
-  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+  File "/usr/local/Caskroom/mambaforge/base/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
     return future.result()
-           ~~~~~~~~~~~~~^^
-  File "/Users/mariaoros/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
+  File "/usr/local/Caskroom/mambaforge/base/lib/python3.10/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-        cell, index, execution_count=self.code_cells_executed + 1
-    )
-  File "/Users/mariaoros/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+  File "/usr/local/Caskroom/mambaforge/base/lib/python3.10/site-packages/nbclient/client.py", line 1062, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/Users/mariaoros/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+  File "/usr/local/Caskroom/mambaforge/base/lib/python3.10/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-df_maj = df.copy()
-df_maj = df_maj[df_maj["QID4"].isin(["Graduate Student", "Undergraduate Student"])].copy()
-df_maj["QID4"] = df_maj["QID4"].map(
-    {"Graduate Student": "Graduate", "Undergraduate Student": "Undergraduate"}
-)
+levels_qid6 = ['0-1 years', '1-3 years', '4-7 years', '7-10 years', '10+ years']
 
-# --- 2) Clean major text (QID7) ---
-def clean_major(x: str) -> str:
-    if pd.isna(x):
-        return "Not Provided"
-    s = str(x)
-    s = s.title()                    # to Title Case
-    s = s.replace("&", "And")        # '&' -> 'And'
-    s = re.sub(r"\s*Phd\b", "", s, flags=re.IGNORECASE)  # remove ' Phd' (case-insensitive)
-    return s.strip() or "Not Provided"
+df_ten = survey_results.copy()
 
-df_maj["QID7"] = df_maj["QID7"].apply(clean_major)
+# Keep only Faculty & Staff
+df_ten = df_ten[df_ten["QID4"].isin(["Faculty", "Staff"])].copy()
 
-# Manual recodes to match R's case_when
-recode = {
-    "Ag And Applied Economics": "Applied And Agricultural Economics",
-    "Communication Sciences And Disorders (Csd)": "Communication Sciences And Disorders",
-    "Computer Sciences": "Computer Science",
-    "Industrial And Systems Engineering Phd": "Industrial & Systems Engineering",
-    "Math": "Mathematics",
-    "Nurtritional Sciences": "Nutrition Science",
-}
-df_maj["QID7"] = df_maj["QID7"].replace(recode)
+count_contributed_staff_fac = df_ten["QID22"].value_counts()
+pct_contributed_staff_fac = int(100*count_contributed_staff_fac/len(df))
 
-# Ensure NAs → 'Not Provided'
-df_maj["QID7"] = df_maj["QID7"].fillna("Not Provided")
 
-# --- 3) Count majors per role ---
+glue("pct_contributed_staff_fac", pct_contributed_staff_fac, display=False)
+glue("count_contributed_staff_fac", count_contributed_staff_fac, display=False)
+
+# Make QID6 categorical with your level order
+df_ten["QID6"] = pd.Categorical(df_ten["QID6"], categories=levels_qid6, ordered=True)
+
+# Count per facet (QID4) and tenure bucket (QID6)
 counts = (
-    df_maj.groupby(["QID4", "QID7"], dropna=False)
+    df_ten.groupby(["QID4", "QID6"], observed=True, dropna=False)
           .size()
           .reset_index(name="Count")
 )
 
-# Global ordering of majors by frequency (to mimic reorder(QID7, QID7, length))
-order_global = (
-    counts.groupby("QID7")["Count"].sum()
-          .sort_values(ascending=True)               # ascending → bottom-to-top small→large after flip
-          .index.tolist()
+# Ensure every (QID4, QID6) pair appears (even if zero) so facets align
+full_index = (
+    pd.MultiIndex.from_product(
+        [counts["QID4"].unique(), levels_qid6],
+        names=["QID4", "QID6"]
+    )
+)
+counts = (
+    counts.set_index(["QID4", "QID6"])
+          .reindex(full_index, fill_value=0)
+          .reset_index()
 )
 
-# --- 4) Plot (horizontal, facet by QID4), single color, count tooltip ---
+# Plot: horizontal bars, facet per QID4, reverse y-order
 fig = px.bar(
     counts,
     x="Count",
-    y="QID7",
+    y="QID6",
     facet_col="QID4",
     orientation="h",
-    category_orders={"QID7": order_global},  # global order across facets
+    category_orders={"QID6": list(reversed(levels_qid6))},  # reverse like scale_y_discrete(limits = rev)
+    color_discrete_sequence=[PRIMARY_COLOR],
 )
 
+# Style & tooltip (count)
 fig.update_traces(
-    marker_color=PRIMARY_COLOR,
     marker_line_color="white",
     marker_line_width=0.5,
-    hovertemplate="Major: %{y}<br>Count: %{x}<extra></extra>",
-    showlegend=False,
+    hovertemplate="Years Served: %{y}<br>Count: %{x}<extra></extra>"
 )
 
-# Labels & theme (akin to labs + coord_flip theme)
 fig.update_layout(
-    title="Student Majors (Graduate vs Undergraduate)",
+    title="Years Served (Faculty vs Staff)",
+    xaxis_title="Number of Responses",
     bargap=0.2,
-    margin=dict(t=60, l=40, r=20, b=40),
+    showlegend=False,
+    margin=dict(t=60, l=20, r=20, b=40),
 )
-fig.for_each_yaxis(lambda a: a.update(title_text="Major"))
-fig.for_each_xaxis(lambda a: a.update(title_text="Respondents"))
+fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
 
+# Axis labels like your labs()
+fig.for_each_yaxis(lambda a: a.update(title_text="Years Served"))
+fig.for_each_xaxis(lambda a: a.update(title_text=""))
 
 # Optional: save for Jupyter-Book embed
 from pathlib import Path
@@ -117,80 +90,24 @@ fig.write_html("_static/tenure_faculty_staff.html", full_html=False, include_plo
 ------------------
 
 
-[31m---------------------------------------------------------------------------[39m
-[31mNameError[39m                                 Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[5][39m[32m, line 17[39m
-[32m     14[39m     s = re.sub([33mr[39m[33m"[39m[33m\[39m[33ms*Phd[39m[33m\[39m[33mb[39m[33m"[39m, [33m"[39m[33m"[39m, s, flags=re.IGNORECASE)  [38;5;66;03m# remove ' Phd' (case-insensitive)[39;00m
-[32m     15[39m     [38;5;28;01mreturn[39;00m s.strip() [38;5;129;01mor[39;00m [33m"[39m[33mNot Provided[39m[33m"[39m
-[32m---> [39m[32m17[39m df_maj[[33m"[39m[33mQID7[39m[33m"[39m] = [43mdf_maj[49m[43m[[49m[33;43m"[39;49m[33;43mQID7[39;49m[33;43m"[39;49m[43m][49m[43m.[49m[43mapply[49m[43m([49m[43mclean_major[49m[43m)[49m
-[32m     19[39m [38;5;66;03m# Manual recodes to match R's case_when[39;00m
-[32m     20[39m recode = {
-[32m     21[39m     [33m"[39m[33mAg And Applied Economics[39m[33m"[39m: [33m"[39m[33mApplied And Agricultural Economics[39m[33m"[39m,
-[32m     22[39m     [33m"[39m[33mCommunication Sciences And Disorders (Csd)[39m[33m"[39m: [33m"[39m[33mCommunication Sciences And Disorders[39m[33m"[39m,
-[32m   (...)[39m[32m     26[39m     [33m"[39m[33mNurtritional Sciences[39m[33m"[39m: [33m"[39m[33mNutrition Science[39m[33m"[39m,
-[32m     27[39m }
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[4], line 9[0m
+[1;32m      6[0m df_ten [38;5;241m=[39m df_ten[df_ten[[38;5;124m"[39m[38;5;124mQID4[39m[38;5;124m"[39m][38;5;241m.[39misin([[38;5;124m"[39m[38;5;124mFaculty[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mStaff[39m[38;5;124m"[39m])][38;5;241m.[39mcopy()
+[1;32m      8[0m count_contributed_staff_fac [38;5;241m=[39m df_ten[[38;5;124m"[39m[38;5;124mQID22[39m[38;5;124m"[39m][38;5;241m.[39mvalue_counts()
+[0;32m----> 9[0m pct_contributed_staff_fac [38;5;241m=[39m [38;5;28;43mint[39;49m[43m([49m[38;5;241;43m100[39;49m[38;5;241;43m*[39;49m[43mcount_contributed_staff_fac[49m[38;5;241;43m/[39;49m[38;5;28;43mlen[39;49m[43m([49m[43mdf[49m[43m)[49m[43m)[49m
+[1;32m     12[0m glue([38;5;124m"[39m[38;5;124mpct_contributed_staff_fac[39m[38;5;124m"[39m, pct_contributed_staff_fac, display[38;5;241m=[39m[38;5;28;01mFalse[39;00m)
+[1;32m     13[0m glue([38;5;124m"[39m[38;5;124mcount_contributed_staff_fac[39m[38;5;124m"[39m, count_contributed_staff_fac, display[38;5;241m=[39m[38;5;28;01mFalse[39;00m)
 
-[36mFile [39m[32m~/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/pandas/core/series.py:4935[39m, in [36mSeries.apply[39m[34m(self, func, convert_dtype, args, by_row, **kwargs)[39m
-[32m   4800[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mapply[39m(
-[32m   4801[39m     [38;5;28mself[39m,
-[32m   4802[39m     func: AggFuncType,
-[32m   (...)[39m[32m   4807[39m     **kwargs,
-[32m   4808[39m ) -> DataFrame | Series:
-[32m   4809[39m [38;5;250m    [39m[33;03m"""[39;00m
-[32m   4810[39m [33;03m    Invoke function on values of Series.[39;00m
-[32m   4811[39m 
-[32m   (...)[39m[32m   4926[39m [33;03m    dtype: float64[39;00m
-[32m   4927[39m [33;03m    """[39;00m
-[32m   4928[39m     [38;5;28;01mreturn[39;00m [43mSeriesApply[49m[43m([49m
-[32m   4929[39m [43m        [49m[38;5;28;43mself[39;49m[43m,[49m
-[32m   4930[39m [43m        [49m[43mfunc[49m[43m,[49m
-[32m   4931[39m [43m        [49m[43mconvert_dtype[49m[43m=[49m[43mconvert_dtype[49m[43m,[49m
-[32m   4932[39m [43m        [49m[43mby_row[49m[43m=[49m[43mby_row[49m[43m,[49m
-[32m   4933[39m [43m        [49m[43margs[49m[43m=[49m[43margs[49m[43m,[49m
-[32m   4934[39m [43m        [49m[43mkwargs[49m[43m=[49m[43mkwargs[49m[43m,[49m
-[32m-> [39m[32m4935[39m [43m    [49m[43m)[49m[43m.[49m[43mapply[49m[43m([49m[43m)[49m
+File [0;32m/usr/local/Caskroom/mambaforge/base/lib/python3.10/site-packages/pandas/core/series.py:248[0m, in [0;36m_coerce_method.<locals>.wrapper[0;34m(self)[0m
+[1;32m    240[0m     warnings[38;5;241m.[39mwarn(
+[1;32m    241[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mCalling [39m[38;5;132;01m{[39;00mconverter[38;5;241m.[39m[38;5;18m__name__[39m[38;5;132;01m}[39;00m[38;5;124m on a single element Series is [39m[38;5;124m"[39m
+[1;32m    242[0m         [38;5;124m"[39m[38;5;124mdeprecated and will raise a TypeError in the future. [39m[38;5;124m"[39m
+[0;32m   (...)[0m
+[1;32m    245[0m         stacklevel[38;5;241m=[39mfind_stack_level(),
+[1;32m    246[0m     )
+[1;32m    247[0m     [38;5;28;01mreturn[39;00m converter([38;5;28mself[39m[38;5;241m.[39miloc[[38;5;241m0[39m])
+[0;32m--> 248[0m [38;5;28;01mraise[39;00m [38;5;167;01mTypeError[39;00m([38;5;124mf[39m[38;5;124m"[39m[38;5;124mcannot convert the series to [39m[38;5;132;01m{[39;00mconverter[38;5;132;01m}[39;00m[38;5;124m"[39m)
 
-[36mFile [39m[32m~/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/pandas/core/apply.py:1422[39m, in [36mSeriesApply.apply[39m[34m(self)[39m
-[32m   1419[39m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m.apply_compat()
-[32m   1421[39m [38;5;66;03m# self.func is Callable[39;00m
-[32m-> [39m[32m1422[39m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[43m.[49m[43mapply_standard[49m[43m([49m[43m)[49m
-
-[36mFile [39m[32m~/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/pandas/core/apply.py:1502[39m, in [36mSeriesApply.apply_standard[39m[34m(self)[39m
-[32m   1496[39m [38;5;66;03m# row-wise access[39;00m
-[32m   1497[39m [38;5;66;03m# apply doesn't have a `na_action` keyword and for backward compat reasons[39;00m
-[32m   1498[39m [38;5;66;03m# we need to give `na_action="ignore"` for categorical data.[39;00m
-[32m   1499[39m [38;5;66;03m# TODO: remove the `na_action="ignore"` when that default has been changed in[39;00m
-[32m   1500[39m [38;5;66;03m#  Categorical (GH51645).[39;00m
-[32m   1501[39m action = [33m"[39m[33mignore[39m[33m"[39m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(obj.dtype, CategoricalDtype) [38;5;28;01melse[39;00m [38;5;28;01mNone[39;00m
-[32m-> [39m[32m1502[39m mapped = [43mobj[49m[43m.[49m[43m_map_values[49m[43m([49m
-[32m   1503[39m [43m    [49m[43mmapper[49m[43m=[49m[43mcurried[49m[43m,[49m[43m [49m[43mna_action[49m[43m=[49m[43maction[49m[43m,[49m[43m [49m[43mconvert[49m[43m=[49m[38;5;28;43mself[39;49m[43m.[49m[43mconvert_dtype[49m
-[32m   1504[39m [43m[49m[43m)[49m
-[32m   1506[39m [38;5;28;01mif[39;00m [38;5;28mlen[39m(mapped) [38;5;129;01mand[39;00m [38;5;28misinstance[39m(mapped[[32m0[39m], ABCSeries):
-[32m   1507[39m     [38;5;66;03m# GH#43986 Need to do list(mapped) in order to get treated as nested[39;00m
-[32m   1508[39m     [38;5;66;03m#  See also GH#25959 regarding EA support[39;00m
-[32m   1509[39m     [38;5;28;01mreturn[39;00m obj._constructor_expanddim([38;5;28mlist[39m(mapped), index=obj.index)
-
-[36mFile [39m[32m~/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/pandas/core/base.py:925[39m, in [36mIndexOpsMixin._map_values[39m[34m(self, mapper, na_action, convert)[39m
-[32m    922[39m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(arr, ExtensionArray):
-[32m    923[39m     [38;5;28;01mreturn[39;00m arr.map(mapper, na_action=na_action)
-[32m--> [39m[32m925[39m [38;5;28;01mreturn[39;00m [43malgorithms[49m[43m.[49m[43mmap_array[49m[43m([49m[43marr[49m[43m,[49m[43m [49m[43mmapper[49m[43m,[49m[43m [49m[43mna_action[49m[43m=[49m[43mna_action[49m[43m,[49m[43m [49m[43mconvert[49m[43m=[49m[43mconvert[49m[43m)[49m
-
-[36mFile [39m[32m~/Documents/DSI/2026/open_source_survey_results_myst/venv/lib/python3.13/site-packages/pandas/core/algorithms.py:1743[39m, in [36mmap_array[39m[34m(arr, mapper, na_action, convert)[39m
-[32m   1741[39m values = arr.astype([38;5;28mobject[39m, copy=[38;5;28;01mFalse[39;00m)
-[32m   1742[39m [38;5;28;01mif[39;00m na_action [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
-[32m-> [39m[32m1743[39m     [38;5;28;01mreturn[39;00m [43mlib[49m[43m.[49m[43mmap_infer[49m[43m([49m[43mvalues[49m[43m,[49m[43m [49m[43mmapper[49m[43m,[49m[43m [49m[43mconvert[49m[43m=[49m[43mconvert[49m[43m)[49m
-[32m   1744[39m [38;5;28;01melse[39;00m:
-[32m   1745[39m     [38;5;28;01mreturn[39;00m lib.map_infer_mask(
-[32m   1746[39m         values, mapper, mask=isna(values).view(np.uint8), convert=convert
-[32m   1747[39m     )
-
-[36mFile [39m[32mpandas/_libs/lib.pyx:2999[39m, in [36mpandas._libs.lib.map_infer[39m[34m()[39m
-
-[36mCell[39m[36m [39m[32mIn[5][39m[32m, line 14[39m, in [36mclean_major[39m[34m(x)[39m
-[32m     12[39m s = s.title()                    [38;5;66;03m# to Title Case[39;00m
-[32m     13[39m s = s.replace([33m"[39m[33m&[39m[33m"[39m, [33m"[39m[33mAnd[39m[33m"[39m)        [38;5;66;03m# '&' -> 'And'[39;00m
-[32m---> [39m[32m14[39m s = [43mre[49m.sub([33mr[39m[33m"[39m[33m\[39m[33ms*Phd[39m[33m\[39m[33mb[39m[33m"[39m, [33m"[39m[33m"[39m, s, flags=re.IGNORECASE)  [38;5;66;03m# remove ' Phd' (case-insensitive)[39;00m
-[32m     15[39m [38;5;28;01mreturn[39;00m s.strip() [38;5;129;01mor[39;00m [33m"[39m[33mNot Provided[39m[33m"[39m
-
-[31mNameError[39m: name 're' is not defined
+[0;31mTypeError[0m: cannot convert the series to <class 'int'>
 

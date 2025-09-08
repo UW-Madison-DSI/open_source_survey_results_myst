@@ -15,6 +15,7 @@ kernelspec:
 ```{code-cell} ipython3
 :tags: [remove-input]
 # Imports
+from myst_nb import glue
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
@@ -74,19 +75,22 @@ fig.update_layout(
 )
 fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
 
+N= len(df)
+glue("N", N, display=False)
+ 
 
 out_html = "_static/role_demogr.html"
 fig.write_html(out_html, full_html=False, include_plotlyjs="cdn")
 ```
 
-323 respondents finished the survey, broken out by role and affiliation below.
+**{glue:}`N`** respondents finished the survey, broken out by role and affiliation below.
 
-### Role
+### Respondents Distribution per Role
 ```{raw} html
 :file: _static/role_demogr.html
 ```
 
-### Affiliation
+### Respondents Distribution per Affiliation
 
 ```{code-cell} ipython3
 :tags: [remove-input]
@@ -200,12 +204,14 @@ fig.update_layout(
 )
 fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
 
+pct_contributed = prop(df["QID22"], lambda s: s == "Yes")
+glue("pct_contributed", pct_contributed, display=False)
 
 Path("_static").mkdir(exist_ok=True, parents=True)
 fig.write_html("_static/contrib_by_type.html", full_html=False, include_plotlyjs="cdn")
 ```
 
-53% of respondents said they have contributed to open source projects, either academically or personally.
+**{glue:}`pct_contributed`%** of respondents said they have contributed to open source projects, either academically or personally.
 
 ```{raw} html
 :file: _static/contrib_by_type.html
@@ -221,6 +227,13 @@ df_ten = survey_results.copy()
 
 # Keep only Faculty & Staff
 df_ten = df_ten[df_ten["QID4"].isin(["Faculty", "Staff"])].copy()
+
+count_contributed_staff_fac = len(df_ten)
+pct_contributed_staff_fac = round(100*count_contributed_staff_fac/len(df),2)
+
+
+glue("pct_contributed_staff_fac", pct_contributed_staff_fac, display=False)
+glue("count_contributed_staff_fac", count_contributed_staff_fac, display=False)
 
 # Make QID6 categorical with your level order
 df_ten["QID6"] = pd.Categorical(df_ten["QID6"], categories=levels_qid6, ordered=True)
@@ -282,7 +295,7 @@ Path("_static").mkdir(exist_ok=True, parents=True)
 fig.write_html("_static/tenure_faculty_staff.html", full_html=False, include_plotlyjs="cdn")
 
 ```
-Of these respondents, 230 identified as faculty or staff (71% of respondents).
+Of these respondents, **{glue:}`count_contributed_staff_fac`** identified as faculty or staff (**{glue:}`pct_contributed_staff_fac`%** of respondents).
 
 Faculty and staff respondents were distributed in tenure (years served) at the university as below:
 ```{raw} html
@@ -290,7 +303,6 @@ Faculty and staff respondents were distributed in tenure (years served) at the u
 ```
 
 ## Students
-75 respondents identified at students (23% of respondents). Students came from degree programs in the following subjects:
 
 ```{code-cell} ipython3
 :tags: [remove-input]
@@ -299,6 +311,10 @@ df_maj = df_maj[df_maj["QID4"].isin(["Graduate Student", "Undergraduate Student"
 df_maj["QID4"] = df_maj["QID4"].map(
     {"Graduate Student": "Graduate", "Undergraduate Student": "Undergraduate"}
 )
+
+count_contributed_students = len(df_maj)
+pct_contributed_students = round(100*(count_contributed_students/len(df)),2)
+
 
 # --- 2) Clean major text (QID7) ---
 def clean_major(x: str) -> str:
@@ -377,7 +393,9 @@ Path("_static").mkdir(exist_ok=True, parents=True)
 fig.write_html("_static/students_demog.html", full_html=False, include_plotlyjs="cdn")
 
 ```
-53% of respondents said they have contributed to open source projects, either academically or personally.
+
+
+**{glue:}`count_contributed_students`** respondents identified at students (**{glue:}`pct_contributed_students`$** of respondents). Students came from degree programs in the following subjects:
 
 ```{raw} html
 :file: _static/students_demog.html

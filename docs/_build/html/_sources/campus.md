@@ -74,7 +74,7 @@ agree_options = {"Strongly agree", "Somewhat agree"}
 # ----- Figure 2: "There is a vibrant culture at UNI" by Respondent Type -----
 
 
-agree_vibrant = int(100 * df['QID23'].isin(["Strongly agree","Somewhat agree"]).mean())
+agree_vibrant = round(100 * df['QID23'].isin(["Strongly agree","Somewhat agree"]).mean(),2)
 _ = glue("agree_vibrant", agree_vibrant, display=False)  # prevents display
 
 qid23_order = [
@@ -91,6 +91,14 @@ df_c2 = (
     )
     .rename(columns={"QID4": "Respondent Type"})
 )
+
+pct_makes_sense = round(
+    100 * df['QID23'].isin([
+        "Strongly agree",
+        "Somewhat agree",
+        "Neither agree nor disagree"
+    ]).mean(), 2)
+_ = glue("pct_makes_sense", pct_makes_sense, display=False)  # prevents display
 
 c2_df = (
     df_c2.groupby(["QID23", "Respondent Type"], observed=True, dropna=False)
@@ -119,23 +127,9 @@ In comparison, only **{glue:}`agree_vibrant`%** agreed that there is a vibrant o
 ```{raw} html
 :file: _static/fig2.html
 ```
-89% of respondents agreed that **“it makes sense for the university to contribute to open source software that is vital to its educational and research enterprise”** (11% were “unsure,” and 0% disagreed).
+**{glue:}`pct_makes_sense`%** of respondents agreed that **“it makes sense for the university to contribute to open source software that is vital to its educational and research enterprise”**.
 
 ## Open Source Training On Campus
-
-```{code-cell} ipython3
-:tags: [remove-input]
-# Agreement about contributing to OSS being sensible for the university
-
-yes_pct = prop(df["QID19"], lambda s: s == "Yes")
-unsure_pct = prop(df["QID19"], lambda s: s == "Not sure")
-no_pct = prop(df["QID19"], lambda s: s == "No")
-
-print(f"Should the university contribute to open source:")
-print(f"- Yes: {yes_pct}%")
-print(f"- Not sure: {unsure_pct}%") 
-print(f"- No: {no_pct}%")
-```
 
 
 
@@ -143,7 +137,10 @@ print(f"- No: {no_pct}%")
 :tags: [remove-input]
 # QID25 == "Yes" for received at least some formal training
 training_yes_pct = prop(df["QID25"], lambda s: s == "Yes")
-print(f"Percentage who have received open source training: {training_yes_pct}%")
+
+received_training = int(100*df['QID25'].eq("Yes").astype(int).mean())
+_ = glue("received_training", received_training, display=False)  # prevents display
+
 
 df_c3 = (
     df.assign(
@@ -171,6 +168,7 @@ c4_df = (
 )
 c4_df["Percent"] = c4_df["Count"] / len(df)
 ```
+**{glue:}`received_training`%** of respondents said that they have received at least some formal training or education on open source software during their time at UW-Madison. These respondents were distributed by role and affiliation as below:
 
 ### Training by Role
 
@@ -215,20 +213,23 @@ fig4.update_layout(
 fig4.update_layout(hoverlabel=dict(namelength=-1))
 fig4.show()  # This was missing!
 fig4.write_html('_static/fig4.html', full_html=False, include_plotlyjs='cdn')
+
+
+
 ```
 
 ```{raw} html
 :file: _static/fig4.html
 ```
 
-## Interest in Additional Training
-
 ```{code-cell} ipython3
 :tags: [remove-input]
 # Interest in more training (QID28) and OSPO workshops (QID29)
 more_training_pct = prop(df["QID28"], lambda s: s == "Yes")
 ospo_workshops_pct = prop(df["QID29"], lambda s: s == "Yes")
+_1 = glue("more_training_pct", more_training_pct, display=False)  # prevents display
+_2 = glue("ospo_workshops_pct", ospo_workshops_pct, display=False)  # prevents display
 
-print(f"Interest in more training: {more_training_pct}%")
-print(f"Interest in OSPO workshops: {ospo_workshops_pct}%")
 ```
+
+**{glue:}`more_training_pct`%** of respondents said that they “would like to see more training, education, or support for learning how to contribute to open source project” and **{glue:}`ospo_workshops_pct`%** of respondents expressed interest in potential open source training sessions and workshops organized by the Open Source Program Office.
