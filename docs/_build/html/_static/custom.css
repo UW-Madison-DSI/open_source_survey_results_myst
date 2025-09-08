@@ -6,7 +6,7 @@
 /* 2. Sidebar logo – scale up naturally */
 .bd-sidebar .navbar-brand img.logo__image,
 .sidebar-logo img,
-img[src$="OPENSOURDA_color-center-reverse.png"] {
+img[src$="../images/OPENSOURDA_color-flush.png"] {
   height: 90% !important;        /* preserve aspect ratio */
   max-height: 95% !important;   /* ⬅️ increase this for bigger logo */
   width: 95% !important;
