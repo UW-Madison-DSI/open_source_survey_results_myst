@@ -21,3 +21,61 @@ img[src$="../images/OPENSOURDA_color-flush.png"] {
   padding: 1rem 0 !important;
   overflow: visible !important;
 }
+
+/* docs/_static/custom.css */
+
+/* Footer layout: 3 columns side by side */
+/* ==== Footer grid: 4 columns on desktop ==== */
+.custom-footer {
+  padding-top: 2rem;     /* ⬅️ increase to 3rem or 4rem if you want more */
+  padding-bottom: 2rem;  /* optional: add space below too */
+}
+
+.custom-footer .footer-grid {
+  display: grid;
+  grid-template-columns: 160px 1fr 1fr 1fr; /* logo column + 3 text columns */
+  gap: 2rem;
+  align-items: start;                       /* align text columns to top */
+}
+
+/* Logo column: center the badge vertically & horizontally */
+.custom-footer .footer-grid .footer-col:first-child {
+  display: flex;
+  align-items: center;   /* vertical centering of the logo */
+  justify-content: center;
+}
+
+/* Keep the logo crisp and sized nicely */
+.custom-footer .footer-grid .footer-col:first-child img {
+  max-height: 80px;      /* tweak as you like (e.g., 100px) */
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+/* Headings & spacing */
+.custom-footer .footer-col h4 {
+  margin: 0 0 .5rem;
+  font-size: 1rem;
+  letter-spacing: .02em;
+}
+.custom-footer .footer-col p { margin: .25rem 0; }
+
+/* ==== Responsive breakpoints ==== */
+/* Medium screens: 2 columns (logo + one; then the rest wrap) */
+@media (max-width: 1100px) {
+  .custom-footer .footer-grid {
+    grid-template-columns: 140px 1fr;
+  }
+}
+
+/* Small screens: stack vertically */
+@media (max-width: 700px) {
+  .custom-footer .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .custom-footer .footer-grid .footer-col:first-child {
+    margin-bottom: .5rem;
+  }
+}
+

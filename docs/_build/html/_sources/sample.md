@@ -314,6 +314,8 @@ df_maj["QID4"] = df_maj["QID4"].map(
 
 count_contributed_students = len(df_maj)
 pct_contributed_students = round(100*(count_contributed_students/len(df)),2)
+glue("count_contributed_students", count_contributed_students, display=False)
+glue("pct_contributed_students", pct_contributed_students, display=False)
 
 
 # --- 2) Clean major text (QID7) ---
