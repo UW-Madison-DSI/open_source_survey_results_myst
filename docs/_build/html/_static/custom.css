@@ -1,28 +1,35 @@
-/* 1. Widen sidebar so logo has more horizontal room */
+/* 1) Give the sidebar more room */
 :root {
-  --pst-sidebar-width: 400px;   /* default ~300px, bump up to 360–400px */
+  --pst-sidebar-width: 500px;   /* adjust as needed */
 }
 
-/* 2. Sidebar logo – scale up naturally */
-.bd-sidebar .navbar-brand img.logo__image,
-.sidebar-logo img,
-img[src$="../images/OPENSOURDA_color-flush.png"] {
-  height: 90% !important;        /* preserve aspect ratio */
-  max-height: 95% !important;   /* ⬅️ increase this for bigger logo */
-  width: 95% !important;
-  max-width: 95% !important;      /* fill most of sidebar */
-  display: block;
-  margin-inline: auto;
-}
-
-/* 3. Give logo container breathing room */
+/* 2) Give the logo area more vertical room */
 .bd-sidebar .navbar-brand,
 .sidebar-logo {
-  padding: 1rem 0 !important;
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: visible !important;
 }
 
-/* docs/_static/custom.css */
+/* 3) Scale the logo naturally (no distortion) */
+.bd-sidebar .navbar-brand img,
+.sidebar-logo img,
+img[src*="_static/output-onlinepngtools.png"],
+img[src*="_static/output-onlinepngtools.png"] {
+  height: auto !important;          /* keep aspect ratio */
+  width: auto !important;
+  max-height: 200px !important;     /* ⬅️ increase for bigger logo (e.g., 240px) */
+  max-width: 95% !important;        /* stay inside sidebar */
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+/* Optional: ensure the sidebar can always fit content */
+.bd-sidebar { min-height: 100vh; overflow-y: auto; }
 
 /* Footer layout: 3 columns side by side */
 /* ==== Footer grid: 4 columns on desktop ==== */
