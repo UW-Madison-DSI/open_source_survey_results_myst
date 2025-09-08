@@ -7,12 +7,34 @@
 .custom-footer .footer-bottom-row{max-width:1200px;margin:2rem auto 0;padding-top:1rem;border-top:1px solid rgba(255,255,255,.12);text-align:center;font-size:.9rem;color:#ccc;}
 @media (max-width:900px){.custom-footer .footer-grid{grid-template-columns:1fr;}}
 
-.footer-social .social-link{
-  display:inline-flex; width:36px; height:36px; border-radius:9999px;
-  align-items:center; justify-content:center; background:rgba(255,255,255,.1);
+/* Footer grid layout: now 4 columns (logo + community + links + contact) */
+.custom-footer .footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);  /* ⬅️ was 3 before, now 4 */
+  gap: 2rem;
+  align-items: start;
 }
-.footer-social .social-link:hover{ background:rgba(255,255,255,.18); }
 
-@media (max-width:900px){
-  .custom-footer .footer-grid{ grid-template-columns:1fr; }
+/* Social icon buttons (optional) */
+.footer-social .social-link {
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;       /* makes them round */
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, .1);
+  color: inherit;
+  text-decoration: none;
 }
+.footer-social .social-link:hover {
+  background: rgba(255, 255, 255, .18);
+}
+
+/* Responsive: stack vertically on narrow screens */
+@media (max-width: 900px) {
+  .custom-footer .footer-grid {
+    grid-template-columns: 1fr;   /* one column on mobile */
+  }
+}
+
