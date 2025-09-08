@@ -2,38 +2,71 @@
 title: Open Source Survey Results
 author: UW-Madison Data Science Institute
 logo: _static/logo.png
-copyright: "2024"
+favicon: _static/favicon.ico
+copyright: "© {year} UW–Madison Data Science Institute"
 
-# Force re-execution of notebooks on each build.
-# See https://jupyterbook.org/content/execute.html
+# Execute notebooks
 execute:
-  execute_notebooks: "force"   # not "off"
+  execute_notebooks: "force"
 
-# Define the name of the latex output file for PDF builds
+# LaTeX/PDF
 latex:
   latex_documents:
     targetname: book.tex
 
+# Substitutions (edit once; reuse everywhere)
 myst_substitutions:
   uni_name: "University of Wisconsin–Madison"
-  today: "September 2025"   # or keep this current by updating when you build
+  today: "September 2025"
+  year: "2024"
+  contact_email: "ospo@datascience.wisc.edu"
+  privacy_url: "https://www.wisconsin.edu/privacy-policy/"
+  dsi_url: "https://datascience.wisc.edu/"
+  libs_url: "https://www.library.wisc.edu/"
 
-# Information about where the book exists on the web
+# Where the book lives
 repository:
   url: https://github.com/UW-Madison-DSI/open_source_survey_results_myst
   path_to_book: "."
   branch: main
 
-# Add GitHub buttons to your book
-# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+# Site & theme options
 html:
   use_issues_button: true
   use_repository_button: true
   use_edit_page_button: true
   navbar_number_sections: false
-  announcement: "🎉 Open Source Survey Results 2024 are now available! 🎉"
+  extra_footer: |
+    <div class="custom-footer" role="contentinfo">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>COMMUNITY</h4>
+          <p><a href="https://datascience.wisc.edu/" target="_blank" rel="noopener">Data Science Institute</a></p>
+          <p><a href="https://datascience.wisc.edu/data-science-hub/" target="_blank" rel="noopener">Data Science Hub</a></p>
+          <p><a href="https://www.library.wisc.edu/" target="_blank" rel="noopener">UW–Madison Libraries</a></p>
+          <p><a href="https://curioss.wisc.edu/" target="_blank" rel="noopener">CURIOSS</a></p>
+          <p><a href="https://numfocus.org/" target="_blank" rel="noopener">NumFOCUS</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>QUICK LINKS</h4>
+          <p><a href="https://groups.google.com/g/ospo-uw" target="_blank" rel="noopener">Join Our OSPO Google Group</a></p>
+          <p><a href="https://datascience.wisc.edu/research-bazaar/" target="_blank" rel="noopener">Data Science Research Bazaar</a></p>
+          <p><a href="https://datascience.wisc.edu/newsletter/" target="_blank" rel="noopener">Data Science @ UW Newsletter</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>CONTACT US</h4>
+          <p>Email: <a href="mailto:ospo@datascience.wisc.edu">ospo@datascience.wisc.edu</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom-row">
+        <p>© 2024 Board of Regents of the <a href="https://www.wisconsin.edu/" target="_blank" rel="noopener">University of Wisconsin System</a> |
+        <a href="https://www.wisconsin.edu/privacy-policy/" target="_blank" rel="noopener">Privacy notice</a> |
+        Feedback, questions or accessibility issues: <a href="mailto:ospo@datascience.wisc.edu">ospo@datascience.wisc.edu</a></p>
+      </div>
+    </div>
 
-# MyST parser extensions
+
+# MyST extensions
 parse:
   myst_enable_extensions:
     - amsmath
@@ -48,18 +81,8 @@ parse:
     - substitution
     - tasklist
 
-# Sphinx extensions
+# Sphinx
 sphinx:
   config:
-    html_theme_options:
-      repository_url: https://github.com/UW-Madison-DSI/open_source_survey_results_myst
-      use_repository_button: true
-      use_issues_button: true
-      use_edit_page_button: true
-      use_download_button: true
-      home_page_in_toc: true
-      launch_buttons:
-        binderhub_url: ""
-        colab_url: ""
-        notebook_interface: "classic"
-        thebe: false
+    html_static_path: ['_static']
+    html_css_files: ['custom-footer.css']

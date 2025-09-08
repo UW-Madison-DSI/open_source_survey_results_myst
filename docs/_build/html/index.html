@@ -35,6 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom-footer.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -101,8 +102,8 @@
          class="form-control"
          name="q"
          id="search-input"
-         placeholder="Search..."
-         aria-label="Search..."
+         placeholder="Search this book..."
+         aria-label="Search this book..."
          autocomplete="off"
          autocorrect="off"
          autocapitalize="off"
@@ -263,7 +264,7 @@
       
       
       
-      <li><a href="https://github.com/UW-Madison-DSI/open_source_survey_results_myst/edit/main/index.md" target="_blank"
+      <li><a href="https://github.com/UW-Madison-DSI/open_source_survey_results_myst/edit/main/./index.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -411,8 +412,9 @@ document.write(`
 <p>Thanks to a grant from the <a class="reference external" href="https://sloan.org/">Alfred P. Sloan Foundation</a>, the <a class="reference external" href="https://ospo.wisc.edu/">University of Wisconsin–Madison Open Source Program Office</a> (OSPO) is positioned to support and grow our vibrant open source ecosystem.
 The OSPO’s mission is to collaborate with key stakeholders and community members to provide open source learning opportunities, promote best practices, facilitate the use of open source software in research, and make open source–fueled connections between practitioners and adopters on campus and beyond.</p>
 <p>In Spring 2024, the OSPO distributed an open source survey to gauge the usage of open source tools among members of the university community, identify open source projects under development, and to collect feedback on improving the open source environment at UW-Madison. This site summarizes the findings of the results and allows users to explore how campus community members use open source tools at UW-Madison.</p>
-<p>We are open sourcing <a class="reference external" href="https://github.com/UW-Madison-DSI/open_source_survey_results/blob/main/Open_Source_Program_Office_Survey.qsf">the survey itself</a> (in Qualtrics format), an anonymized version of the responses, and this MyST-based analysis of the survey results. Our goal is to streamline such surveys at other universities and encourage a uniform set of questions and responses that can more easily be aggregated to understand the broader open source ecosystem in academia. If you’re interested in recreating this survey and website for your institution please see the reproduction section.</p>
-<p><em>Last updated: Sep 07, 2025</em></p>
+<p>We are open sourcing <a class="reference external" href="https://github.com/UW-Madison-DSI/open_source_survey_results/blob/main/Open_Source_Program_Office_Survey.qsf">the survey itself</a> (in Qualtrics format), an <a class="reference external" href="https://github.com/UW-Madison-DSI/open_source_survey_results_myst/tree/main/docs/data">anonymized version of the responses</a>, and this MyST-based analysis of the survey results. Our goal is to streamline such surveys at other universities and encourage a uniform set of questions and responses that can more easily be aggregated to understand the broader open source ecosystem in academia. If you’re interested in recreating this survey and website for your institution please see the <a class="reference external" href="https://uw-madison-dsi.github.io/open_source_survey_results_myst/reproduction.html">reproduction section</a>.</p>
+<p>We also maintain a companion site built with Quarto, tailored for R users. You can explore it here: <a class="reference external" href="https://uw-madison-dsi.github.io/open_source_survey_results/">Quarto</a></p>
+<p><em>Last updated: Sep 08, 2025</em></p>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -484,7 +486,7 @@ By UW-Madison Data Science Institute
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright © {year} UW–Madison Data Science Institute.
       <br/>
     
   </p>
@@ -497,6 +499,36 @@ By UW-Madison Data Science Institute
   
   <div class="footer-item">
     
+<div class="extra_footer">
+  <div class="custom-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>COMMUNITY</h4>
+      <p><a href="https://datascience.wisc.edu/" target="_blank" rel="noopener">Data Science Institute</a></p>
+      <p><a href="https://datascience.wisc.edu/data-science-hub/" target="_blank" rel="noopener">Data Science Hub</a></p>
+      <p><a href="https://www.library.wisc.edu/" target="_blank" rel="noopener">UW–Madison Libraries</a></p>
+      <p><a href="https://curioss.wisc.edu/" target="_blank" rel="noopener">CURIOSS</a></p>
+      <p><a href="https://numfocus.org/" target="_blank" rel="noopener">NumFOCUS</a></p>
+    </div>
+    <div class="footer-col">
+      <h4>QUICK LINKS</h4>
+      <p><a href="https://groups.google.com/g/ospo-uw" target="_blank" rel="noopener">Join Our OSPO Google Group</a></p>
+      <p><a href="https://datascience.wisc.edu/research-bazaar/" target="_blank" rel="noopener">Data Science Research Bazaar</a></p>
+      <p><a href="https://datascience.wisc.edu/newsletter/" target="_blank" rel="noopener">Data Science @ UW Newsletter</a></p>
+    </div>
+    <div class="footer-col">
+      <h4>CONTACT US</h4>
+      <p>Email: <a href="mailto:ospo@datascience.wisc.edu">ospo@datascience.wisc.edu</a></p>
+    </div>
+  </div>
+  <div class="footer-bottom-row">
+    <p>© 2024 Board of Regents of the <a href="https://www.wisconsin.edu/" target="_blank" rel="noopener">University of Wisconsin System</a> |
+    <a href="https://www.wisconsin.edu/privacy-policy/" target="_blank" rel="noopener">Privacy notice</a> |
+    Feedback, questions or accessibility issues: <a href="mailto:ospo@datascience.wisc.edu">ospo@datascience.wisc.edu</a></p>
+  </div>
+</div>
+
+</div>
   </div>
   
 </div>
