@@ -29,7 +29,7 @@ df = survey_results
 
 # Compute & glue (no visible output)
 valuable_pct = int(100 * df['QID24'].eq("Very valuable").mean())
-_ = glue("valuable_pct", valuable_pct, display=False)  # prevents display
+glue("valuable_pct", valuable_pct, display=False)  # prevents display
 
 # Figure
 qid24_order = ["Very valuable","Some value","Neutral","No value"]
@@ -74,8 +74,8 @@ agree_options = {"Strongly agree", "Somewhat agree"}
 # ----- Figure 2: "There is a vibrant culture at UNI" by Respondent Type -----
 
 
-agree_vibrant = round(100 * df['QID23'].isin(["Strongly agree","Somewhat agree"]).mean(),2)
-_ = glue("agree_vibrant", agree_vibrant, display=False)  # prevents display
+agree_vibrant = float(round(100 * df['QID23'].isin(["Strongly agree","Somewhat agree"]).mean(),2))
+glue("agree_vibrant", agree_vibrant, display=False)  # prevents display
 
 qid23_order = [
     "Strongly agree",
@@ -92,13 +92,13 @@ df_c2 = (
     .rename(columns={"QID4": "Respondent Type"})
 )
 
-pct_makes_sense = round(
+pct_makes_sense = float(round(
     100 * df['QID23'].isin([
         "Strongly agree",
         "Somewhat agree",
         "Neither agree nor disagree"
-    ]).mean(), 2)
-_ = glue("pct_makes_sense", pct_makes_sense, display=False)  # prevents display
+    ]).mean(), 2))
+glue("pct_makes_sense", pct_makes_sense, display=False)  # prevents display
 
 c2_df = (
     df_c2.groupby(["QID23", "Respondent Type"], observed=True, dropna=False)
@@ -127,7 +127,7 @@ In comparison, only **{glue:}`agree_vibrant`%** agreed that there is a vibrant o
 ```{raw} html
 :file: _static/fig2.html
 ```
-**{glue:}`pct_makes_sense`%** of respondents agreed that **“it makes sense for the university to contribute to open source software that is vital to its educational and research enterprise”**.
+**{glue:}`pct_makes_sense`%** of respondents agreed that ** "it makes sense for the university to contribute to open source software that is vital to its educational and research enterprise"**.
 
 ## Open Source Training On Campus
 
@@ -139,7 +139,7 @@ In comparison, only **{glue:}`agree_vibrant`%** agreed that there is a vibrant o
 training_yes_pct = prop(df["QID25"], lambda s: s == "Yes")
 
 received_training = int(100*df['QID25'].eq("Yes").astype(int).mean())
-_ = glue("received_training", received_training, display=False)  # prevents display
+glue("received_training", received_training, display=False)  # prevents display
 
 
 df_c3 = (
@@ -227,8 +227,8 @@ fig4.write_html('_static/fig4.html', full_html=False, include_plotlyjs='cdn')
 # Interest in more training (QID28) and OSPO workshops (QID29)
 more_training_pct = prop(df["QID28"], lambda s: s == "Yes")
 ospo_workshops_pct = prop(df["QID29"], lambda s: s == "Yes")
-_1 = glue("more_training_pct", more_training_pct, display=False)  # prevents display
-_2 = glue("ospo_workshops_pct", ospo_workshops_pct, display=False)  # prevents display
+glue("more_training_pct", more_training_pct, display=False)  # prevents display
+glue("ospo_workshops_pct", ospo_workshops_pct, display=False)  # prevents display
 
 ```
 
