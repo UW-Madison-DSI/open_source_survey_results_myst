@@ -397,7 +397,7 @@ fig.write_html("_static/students_demog.html", full_html=False, include_plotlyjs=
 ```
 
 
-**{glue:}`count_contributed_students`** respondents identified at students (**{glue:}`pct_contributed_students`$** of respondents). Students came from degree programs in the following subjects:
+**{glue:}`count_contributed_students`** respondents identified at students (**{glue:}`pct_contributed_students`%** of respondents). Students came from degree programs in the following subjects:
 
 ```{raw} html
 :file: _static/students_demog.html
