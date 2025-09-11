@@ -229,7 +229,7 @@ df_ten = survey_results.copy()
 df_ten = df_ten[df_ten["QID4"].isin(["Faculty", "Staff"])].copy()
 
 count_contributed_staff_fac = len(df_ten)
-pct_contributed_staff_fac = round(100*count_contributed_staff_fac/len(df),2)
+pct_contributed_staff_fac = float(round(100*count_contributed_staff_fac/len(df),2))
 
 
 glue("pct_contributed_staff_fac", pct_contributed_staff_fac, display=False)
@@ -313,7 +313,7 @@ df_maj["QID4"] = df_maj["QID4"].map(
 )
 
 count_contributed_students = len(df_maj)
-pct_contributed_students = round(100*(count_contributed_students/len(df)),2)
+pct_contributed_students = float(round(100*(count_contributed_students/len(df)),2))
 glue("count_contributed_students", count_contributed_students, display=False)
 glue("pct_contributed_students", pct_contributed_students, display=False)
 
