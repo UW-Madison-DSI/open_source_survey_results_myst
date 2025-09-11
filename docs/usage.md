@@ -172,7 +172,7 @@ fig3.write_html('_static/familiarity_educational.html', full_html=False, include
 ```{code-cell} ipython3
 :tags: [remove-input]
 
-respondents_pct = prop(df["QID13"], lambda s: s == "Yes")
+respondents_pct = df["QID13"].eq("Yes").mean()
 glue("respondents_pct", respondents_pct, display=False)
  
 # Text processing for word frequency analysis
@@ -181,7 +181,8 @@ rm_terms = {
     'programming', 'language', 'languages', 'tools', 'code', 'etc', 'package',
     'packages', 'list', 'everything', 'including', 'libraries', 'like',
     'various', 'research', 'statistical', 'ecosystem', 'opensource', 'web',
-    'google', 'system', 'compilers', 'academy', 'numerous', 'systems'
+    'google', 'system', 'compilers', 'academy', 'numerous', 'systems', 'the', 'for',
+    'are', 'with', 'that', 'such','most', 'learn','all'
 }
 
 def clean_text(text):
@@ -191,7 +192,7 @@ def clean_text(text):
     text = re.sub(r'[^\w\s]', ' ', text.lower())
     # Split into words and filter
     words = [word for word in text.split() 
-             if word not in rm_terms and len(word) > 2]
+             if word not in rm_terms and len(word) >= 3]
     return ' '.join(words)
 
 # Process text responses
@@ -203,47 +204,56 @@ word_freq = Counter(all_words)
 tools_highlight = ['python', 'r', 'julia', 'git', 'latex']
 top_25_words = dict(word_freq.most_common(25))
 
-tools_df = pd.DataFrame([
-    {'word': word, 'freq': freq, 'pct': freq / len(df)}
-    for word, freq in top_25_words.items()
-    if word != '•'
-]).sort_values('freq')
+# Denominator: only respondents who answered QID15 (usually what you want)
+denom = df['QID15'].notna().sum() or 1
 
-# Create lollipop plot
+tools_df = (pd.DataFrame(
+    [{'word': w, 'freq': f, 'pct': f/denom} for w, f in Counter(
+        ' '.join(df['QID15'].dropna().apply(clean_text)).split()
+    ).most_common(25) if w != '•']
+).sort_values('freq'))
+
+y_pos = np.arange(len(tools_df))  # numeric y
+colors = ['#1f77b4' if w in tools_highlight else '#7f7f7f' for w in tools_df['word']]
+
 fig4 = go.Figure()
 
-colors = ['#1f77b4' if word in tools_highlight else '#7f7f7f' 
-          for word in tools_df['word']]
-
+# Scatter using numeric y, but show labels via ticktext
 fig4.add_trace(go.Scatter(
     x=tools_df['pct'],
-    y=tools_df['word'],
+    y=y_pos,
+    text=tools_df['word'],
     mode='markers+lines',
     marker=dict(size=8, color=colors),
     line=dict(color='lightgray', width=1),
-    orientation='h',
-    hovertemplate='Tool: %{y}<br>Percent: %{x:.2%}<extra></extra>'
+    hovertemplate='Tool: %{text}<br>Percent: %{x:.2%}<extra></extra>'
 ))
 
-# Add line segments
-for i, row in tools_df.iterrows():
+# Lollipop stems
+for i, row in enumerate(tools_df.itertuples(index=False)):
     fig4.add_shape(
         type="line",
-        x0=0, x1=row['pct'],
-        y0=row['word'], y1=row['word'],
+        x0=0, x1=row.pct,
+        y0=i, y1=i,
         line=dict(color=colors[i], width=2)
     )
 
-fig4.update_layout(
-    xaxis=dict(
-        title="Responses Identifying Open Source Tool Use",
-        tickformat='.0%'
-    ),
-    yaxis_title="",
-    showlegend=False,
-    plot_bgcolor="white",
-    paper_bgcolor="white"
+fig4.update_yaxes(
+    tickmode='array',
+    tickvals=y_pos,
+    ticktext=tools_df['word'],
+    automargin=True,
+    tickfont=dict(size=11)
 )
+fig4.update_layout(
+    xaxis=dict(title="Responses Identifying Open Source Tool Use", tickformat='.0%'),
+    margin=dict(l=120),
+    height=500,
+    plot_bgcolor="white",
+    paper_bgcolor="white",
+    showlegend=False
+)
+
 fig4.show()
 fig4.write_html('_static/tools_lollipop.html', full_html=False, include_plotlyjs='cdn')
 ```
@@ -278,8 +288,7 @@ licensed_df = pd.DataFrame([
 ]).sort_values('freq')
 
 # Handle None/NaN values
-if not licensed_df.empty:
-    licensed_df = licensed_df[licensed_df['tool'] != 'nan']
+licensed_df = licensed_df[licensed_df['tool'] != 'nan']
 
 # Create lollipop plot for licensed tools
 fig5 = go.Figure()
@@ -289,22 +298,29 @@ colors_licensed = ['#1f77b4' if tool in licensed_highlight else '#7f7f7f'
 
 fig5.add_trace(go.Scatter(
     x=licensed_df['pct'],
-    y=licensed_df['tool'],
+    y=list(range(len(licensed_df))),   # numeric positions
+    text=licensed_df['tool'],
     mode='markers+lines',
     marker=dict(size=8, color=colors_licensed),
     line=dict(color='lightgray', width=1),
-    orientation='h',
-    hovertemplate='Tool: %{y}<br>Percent: %{x:.2%}<extra></extra>'
+    hovertemplate='Tool: %{text}<br>Percent: %{x:.2%}<extra></extra>'
 ))
+fig5.update_yaxes(
+    tickmode='array',
+    tickvals=list(range(len(licensed_df))),
+    ticktext=licensed_df['tool']
+)
+
 
 # Add line segments
-for i, row in licensed_df.iterrows():
+for i, row in licensed_df.reset_index().iterrows():
     fig5.add_shape(
         type="line",
         x0=0, x1=row['pct'],
-        y0=row['tool'], y1=row['tool'],
+        y0=i, y1=i,   # numeric index
         line=dict(color=colors_licensed[i], width=2)
     )
+
 
 fig5.update_layout(
     xaxis=dict(
@@ -317,7 +333,9 @@ fig5.update_layout(
     paper_bgcolor="white"
 )
 fig5.show()
-fig5.write_html('_static/licensed_tools.html', full_html=False, include_plotlyjs='cdn')
+fig5.write_html('_static/licensed_tools.html', 
+        full_html=False, 
+        include_plotlyjs='cdn')
 ```
 
 ```{raw} html
