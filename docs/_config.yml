@@ -1,7 +1,7 @@
 # Book settings
 title: Open Source Survey Results
 author: UW-Madison Data Science Institute
-logo: _static/OPENSOURDA_color-center-reverse.png
+logo: ../images/OPENSOURDA_color-center.png
 copyright: "© 2025 UW–Madison Data Science Institute"
 
 # Execute notebooks
@@ -54,8 +54,6 @@ html:
           <p><a href="https://datascience.wisc.edu/" target="_blank" rel="noopener">Data Science Institute</a></p>
           <p><a href="https://datascience.wisc.edu/data-science-hub/" target="_blank" rel="noopener">Data Science Hub</a></p>
           <p><a href="https://www.library.wisc.edu/" target="_blank" rel="noopener">UW–Madison Libraries</a></p>
-          <p><a href="https://curioss.wisc.edu/" target="_blank" rel="noopener">CURIOSS</a></p>
-          <p><a href="https://numfocus.org/" target="_blank" rel="noopener">NumFOCUS</a></p>
         </div>
 
         <div class="footer-col">
