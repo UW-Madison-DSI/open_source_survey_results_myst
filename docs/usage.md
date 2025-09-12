@@ -172,7 +172,7 @@ fig3.write_html('_static/familiarity_educational.html', full_html=False, include
 ```{code-cell} ipython3
 :tags: [remove-input]
 
-respondents_pct = df["QID13"].eq("Yes").mean()
+respondents_pct = float(round(100*df["QID13"].eq("Yes").mean(),2))
 glue("respondents_pct", respondents_pct, display=False)
  
 # Text processing for word frequency analysis
