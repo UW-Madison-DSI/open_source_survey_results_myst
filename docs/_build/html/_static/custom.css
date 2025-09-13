@@ -51,100 +51,53 @@ img[src*="../images/OPENSOURDA_color-center.png"] {
    ============================================ */
 
 /* Main footer container - reduced padding */
+/* Constrain overall width */
 .custom-footer {
-  padding-top: 2rem; /* REDUCED: From 3rem to 2rem */
-  padding-bottom: 1.5rem; /* REDUCED: From 2rem to 1.5rem */
+  padding-top: 1.25rem;
+  padding-bottom: 1rem;
 }
-
-/* Desktop: 4-column grid layout with minimal spacing */
 .custom-footer .footer-grid {
+  max-width: 1000px;            /* key: narrows the footer */
+  margin-inline: auto;          /* center it */
+  padding-inline: 16px;
   display: grid;
-  grid-template-columns: 160px 1fr 1fr 1fr;
-  gap: 0.75rem; /* REDUCED: From 2rem to 0.75rem */
+  grid-template-columns: 140px repeat(3, minmax(0, 1fr)); /* logo + 3 equal cols */
+  column-gap: 0.75rem;          /* tighter column spacing */
+  row-gap: 0.5rem;
   align-items: start;
-  margin-bottom: 1rem; /* REDUCED: From 2rem to 1rem */
 }
+.custom-footer .footer-grid > * { min-width: 0; }
 
-/* Footer text styling - reduced margins */
 .custom-footer .footer-col h4 {
-  margin: 0 0 0.5rem 0; /* REDUCED: From 0.75rem to 0.5rem */
+  margin: 0 0 0.5rem 0;
   font-size: 1rem;
-  font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
-
-.custom-footer .footer-col p {
-  margin: 0.15rem 0; /* REDUCED: From 0.25rem to 0.15rem */
-  line-height: 1.4; /* REDUCED: From 1.5 to 1.4 */
+.custom-footer .footer-col p,
+.custom-footer .footer-col li {
+  margin: 0.15rem 0;
+  line-height: 1.4;
 }
 
-/* Bottom row styling - reduced padding */
+/* Bottom row */
 .custom-footer .footer-bottom-row {
   border-top: 1px solid #e1e5e9;
-  padding-top: 0.75rem; /* REDUCED: From 1rem to 0.75rem */
+  padding-top: 0.75rem;
   text-align: center;
   font-size: 0.9rem;
   color: #6c757d;
+  max-width: 1000px;            /* match main width */
+  margin: 0.5rem auto 0;
+  padding-inline: 16px;
 }
 
-/* ============================================
-   RESPONSIVE DESIGN
-   ============================================ */
-
-/* Medium screens */
+/* Responsive */
 @media (max-width: 1100px) {
-  :root {
-    --pst-sidebar-width: 600px; /* INCREASED: From 800px to 600px for better logo display */
-  }
-
-  .bd-sidebar .navbar-brand img,
-  .sidebar-logo img,
-  img[src*="../images/OPENSOURDA_color-center.png"] {
-    max-height: 400px !important; /* INCREASED: From 300px to 400px */
-    transform: scale(1.5) !important; /* INCREASED: From 1.3 to 1.5 */
-  }
-
-  .custom-footer .footer-grid {
-    grid-template-columns: 140px 1fr;
-    gap: 0.5rem; /* REDUCED: Minimal spacing */
-  }
-
-  .custom-footer .footer-grid .footer-col:first-child img {
-    max-height: 70px;
-  }
+  .custom-footer .footer-grid { grid-template-columns: 120px 1fr 1fr; }
 }
-
-/* Small screens */
 @media (max-width: 700px) {
-  :root {
-    --pst-sidebar-width: 450px; /* INCREASED: From 400px for bigger logo */
-  }
-
-  .bd-sidebar .navbar-brand img,
-  .sidebar-logo img,
-  img[src*="../images/OPENSOURDA_color-center.png"] {
-    max-height: 320px !important; /* INCREASED: From 250px to 320px */
-    transform: scale(1.4) !important; /* INCREASED: From 1.2 to 1.4 */
-  }
-
-  .custom-footer {
-    padding-top: 1.5rem; /* REDUCED */
-  }
-
-  .custom-footer .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem; /* REDUCED: From 1.5rem to 1rem */
-    text-align: center;
-  }
-
-  .custom-footer .footer-grid .footer-col:first-child {
-    margin-bottom: 0.5rem; /* REDUCED: From 1rem to 0.5rem */
-  }
-
-  .custom-footer .footer-grid .footer-col:first-child img {
-    max-height: 60px;
-  }
+  .custom-footer .footer-grid { grid-template-columns: 1fr; text-align: center; }
 }
 
 /* Extra small screens */

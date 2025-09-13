@@ -127,7 +127,7 @@ In comparison, only **{glue:}`agree_vibrant`%** agreed that there is a vibrant o
 ```{raw} html
 :file: _static/fig2.html
 ```
-**{glue:}`pct_makes_sense`%** of respondents agreed that ** "it makes sense for the university to contribute to open source software that is vital to its educational and research enterprise"**.
+**{glue:}`pct_makes_sense`%** of respondents agreed that **"it makes sense for the university to contribute to open source software that is vital to its educational and research enterprise"**.
 
 ## Open Source Training On Campus
 
