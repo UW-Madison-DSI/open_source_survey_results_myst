@@ -159,9 +159,15 @@ fig = px.bar(
     color="Respondent Type",
 )
 
+# Update layout to match your styling
 fig.update_layout(
-    barmode="stack",
-    xaxis_title=""
+    xaxis=dict(title=""),
+    yaxis=dict(
+        zerolinecolor="#ffffff",
+        zerolinewidth=2,
+        gridcolor="#ffffff",
+        tickformat=".1%"
+    )
 )
 fig.write_html('_static/os_valuable_ro.html', full_html=False, include_plotlyjs='cdn')
 
@@ -174,8 +180,13 @@ fig2 = px.bar(
 )
 
 fig2.update_layout(
-    barmode="stack",
-    xaxis_title=""
+    xaxis=dict(title=""),
+    yaxis=dict(
+        zerolinecolor="#ffffff",
+        zerolinewidth=2,
+        gridcolor="#ffffff",
+        tickformat=".1%"
+    )
 )
 fig2.write_html('_static/os_translates.html', full_html=False, include_plotlyjs='cdn')
 
@@ -250,7 +261,6 @@ fig.update_layout(
     ),
     showlegend=False
 )
-
 
 fig.write_html('_static/benefits.html', full_html=False, include_plotlyjs='cdn')
 ```
