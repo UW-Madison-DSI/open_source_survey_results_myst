@@ -11,6 +11,6 @@ In Spring 2024, the OSPO distributed an open source survey to gauge the usage of
 
 We are open sourcing [the survey itself](https://github.com/UW-Madison-DSI/open_source_survey_results/blob/main/Open_Source_Program_Office_Survey.qsf) (in Qualtrics format), an [anonymized version of the responses](https://github.com/UW-Madison-DSI/open_source_survey_results_myst/tree/main/docs/data), and this MyST-based analysis of the survey results. Our goal is to streamline such surveys at other universities and encourage a uniform set of questions and responses that can more easily be aggregated to understand the broader open source ecosystem in academia. If you’re interested in recreating this survey and website for your institution please see the [reproduction section](https://uw-madison-dsi.github.io/open_source_survey_results_myst/reproduction.html). 
 
-We also maintain a companion site built with Quarto, tailored for R users. You can explore it here: [Quarto](https://uw-madison-dsi.github.io/open_source_survey_results/)
+For our R users, we maintain a companion site built with Quarto. You’re welcome to explore it here: [Quarto](https://uw-madison-dsi.github.io/open_source_survey_results/)
 
 *Last updated: {sub-ref}`today`*

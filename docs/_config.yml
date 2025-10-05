@@ -4,6 +4,13 @@ author: UW-Madison Data Science Institute
 logo: ../images/OPENSOURDA_color-center.png
 copyright: "© 2025 UW–Madison Data Science Institute"
 
+project: "Open Source Survey Results"
+
+launch_buttons:
+  binderhub_url: "https://mybinder.org"
+  notebook_interface: "jupyterlab"
+
+
 # Execute notebooks
 execute:
   execute_notebooks: "force"
