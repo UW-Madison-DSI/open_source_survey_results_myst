@@ -42,5 +42,5 @@ abstract: |
   In Spring 2024, the Open Source Program Office at UW–Madison distributed a survey
   to gauge the usage of open source tools across the university community, identify
   projects under development, and collect feedback on improving the open source
-  environment. This repository hosts a Quarto site that summarizes and presents
+  environment. This repository hosts a MyST site that summarizes and presents
   the survey results.
