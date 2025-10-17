@@ -47,6 +47,7 @@ cd docs
 pip install -U jupyter-book
 
 # Build the site
+jupyter-book clean .
 jupyter-book build .
 
 # Open in browser
