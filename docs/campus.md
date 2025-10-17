@@ -127,7 +127,7 @@ In comparison, only **{glue:}`agree_vibrant`%** agreed that there is a vibrant o
 ```{raw} html
 :file: _static/fig2.html
 ```
-**{glue:}`pct_makes_sense`%** of respondents agreed that **"it makes sense for the university to contribute to open source software that is vital to its educational and research enterprise"**.
+**{glue:}`pct_makes_sense`%** of respondents agreed that "**it makes sense for the university to contribute to open source software that is vital to its educational and research enterprise**".
 
 ## Open Source Training On Campus
 
@@ -232,4 +232,4 @@ glue("ospo_workshops_pct", ospo_workshops_pct, display=False)  # prevents displa
 
 ```
 
-**{glue:}`more_training_pct`%** of respondents said that they “would like to see more training, education, or support for learning how to contribute to open source project” and **{glue:}`ospo_workshops_pct`%** of respondents expressed interest in potential open source training sessions and workshops organized by the Open Source Program Office.
+**{glue:}`more_training_pct`%** of respondents said that they "would like to see more training, education, or support for learning how to contribute to open source project" and **{glue:}`ospo_workshops_pct`%** of respondents expressed interest in potential open source training sessions and workshops organized by the Open Source Program Office.

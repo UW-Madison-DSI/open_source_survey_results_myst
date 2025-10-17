@@ -5,3 +5,4 @@ __pycache__/
 docs/__pycache__/
 images/__pycache__/
 test/__pycache__/
+images/.DS_Store
