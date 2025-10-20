@@ -1,5 +1,6 @@
 {
   "project_name": "2024 Open Source Survey Results at UW–Madison",
+  "project_slug": "open_source_survey_results_myst",
   "repo_name": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
   "author_name": "Maria Oros-Barron",
   "author_email": "maria.oros@wisc.edu",
