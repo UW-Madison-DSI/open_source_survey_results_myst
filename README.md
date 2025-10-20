@@ -13,6 +13,7 @@ This repository demonstrates reproducible research using **MyST Markdown** and *
 Create your own reproducible research site in seconds:
 
 ```bash
+pip install cookiecutter
 cookiecutter gh:UW-Madison-DSI/open_source_survey_results_myst
 ```
 
