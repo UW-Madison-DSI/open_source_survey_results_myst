@@ -2,8 +2,10 @@
   "project_name": "My Reproducible Research Project",
   "repo_name": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
   "author_name": "Maria Oros-Barron",
+  "author_email": "maria.oros@wisc.edu",
   "author_affiliation": "University of Wisconsin–Madison",
   "description": "A reproducible research project built with MyST Markdown and Quarto.",
+  "version": "0.1.0",
   "license": ["MIT", "CC-BY-4.0", "Apache-2.0"],
   "year": "2025"
 }

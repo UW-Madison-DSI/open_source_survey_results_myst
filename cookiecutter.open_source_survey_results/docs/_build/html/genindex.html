@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; Open Source Survey Results</title>
+    <title>Index &#8212; {{ cookiecutter.project_name }}</title>
   
   
   
@@ -153,8 +153,8 @@
       
     
     
-    <img src="_static/OPENSOURDA_color-center.png" class="logo__image only-light" alt="Open Source Survey Results - Home"/>
-    <script>document.write(`<img src="_static/OPENSOURDA_color-center.png" class="logo__image only-dark" alt="Open Source Survey Results - Home"/>`);</script>
+    <img src="_static/OPENSOURDA_color-center.png" class="logo__image only-light" alt="{{ cookiecutter.project_name }} - Home"/>
+    <script>document.write(`<img src="_static/OPENSOURDA_color-center.png" class="logo__image only-dark" alt="{{ cookiecutter.project_name }} - Home"/>`);</script>
   
   
 </a></div>
@@ -372,7 +372,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By UW-Madison Data Science Institute
+By {{ cookiecutter.author_name }}
 </p>
 
   </div>
