@@ -1,4 +1,22 @@
-# 2024 UW–Madison Open Source Program Office Survey
+# {{ cookiecutter.project_name }}
+
+This repository demonstrates reproducible research using **MyST Markdown** and **Quarto**.
+
+**Author:** {{ cookiecutter.author_name }}  
+**Affiliation:** {{ cookiecutter.author_affiliation }}  
+**Year:** {{ cookiecutter.year }}
+
+---
+
+## 🍪 Use This Template
+
+Create your own reproducible research site in seconds:
+
+```bash
+cookiecutter gh:UW-Madison-DSI/open_source_survey_results_myst
+```
+
+# About
 
 In Spring 2024, the [Open Source Program Office at UW–Madison](https://ospo.wisc.edu/) conducted a survey to:  
 
