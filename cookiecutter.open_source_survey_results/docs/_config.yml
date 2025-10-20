@@ -1,6 +1,6 @@
 # Book settings
-title: Open Source Survey Results
-author: UW-Madison Data Science Institute
+title: "{{ cookiecutter.project_name }}"
+author: "{{ cookiecutter.author_name }}"
 logo: ../images/OPENSOURDA_color-center.png
 copyright: "© 2025 UW–Madison Data Science Institute"
 

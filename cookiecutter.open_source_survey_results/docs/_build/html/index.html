@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Home &#8212; Open Source Survey Results</title>
+    <title>Home &#8212; {{ cookiecutter.project_name }}</title>
   
   
   
@@ -157,8 +157,8 @@
       
     
     
-    <img src="_static/OPENSOURDA_color-center.png" class="logo__image only-light" alt="Open Source Survey Results - Home"/>
-    <script>document.write(`<img src="_static/OPENSOURDA_color-center.png" class="logo__image only-dark" alt="Open Source Survey Results - Home"/>`);</script>
+    <img src="_static/OPENSOURDA_color-center.png" class="logo__image only-light" alt="{{ cookiecutter.project_name }} - Home"/>
+    <script>document.write(`<img src="_static/OPENSOURDA_color-center.png" class="logo__image only-dark" alt="{{ cookiecutter.project_name }} - Home"/>`);</script>
   
   
 </a></div>
@@ -414,7 +414,7 @@ The OSPO’s mission is to collaborate with key stakeholders and community membe
 <p>In Spring 2024, the OSPO distributed an open source survey to gauge the usage of open source tools among members of the university community, identify open source projects under development, and to collect feedback on improving the open source environment at UW-Madison. This site summarizes the findings of the results and allows users to explore how campus community members use open source tools at UW-Madison.</p>
 <p>We are open sourcing <a class="reference external" href="https://github.com/UW-Madison-DSI/open_source_survey_results/blob/main/Open_Source_Program_Office_Survey.qsf">the survey itself</a> (in Qualtrics format), an <a class="reference external" href="https://github.com/UW-Madison-DSI/open_source_survey_results_myst/tree/main/docs/data">anonymized version of the responses</a>, and this MyST-based analysis of the survey results. Our goal is to streamline such surveys at other universities and encourage a uniform set of questions and responses that can more easily be aggregated to understand the broader open source ecosystem in academia. If you’re interested in recreating this survey and website for your institution please see the <a class="reference external" href="https://uw-madison-dsi.github.io/open_source_survey_results_myst/reproduction.html">reproduction section</a>.</p>
 <p>For our R users, we maintain a companion site built with Quarto. You’re welcome to explore it here: <a class="reference external" href="https://uw-madison-dsi.github.io/open_source_survey_results/">Quarto</a></p>
-<p><em>Last updated: Oct 17, 2025</em></p>
+<p><em>Last updated: Oct 20, 2025</em></p>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -476,7 +476,7 @@ The OSPO’s mission is to collaborate with key stakeholders and community membe
   <div class="footer-item">
     
 <p class="component-author">
-By UW-Madison Data Science Institute
+By {{ cookiecutter.author_name }}
 </p>
 
   </div>
