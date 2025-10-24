@@ -1,22 +1,3 @@
-# {{ cookiecutter.project_name }}
-
-This repository demonstrates reproducible research using **MyST Markdown** and **Quarto**.
-
-**Author:** {{ cookiecutter.author_name }}  
-**Affiliation:** {{ cookiecutter.author_affiliation }}  
-**Year:** {{ cookiecutter.year }}
-
----
-
-## 🍪 Use This Template
-
-Create your own reproducible research site in seconds:
-
-```bash
-pip install cookiecutter
-cookiecutter gh:UW-Madison-DSI/open_source_survey_results_myst
-```
-
 # About
 
 In Spring 2024, the [Open Source Program Office at UW–Madison](https://ospo.wisc.edu/) conducted a survey to:  
@@ -49,7 +30,15 @@ If you use this work, please cite us as
 - Figures and highlights for open source tools are defined within the individual page files.  
 
 ---
+## 🍪 Use This Template
 
+Create your own reproducible research site in seconds:
+
+```bash
+pip install cookiecutter
+cookiecutter gh:UW-Madison-DSI/open_source_survey_results_myst
+```
+---
 ## Technical Stack
 
 This project is built with:  
