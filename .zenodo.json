@@ -1,11 +1,7 @@
 {
   "title": "Open Source Survey Results",
   "upload_type": "software",
-  "description": "The Open Source Program Office at UW–Madison distributed a survey
-  to gauge the usage of open source tools across the university community, identify
-  projects under development, and collect feedback on improving the open source
-  environment. This repository hosts a MyST site that summarizes and presents
-  the survey results. University of Wisconsin – Data Science Institute.",
+  "description": "The Open Source Program Office at UW–Madison distributed a survey to gauge the usage of open source tools across the university community, identify projects under development, and collect feedback on improving the open source environment. This repository hosts a MyST site that summarizes and presents the survey results. University of Wisconsin – Data Science Institute.",
   "creators": [
     {
       "name": "Cranmer Kyle",
