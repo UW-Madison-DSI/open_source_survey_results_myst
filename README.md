@@ -1,6 +1,7 @@
 # 2024 UW–Madison Open Source Program Office Survey
 
-[![Deploy to GitHub Pages](https://github.com/UW-Madison-DSI/open_source_survey_results_myst/actions/workflows/publish.yml/badge.svg)](https://github.com/UW-Madison-DSI/open_source_survey_results_myst/actions/workflows/publish.yml)
+[![Deploy to GitHub Pages](https://github.com/UW-Madison-DSI/open_source_survey_results_myst/actions/workflows/publish.yml/badge.svg)](https://uw-madison-dsi.github.io/open_source_survey_results_myst/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17525692.svg)](https://doi.org/10.5281/zenodo.17525692)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17379408.svg)](https://doi.org/10.5281/zenodo.17379408)
 
 In Spring 2024, the [Open Source Program Office at UW–Madison](https://ospo.wisc.edu/) conducted a survey to:
