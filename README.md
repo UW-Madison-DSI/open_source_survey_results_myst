@@ -1,23 +1,72 @@
 # 2024 UW–Madison Open Source Program Office Survey
 
-In Spring 2024, the [Open Source Program Office at UW–Madison](https://ospo.wisc.edu/) conducted a survey to:  
+[![Deploy to GitHub Pages](https://github.com/UW-Madison-DSI/open_source_survey_results_myst/actions/workflows/publish.yml/badge.svg)](https://github.com/UW-Madison-DSI/open_source_survey_results_myst/actions/workflows/publish.yml)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17379408.svg)](https://doi.org/10.5281/zenodo.17379408)
+
+In Spring 2024, the [Open Source Program Office at UW–Madison](https://ospo.wisc.edu/) conducted a survey to:
 
 - Assess the use of open source tools across the university community  
 - Identify open source projects currently under development  
 - Gather feedback on strengthening the open source ecosystem at UW–Madison  
 
-This repository hosts a [MyST site](https://mystmd.org) that summarizes and presents results from the survey.  
+This repository hosts a [MyST site](https://mystmd.org) that summarizes and presents results from the survey.
 
-📍 **Live site:** [Survey Results on GitHub Pages](https://uw-madison-dsi.github.io/open_source_survey_results_myst/)  
-📍 **Companion site (Quarto, for R users):** [Quarto site](https://uw-madison-dsi.github.io/open_source_survey_results/)
+📍 **Live MyST site:** [Survey Results (MyST)](https://uw-madison-dsi.github.io/open_source_survey_results_myst/)  
+📍 **R-based Quarto site:** [Survey Results (Quarto)](https://uw-madison-dsi.github.io/open_source_survey_results/)
+
+---
+
+## 📌 Table of Contents
+
+- [Two Ways to Use This Repository](#-two-ways-to-use-this-repository)
+- [Repository Overview](#repository-overview)
+- [Technical Stack](#technical-stack)
+- [Build Locally](#build-locally)
+- [Project Structure](#-project-structure)
+- [Citation](#citation)
+- [Survey Resources](#-survey-resources)
+- [Contributing](#-contributing)
+- [Contact](#-contact)
+- [Acknowledgments](#-acknowledgments)
+- [License](#-license)
 
 ---
 
-## Citation
-If you use this work, please cite us as
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17379408.svg)](https://doi.org/10.5281/zenodo.17379408)
+## 🎯 Two Ways to Use This Repository
 
----
+### 1️⃣ View UW–Madison's Survey Results (Branch: `main`)
+
+Explore our findings on open source usage, campus culture, and community needs at UW–Madison.
+
+To build and preview the site on your machine:
+
+```commandline
+# Navigate to docs folder
+cd survey_results_docs/docs
+
+# Install dependencies
+pip install -U jupyter-book
+
+# Build the site
+jupyter-book clean .
+jupyter-book build .
+
+# Open in browser
+open _build/html/index.html
+# Or run a local server
+python -m http.server -d _build/html
+```
+
+### 2️⃣ Create Your Own Survey Site (Branch: `cookiecutter-template`)
+
+**Conducting a similar survey at your institution?** Use our Cookiecutter template to generate a fully customized version:
+
+```bash
+pip install cookiecutter
+
+cookiecutter gh:UW-Madison-DSI/open_source_survey_results_myst --checkout cookiecutter-template
+```
+
 
 ## Repository Overview
 
@@ -41,23 +90,4 @@ This project is built with:
 
 ---
 
-## Build Locally
-
-To build and preview the site on your machine:
-
-```bash
-# Navigate to docs folder
-cd docs
-
-# Install dependencies
-pip install -U jupyter-book
-
-# Build the site
-jupyter-book clean .
-jupyter-book build .
-
-# Open in browser
-open _build/html/index.html
-# Or run a local server
-python -m http.server -d _build/html
-```
+Maria Oros, Data Scientist
