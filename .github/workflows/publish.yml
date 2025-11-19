@@ -22,6 +22,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
@@ -39,7 +40,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -U jupyter-book
-          pip install -U pandas 
+          pip install -U pandas
           pip install -U plotly
           pip install -U matplotlib
 
@@ -50,7 +51,7 @@ jobs:
           echo ""
           echo "Docs directory contents:"
           if [ -d "docs" ]; then
-            ls -la survey_results_docs/docs/
+            ls -la docs/
           else
             echo "No docs directory found!"
             exit 1
@@ -62,20 +63,21 @@ jobs:
 
       - name: List build output
         run: |
-          echo "Build output in survey_results_docs/docs/_build:"
-          ls -la survey_results_docs/docs/_build/
+          echo "Build output in docs/_build:"
+          ls -la docs/_build/ || echo "No _build directory"
           echo ""
-          if [ -d "survey_results_docs/docs/_build/html" ]; then
+          if [ -d "docs/_build/html" ]; then
             echo "HTML build contents:"
-            ls -la survey_results_docs/docs/_build/html/
+            ls -la docs/_build/html/
           else
             echo "No HTML build directory found!"
+            exit 1
           fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: survey_results_docs/docs/_build/html
+          path: docs/_build/html
 
       - name: Deploy to GitHub Pages
         id: deployment
