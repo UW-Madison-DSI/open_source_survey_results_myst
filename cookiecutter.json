@@ -1,12 +1,14 @@
 {
-  "project_name": "2024 Open Source Survey Results at UW–Madison",
-  "project_slug": "open_source_survey_results_myst",
-  "repo_name": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
-  "author_name": "Maria Oros-Barron",
-  "author_email": "maria.oros@wisc.edu",
-  "author_affiliation": "University of Wisconsin–Madison",
-  "description": "A reproducible research project built with MyST Markdown and Quarto.",
-  "version": "0.1.0",
-  "license": ["MIT", "CC-BY-4.0", "Apache-2.0"],
-  "year": "2025"
+    "project_name": "2024 Open Source Survey Results at UW–Madison",
+    "project_slug": "open_source_survey_results_myst",
+    "repo_name": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
+    "author_name": "Maria Oros-Barron",
+    "author_email": "maria.oros@wisc.edu",
+    "institution_name": "University of Wisconsin–Madison",
+    "institution_short": "UW-Madison",
+    "primary_color": "#9B0000",
+    "survey_year": "2024",
+    "version": "0.1.0",
+    "license": ["MIT", "CC-BY-4.0", "Apache-2.0"],
+    "description": "MyST-based survey results and analysis"
 }
