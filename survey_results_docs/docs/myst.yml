@@ -1,0 +1,11 @@
+version: 1
+project:
+  title: Open Source Survey Results
+  authors:
+    - name: UW-Madison Data Science Institute
+  github: https://github.com/UW-Madison-DSI/open_source_survey_results_myst
+
+site:
+  template: book-theme
+  title: Open Source Survey Results
+  

@@ -1,0 +1,66 @@
+.custom-footer {
+  background: #2b2b2b;
+  color: #e6e6e6;
+  padding: 2rem 1rem;
+  border-top: 1px solid rgba(255,255,255,.12);
+  font-size: .95rem;
+}
+
+.custom-footer a {
+  color: #d9d9d9;
+  text-decoration: none;
+}
+
+.custom-footer a:hover,
+.custom-footer a:focus {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.custom-footer h4 {
+  color: #fff;
+  margin: 0 0 .75rem;
+  font-size: .95rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+/* Logo column - centered, separate from grid */
+.custom-footer .footer-col:first-child {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* 3-column grid for content sections only */
+.custom-footer .footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.custom-footer .footer-col {
+  min-width: 0;
+}
+
+.custom-footer .footer-col p {
+  margin: 0.5rem 0;
+}
+
+.custom-footer .footer-bottom-row {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,.12);
+  text-align: center;
+  font-size: .9rem;
+  color: #ccc;
+}
+
+/* Responsive: stack vertically on narrow screens */
+@media (max-width: 900px) {
+  .custom-footer .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
