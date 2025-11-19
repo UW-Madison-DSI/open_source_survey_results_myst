@@ -1,0 +1,82 @@
+name: Deploy Jupyter Book to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  BASE_URL: /${{ github.event.repository.name }}
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -U jupyter-book
+          pip install -U pandas 
+          pip install -U plotly
+          pip install -U matplotlib
+
+      - name: Debug - Check docs directory
+        run: |
+          echo "Root directory contents:"
+          ls -la
+          echo ""
+          echo "Docs directory contents:"
+          if [ -d "docs" ]; then
+            ls -la docs/
+          else
+            echo "No docs directory found!"
+            exit 1
+          fi
+
+      - name: Build Jupyter Book
+        working-directory: docs
+        run: jupyter-book build .
+
+      - name: List build output
+        run: |
+          echo "Build output in docs/_build:"
+          ls -la docs/_build/
+          echo ""
+          if [ -d "docs/_build/html" ]; then
+            echo "HTML build contents:"
+            ls -la docs/_build/html/
+          else
+            echo "No HTML build directory found!"
+          fi
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/_build/html
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
