@@ -17,6 +17,9 @@ This repository hosts a [MyST site](https://mystmd.org) that summarizes and pres
 If you use this work, please cite us as
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17379408.svg)](https://doi.org/10.5281/zenodo.17379408)
 
+
+[DOI](https://zenodo.org/records/17525692)
+
 ---
 
 ## Repository Overview
