@@ -163,9 +163,8 @@ Please open an issue or submit a pull request.
 
 ## 📧 Contact
 
-**Data Science Institute**
+**UW-Madison Open Source Program Office and the Data Science Institute**
 - Email: maria.oros@wisc.edu
-**UW-Madison Open Source Program Office**
 - Email: ospo@datascience.wisc.edu
 - Website: https://ospo.wisc.edu
 - Twitter: [@datascience_uw](https://x.com/datascience_uw)
@@ -192,5 +191,5 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 <div align="center">
-  <sub>Built with ❤️ by the UW-Madison Open Source Program Office</sub>
+  <sub>Built with ❤️ by the UW-Madison Open Source Program Office and the Data Science Institute at UW-Madison</sub>
 </div>
