@@ -1,4 +1,4 @@
-# About
+# 2024 UW–Madison Open Source Program Office Survey
 
 In Spring 2024, the [Open Source Program Office at UW–Madison](https://ospo.wisc.edu/) conducted a survey to:  
 
@@ -17,9 +17,6 @@ This repository hosts a [MyST site](https://mystmd.org) that summarizes and pres
 If you use this work, please cite us as
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17379408.svg)](https://doi.org/10.5281/zenodo.17379408)
 
-
-[DOI](https://zenodo.org/records/17525692)
-
 ---
 
 ## Repository Overview
@@ -33,15 +30,7 @@ If you use this work, please cite us as
 - Figures and highlights for open source tools are defined within the individual page files.  
 
 ---
-## 🍪 Use This Template
 
-Create your own reproducible research site in seconds:
-
-```bash
-pip install cookiecutter
-cookiecutter gh:UW-Madison-DSI/open_source_survey_results_myst
-```
----
 ## Technical Stack
 
 This project is built with:  
@@ -71,3 +60,4 @@ jupyter-book build .
 open _build/html/index.html
 # Or run a local server
 python -m http.server -d _build/html
+```
